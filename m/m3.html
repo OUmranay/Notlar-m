@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özellik Çıkarma: Sinyal ve Zaman Serisi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js CDN (Grafik için) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- MathJax CDN (Formüller için) -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <!-- "info2" Stilleri -->
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif; /* Tailwind'in varsayılanı */
+        }
+        
+        /* Başlıklar için Gradient Text */
+        .gradient-text {
+            background-image: linear-gradient(to right, #4ade80, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        /* Gradient Border (Kartlar ve Kod Bloğu için) */
+        .gradient-border {
+            border: 2px solid transparent;
+            background: linear-gradient(#1e1e1e, #1e1e1e) padding-box,
+                        linear-gradient(to right, #4ade80, #3b82f6) border-box;
+            border-radius: 12px;
+        }
+        
+        /* --- Flip Card Stilleri --- */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 180px; /* Sabit yükseklik */
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        /* Kartın üzerine gelindiğinde */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Kart Ön Yüzü (gradient-border stilini burada uygula) */
+        .flip-card-front {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            /* gradient-border stilini taklit edelim */
+            border: 2px solid transparent;
+            background: linear-gradient(#1e1e1e, #1e1e1e) padding-box,
+                        linear-gradient(to right, #4ade80, #3b82f6) border-box;
+            border-radius: 12px;
+        }
+        
+        /* Kart Arka Yüzü */
+        .flip-card-back {
+            /* background-color: #1e3a8a; */ /* Koyu mavi, daha belirgin - ESKİSİ */
+            /* background-image: linear-gradient(to right, #155724, #1e3a8a); */ /* YENİ: Koyu yeşilden koyu maviye gradient */
+            /* background-image: linear-gradient(to bottom right, #3b82f6, #1e40af); */ /* YENİ: Tek renk mavi gradient - ESKİSİ */
+            /* background-image: linear-gradient(to bottom right, #1d4ed8, #1e3a8a); */ /* YENİ: Daha koyu mavi gradient */
+            /* background-image: linear-gradient(to bottom right, #581c87, #4c1d95); */ /* YENİ: Koyu mor gradient */
+            /* background-image: linear-gradient(to bottom right, #262626, #171717); */ /* YENİ: Çok koyu gri/siyah gradient */
+            /* background-image: linear-gradient(to bottom right, #172554, #1e1b4b); */ /* YENİ: Çok koyu lacivert/indigo gradient */
+            background-image: linear-gradient(to bottom right, #0c1432, #110e2b); /* YENİ: DAHA Koyu Lacivert/Siyah gradient */
+            color: #e0e0e0;
+            transform: rotateY(180deg);
+            border-radius: 12px;
+            border: 2px solid #4ade80; /* Arka yüz için yeşil border */
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #4ade80; /* Yeşil */
+        }
+        
+        .card-definition {
+            font-size: 0.9rem;
+        }
+
+        /* YENİ: Anahtar kelime rengi */
+        .keyword {
+            color: #f472b6; /* Canlı bir pembe */
+            font-weight: 600;
+        }
+
+        /* YENİ: Başlık ikonu stili */
+        .section-icon {
+            display: inline-block;
+            width: 1.25em; /* text-2xl/3xl'e uygun */
+            height: 1.25em;
+            margin-right: 0.5rem;
+            vertical-align: -0.2em; /* Metinle daha iyi hizalama */
+            fill: #4ade80; /* Yeşil */
+        }
+        
+        /* --- Kod Bloğu ve Tab Stilleri --- */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #3b82f6;
+            margin-bottom: -2px; /* pre'nin border'ı ile birleşmesi için */
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #1e1e1e;
+            border: none;
+            color: #e0e0e0;
+            font-weight: 500;
+            border-radius: 6px 6px 0 0;
+            margin-bottom: -2px;
+        }
+        
+        .tab-button.active {
+            background-color: #3b82f6; /* Mavi */
+            color: #ffffff;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .code-content {
+            background-color: #1e1e1e;
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+            border: 2px solid #3b82f6; /* Tab ile aynı renk */
+        }
+        
+        /* Python Syntax Highlighting (Basit) */
+        pre code {
+            display: block;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        .py-keyword { color: #569cd6; } /* Mavi - import, from, def, return */
+        .py-string { color: #ce9178; } /* Turuncu - "string" */
+        .py-comment { color: #6a9955; } /* Yeşil - # comment */
+        .py-number { color: #b5cea8; } /* Açık Yeşil - 1000, 0.5 */
+        .py-function { color: #dcdcaa; } /* Sarı - np.mean(), plt.plot() */
+        .py-class { color: #4ec9b0; } /* Turkuaz */
+
+        /* İndirme Butonu Stili */
+        #downloadBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-image: linear-gradient(to right, #4ade80, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 50%; /* Yuvarlak */
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            z-index: 1000;
+        }
+
+        #downloadBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-center gradient-text">
+            🧠 Özellik Çıkarma: Sinyal ve Zaman Serisi
+        </h1>
+        <p class="text-lg text-center text-gray-400 mb-8">
+            Bu notlar, zaman serisi verilerinden nasıl anlamlı "özellikler" çıkarılacağını interaktif kartlarla öğretir.
+        </p>
+
+        <!-- Neden & Zorluklar -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="gradient-border p-6">
+                <h3 class="text-xl font-semibold mb-3 gradient-text">🎯 Neden Kullanılır?</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Veriyi daha iyi <span class="keyword">anlamak</span> ve <span class="keyword">analiz etmek</span></li>
+                    <li>Daha doğru <span class="keyword">modeller</span> oluşturmak</li>
+                    <li>Geleceğe yönelik <span class="keyword">tahminlerde</span> bulunmak</li>
+                </ul>
+            </div>
+            <div class="gradient-border p-6">
+                <h3 class="text-xl font-semibold mb-3 gradient-text">🧗 Zorlukları Nelerdir?</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Veriler <span class="keyword">Gürültülü (Noisy)</span> olabilir.</li>
+                    <li><span class="keyword">Karmaşık (Complex)</span> desenler içerebilirler.</li>
+                    <li><span class="keyword">Doğrusal olmayan (Non-linear)</span> özelliklere sahip olabilirler.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 1. Zaman Domeni Özellikleri -->
+        <h2 class="text-2xl sm:text-3xl font-semibold mb-6 gradient-text">
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 7h-2v6h6v-2h-4V7z"/></svg>
+            1. Zaman Domeni Özellikleri (Time-Domain)
+        </h2>
+        <p class="mb-6 text-gray-400">
+            Sinyalin <span class="keyword">ham verisine</span>, yani zaman içindeki seyrine bakarak çıkarılır. Ekstra bir dönüşüm (transform) gerekmez.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Ortalama (Mean)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Tüm değerlerin ortalaması. Sinyalin <span class="keyword">genel seviyesini</span> (DC bileşenini) gösterir.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Medyan (Median)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Veri sıralandığında tam ortadaki değer. <span class="keyword">Aykırı değerlere (outlier)</span> karşı dayanıklıdır.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Standart Sapma (Std Dev)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Verinin ortalama etrafında ne kadar <span class="keyword">yayıldığını</span> gösterir. Sinyalin değişkenliğini ölçer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Varyans (Variance)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Standart sapmanın karesidir. Yine verinin <span class="keyword">dağılımını</span> ve gücünü ölçer.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Çarpıklık (Skewness)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Dağılımın <span class="keyword">simetrik</span> olup olmadığını ölçer. (Sıfır = simetrik).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Basıklık (Kurtosis)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Dağılımın ne kadar "sivri" veya "basık" olduğunu ölçer. <span class="keyword">Uç değerlerin</span> yoğunluğunu belirtir.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Zirve Değeri (Peak)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalin aldığı en yüksek (pozitif) veya en düşük (negatif) <span class="keyword">genlik</span> değeri.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">RMS (Kök Ortalama Kare)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalin ortalama <span class="keyword">enerjisini</span> veya gücünü temsil eder. Değerlerin karelerinin ortalamasının kareköküdür. $$ \sqrt{\frac{1}{N}\sum_{i=1}^{N} x_i^2} $$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YENİ EKLENEN KARTLAR -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Sinyal Gücü (Signal Power)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalin <span class="keyword">gücünü</span> hesaplar. Genellikle RMS değerinin karesiyle ilişkilidir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">En Büyük Sıra Farkı (Max Slope)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Zaman serisindeki <span class="keyword">ardışık farkların</span> (eğimlerin) en büyüğünü bulur. Sinyalin ne kadar hızlı değiştiğini gösterir.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- YENİ KARTLARIN SONU -->
+
+        </div>
+
+        <!-- 2. Kod Örneği ve Grafik -->
+        <h2 class="text-2xl sm:text-3xl font-semibold mb-6 gradient-text">
+            2. 🐍 Görsel Kod Örneği (Zaman Domeni)
+        </h2>
+        <p class="mb-6 text-gray-400">
+            Aşağıdaki Python kodu, iki sinüs dalgası ve gürültüden oluşan karma bir sinyal oluşturur. Koddaki <code>plt.show()</code> komutu bu grafiği çizer.
+        </p>
+
+        <!-- Chart.js Grafik -->
+        <div class="gradient-border p-4 mb-8">
+            <canvas id="signalChart"></canvas>
+        </div>
+
+        <!-- Kod Bloğu -->
+        <div class="tabs">
+            <button class="tab-button active">Python (zaman_domeni.py)</button>
+        </div>
+        <div class="code-content">
+            <pre><code class="language-python">
+<span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-keyword">import</span> matplotlib.pyplot <span class="py-keyword">as</span> plt
+<span class="py-keyword">from</span> scipy.stats <span class="py-keyword">import</span> skew, kurtosis
+
+<span class="py-comment"># Örnekleme frekansı (Hz)</span>
+fs = <span class="py-number">1000</span>  
+<span class="py-comment"># Zaman vektörü (0'dan 1. saniyeye kadar, 1000 örneklem)</span>
+t = np.<span class="py-function">linspace</span>(<span class="py-number">0</span>, <span class="py-number">1</span>, fs, endpoint=<span class="py-keyword">False</span>)  
+
+<span class="py-comment"># --- Örnek sinyal oluşturma ---</span>
+<span class="py-comment"># 50 Hz'lik bir sinüs dalgası</span>
+signal = <span class="py-number">0.5</span> * np.<span class="py-function">sin</span>(<span class="py-number">2</span> * np.pi * <span class="py-number">50</span> * t) 
+<span class="py-comment"># Üzerine 120 Hz'lik başka bir sinüs dalgası ekle</span>
+signal += <span class="py-number">0.3</span> * np.<span class="py-function">sin</span>(<span class="py-number">2</span> * np.pi * <span class="py-number">120</span> * t) 
+<span class="py-comment"># Üzerine rastgele gürültü ekle</span>
+signal += <span class="py-number">0.1</span> * np.random.<span class="py-function">randn</span>(len(t))
+
+<span class="py-comment"># Örnek sinyalin grafiği (Yukarıda çizdirdiğimiz)</span>
+plt.<span class="py-function">figure</span>(figsize=(<span class="py-number">10</span>, <span class="py-number">4</span>))
+plt.<span class="py-function">plot</span>(t, signal)
+plt.<span class="py-function">title</span>(<span class="py-string">"Örnek Sinyal"</span>)
+plt.<span class="py-function">xlabel</span>(<span class="py-string">"Zaman [s]"</span>)
+plt.<span class="py-function">ylabel</span>(<span class="py-string">"Genlik"</span>)
+plt.<span class="py-function">show</span>()
+
+<span class="py-comment"># --- Zaman Domeni Özellikleri Hesaplama ---</span>
+mean_val = np.<span class="py-function">mean</span>(signal)
+std_val = np.<span class="py-function">std</span>(signal)
+skew_val = <span class="py-function">skew</span>(signal)
+kurt_val = <span class="py-function">kurtosis</span>(signal)
+<span class="py-comment"># RMS: Değerlerin karelerinin ortalamasının karekökü</span>
+rms_val = np.<span class="py-function">sqrt</span>(np.<span class="py-function">mean</span>(signal**<span class="py-number">2</span>))
+
+<span class="py-comment"># Sonuçları Yazdırma</span>
+<span class="py-function">print</span>(<span class="py-string">f"Zaman Domeni Özellikleri:"</span>)
+<span class="py-function">print</span>(<span class="py-string">f"Ortalama: {mean_val:.2f}"</span>)
+<span class="py-function">print</span>(<span class="py-string">f"Standart Sapma: {std_val:.2f}"</span>)
+<span class="py-function">print</span>(<span class="py-string">f"Çarpıklık: {skew_val:.2f}"</span>)
+<span class="py-function">print</span>(<span class="py-string">f"Basıklık: {kurt_val:.2f}"</span>)
+<span class="py-function">print</span>(<span class="py-string">f"RMS: {rms_val:.2f}"</span>)
+
+<span class="py-comment"># ÇIKTI (Örnek):</span>
+<span class="py-comment"># Ortalama: 0.00</span>
+<span class="py-comment"># Standart Sapma: 0.42</span>
+<span class="py-comment"># Çarpıklık: -0.01</span>
+<span class="py-comment"># Basıklık: -0.49</span>
+<span class="py-comment"># RMS: 0.42</span>
+</code></pre>
+        </div>
+
+
+        <!-- 3. Frekans Domeni Özellikleri -->
+        <h2 class="text-2xl sm:text-3xl font-semibold mt-12 mb-6 gradient-text">
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 11h2v2H3zM7 11h2v2H7zM11 11h2v2h-2zM15 11h2v2h-2zM19 11h2v2h-2zM5 15h2v2H5zM9 15h2v2H9zM13 15h2v2h-2zM17 15h2v2h-2zM3 7h2v2H3zM7 7h2v2H7zM11 7h2v2h-2zM15 7h2v2h-2zM19 7h2v2h-2z"/></svg>
+            3. Frekans Domeni Özellikleri (Frequency-Domain)
+        </h2>
+        <p class="mb-6 text-gray-400">
+            Sinyalin "hangi frekans bileşenlerinden" (hangi hızlardaki salınımlardan) oluştuğuna odaklanır. <span class="keyword">Fourier Dönüşümü (FFT)</span> veya <span class="keyword">Dalgacık Dönüşümü</span> gibi matematiksel işlemler gerektirir.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">FFT (Hızlı Fourier Dönüşümü)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Temel yöntem. Sinyali zaman domeninden frekans domenine taşır. Hangi <span class="keyword">frekansın</span> ne kadar <span class="keyword">güçlü</span> olduğunu gösterir.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">PSD (Güç Spektral Yoğunluğu)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalin <span class="keyword">gücünün</span> frekanslara göre nasıl dağıldığını gösterir. Gürültü analizi için önemlidir.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Tepe Frekansı (Peak Freq)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalde <span class="keyword">en yüksek güce/genliğe</span> sahip olan frekans. (Örn: Kodda 50 Hz veya 120 Hz'e yakın olmalı).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Bant Enerjisi (Band Energy)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Belirli bir <span class="keyword">frekans aralığındaki</span> (Örn: 80-120 Hz arası) toplam enerji veya güç.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YENİ EKLENEN KARTLAR -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Spektral Çarpıklık</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Frekans spektrumunun <span class="keyword">asimetrisini</span> ölçer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Spektral Basıklık</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Frekans spektrumunun <span class="keyword">sivriliğini</span> veya basıklığını ölçer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Spektral Entropi</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalin frekans dağılımının <span class="keyword">karmaşıklığını</span> veya rastgeleliğini ölçer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Spektral Eğiklik (Slope)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Frekans spektrumundaki <span class="keyword">genel eğimi</span> ölçer.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- YENİ KARTLARIN SONU -->
+
+        </div>
+
+        <!-- 4. Zaman-Frekans Analizi Özellikleri -->
+        <h2 class="text-2xl sm:text-3xl font-semibold mt-12 mb-6 gradient-text">
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM4 12c0-1.054.212-2.065.602-3H10v2H5.66c-.198.641-.316 1.312-.316 2s.118 1.359.316 2H10v2H4.602c-.39-0.935-.602-1.946-.602-3zm8 8c-1.054 0-2.065-.212-3-.602V14h2v4.34c.641.198 1.312.316 2 .316s1.359-.118 2-.316V14h2v5.398c-.935.39-1.946.602-3 .602zm5.34-4H14v-2h4.34c.198-.641.316-1.312.316-2s-.118-1.359-.316-2H14V8h4.398c.39.935.602 1.946.602 3s-.212 2.065-.602 3z"/></svg>
+            4. Zaman-Frekans Analizi Özellikleri
+        </h2>
+        <p class="mb-6 text-gray-400">
+            En gelişmiş yöntemlerdir. Sadece "hangi" frekansların olduğunu değil, bu frekansların "ne zaman" ortaya çıktığını da gösterir. (Örn: Müzik notası analizi).
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Dalgacık Dönüşümü (Wavelet)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition"><span class="keyword">Ani yükselişler</span>, kısa süreli olaylar gibi geçici frekans değişikliklerini yakalamada çok güçlüdür.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">STFT (Kısa Zamanlı Fourier)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyali küçük <span class="keyword">zaman pencerelerine</span> böler ve her pencere için ayrı ayrı FFT uygular. Bir spektrogram oluşturur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Hilbert Dönüşümü</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalin <span class="keyword">anlık genliğini</span>, <span class="keyword">anlık fazını</span> ve <span class="keyword">anlık frekansını</span> hesaplamak için kullanılır.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YENİ EKLENEN KARTLAR -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">CWT (Sürekli Dalgacık)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition"><span class="keyword">Zaman ve frekans çözünürlüğünü</span> detaylı analiz eder. Wavelet'in daha detaylı bir formudur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">EMD (Empirik Mod Dekom.)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyali, <span class="keyword">Intrinsic Mode Functions (IMF)</span> adı verilen daha basit, bağımsız bileşenlere ayırır.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- YENİ KARTLARIN SONU -->
+
+        </div>
+
+        <!-- 5. İstatistiksel Özellikler -->
+        <h2 class="text-2xl sm:text-3xl font-semibold mt-12 mb-6 gradient-text">
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 17h2v-5H7v5zm4 0h2V7h-2v10zm4 0h2v-3h-2v3zM5 21h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM5 5h14v14H5V5z"/></svg>
+            5. İstatistiksel Özellikler
+        </h2>
+        <p class="mb-6 text-gray-400">
+            Verinin kendi içindeki <span class="keyword">zamansal ilişkilere</span> odaklanır.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Autokorelasyon (Autocorrelation)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Sinyalin, kendisinin <span class="keyword">gecikmeli (kaydırılmış)</span> bir versiyonu ile ne kadar ilişkili olduğunu ölçer. <span class="keyword">Periyodikliği</span> (tekrarlanmayı) bulur.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Çapraz Korelasyon (Cross-Corr)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition"><span class="keyword">İki farklı</span> zaman serisinin birbiriyle (gecikmeli olarak) ne kadar ilişkili olduğunu ölçer. (Örn: Yağmur ve baraj seviyesi).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Trend Özellikleri</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Zaman serisinin <span class="keyword">uzun vadeli genel eğilimini</span> (artıyor mu, azalıyor mu, sabit mi) modelleyen katsayılar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YENİ EKLENEN KART -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">Partial Autocorrelation (PACF)</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Autokorelasyonun, <span class="keyword">aradaki gecikmelerin</span> etkisinden arındırılmış halidir. (Örn: 1. ve 3. gün arasındaki ilişkiyi, 2. günün etkisini çıkararak ölçer).</p>
+                    </div>
+                </div>
+            </div>
+            <!-- YENİ KARTIN SONU -->
+
+        </div>
+        
+        <!-- YENİ EKLENEN BÖLÜM -->
+        <h2 class="text-2xl sm:text-3xl font-semibold mt-12 mb-6 gradient-text">
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a5.5 5.5 0 0 0-5.5 5.5c0 2.231 1.332 4.14 3.25 5.023V14h-1.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H10v1H8.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H10v1H8.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H10v1.9a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V21h1.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H14v-1h1.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H14v-1h1.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H14v-1.477c1.918-.883 3.25-2.792 3.25-5.023A5.5 5.5 0 0 0 12 2zm0 9c-1.93 0-3.5-1.57-3.5-3.5S10.07 4 12 4s3.5 1.57 3.5 3.5S13.93 11 12 11z"/></svg>
+            6. Makine Öğrenmesi Tabanlı Teknikler
+        </h2>
+        <p class="mb-6 text-gray-400">
+            Doğrudan makine öğrenmesi veya derin öğrenme modelleri kullanarak özelliklerin otomatik olarak çıkarılmasıdır.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4 class="card-title">ML/DL Tabanlı Çıkarım</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="card-definition">Özellikle <span class="keyword">Derin Öğrenme</span> (CNN, RNN, Autoencoder gibi) modellerinin, ham zaman serisi verisinden hiyerarşik özellikleri kendi kendine öğrenmesi. (Not: Sunumda detayı verilmemiştir).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- YENİ BÖLÜM SONU -->
+
+    </div>
+
+    <!-- İndirme Butonu -->
+    <button id="downloadBtn" title="Bu sayfayı HTML olarak indir">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+    </button>
+
+    <!-- Chart.js'i Başlatma Scripti -->
+    <script>
+        (function() {
+            // Python kodundakine benzer veriler oluşturalım
+            const fs = 1000;
+            const labels = [];
+            const signalData = [];
+            
+            for (let i = 0; i < fs; i++) {
+                const t = i / fs; // 0'dan 1'e zaman
+                labels.push(t.toFixed(3)); // Zaman etiketleri
+                
+                // 50 Hz sinyal + 120 Hz sinyal + gürültü
+                const val = 0.5 * Math.sin(2 * Math.PI * 50 * t) +
+                            0.3 * Math.sin(2 * Math.PI * 120 * t) +
+                            0.1 * (Math.random() - 0.5) * 2; // -0.1 ile +0.1 arası gürültü
+                
+                signalData.push(val);
+            }
+            
+            // Chart.js Grafiği
+            const ctx = document.getElementById('signalChart').getContext('2d');
+            
+            // Koyu tema için chart ayarları
+            Chart.defaults.color = '#e0e0e0';
+            Chart.defaults.borderColor = '#444';
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Örnek Sinyal (Genlik vs. Zaman)',
+                        data: signalData,
+                        borderColor: '#4ade80', // Yeşil
+                        borderWidth: 1.5,
+                        pointRadius: 0, // Noktaları gösterme
+                        fill: false,
+                        tension: 0.1 // Çizgiyi hafif yumuşat
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        },
+                        tooltip: {
+                            enabled: false // Performans için çok fazla veri noktasında kapat
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Zaman [s]',
+                                color: '#e0e0e0'
+                            },
+                            ticks: {
+                                color: '#e0e0e0',
+                                maxTicksLimit: 10 // Çok fazla etiket olmasın
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Genlik',
+                                color: '#e0e0e0'
+                            },
+                            ticks: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 0 // Animasyonu kapat
+                    }
+                }
+            });
+        })();
+    </script>
+
+    <!-- Download Button Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const downloadButton = document.getElementById('downloadBtn');
+            if(downloadButton) {
+                downloadButton.addEventListener('click', () => {
+                    // 1. Tüm HTML içeriğini al
+                    const htmlContent = document.documentElement.outerHTML;
+                    
+                    // 2. Blob oluştur
+                    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+                    
+                    // 3. Geçici bir link oluştur
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'ozellik_cikarma_notlari.html'; // İndirilecek dosya adı
+                    
+                    // 4. Linki tıkla (indirmeyi başlat)
+                    document.body.appendChild(link); // Firefox için gerekli
+                    link.click();
+                    
+                    // 5. Temizle
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
