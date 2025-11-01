@@ -1,0 +1,1625 @@
+<html lang="tr"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImQzNTlhZTBjMTczYzc3YjFjZDU1MjFiMjVhMWY2YTQ5ZWU1YTZkMjQiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMDU3ODMyNDgwMjM0NDYwNDE0OSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzMwZjFlMzQ2MThlYWUwMmZfc29ja2V0X25vdGVzX2luZm8yLmh0bWwtNTU3In0sImV4cCI6MTc2MjAzNDc3MSwiaWF0IjoxNzYyMDMxMTcxLCJhbGciOiJSUzI1NiJ9.DRWGmzv6wEt37wTPDVYfs9GyCcVI05lJAcAeqXWVmdaMn0pdgrJECCw35jGBjM64tUN8HG26WwPoHmNOlADjcJu7slqmAoZOaXC1nykoIat4TX_P_yEJt8C04QJWn75MoAOJkYTRHj9Cg-vj28ebfvQodoYTerEm2dP0cI-VTvzz3JbPphC9tF6yFMJwJOqXAX3LO9R7eLg30Mdh5U0yFhbZogTIUTER4XGkE2IFoEDi8VNH08BQZIcev9PoIsv7_5Wm6kJLaa1CrKz4gvXgdTwnNdfse2uP6nKrAsjDCwohfWqs7Eu6a8SM5w91cK0IQGkMaUbL2v8vjBjXnRj_kw","c_30f1e34618eae02f_socket_notes_info2.html-557")</script><script>'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-2.5-flash-preview-09-2025","imageModelName":"imagen-3.0-generate-002","imageEditModelName":"gemini-2.5-flash-image-preview","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20"],"deprecatedImageModelNames":["imagen-3.0-generate-001"]})</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta 5: Soket Programlama</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome (İkonlar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS (Okaidia Theme for dark mode) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+
+    <style>
+        /* --- Temel "info2" Stilleri --- */
+        :root {
+            --bg-dark: #0f172a;       /* Ana Arka Plan */
+            --bg-card: #1e293b;       /* Kart Arka Planı */
+            --keyword-pink: #f472b6;   /* Vurgu Rengi */
+            --border-blue: #3b82f6;
+            --border-green: #4ade80;
+            --flip-dark-1: #0c1432;
+            --flip-dark-2: #110e2b;
+            /* Yeni Renk Paleti (Canlı) */
+            --live-rose: #be123c;
+            --live-purple: #7e22ce;
+            --live-indigo: #4338ca;
+            --live-emerald: #047857;
+            --live-sky: #0369a1;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Inter', sans-serif;
+        }
+
+        .keyword {
+            color: var(--keyword-pink);
+            font-weight: 600;
+        }
+
+        .gradient-text {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem; /* mb-6 */
+            font-size: 1.875rem; /* text-3xl */
+        }
+
+        /* --- İnteraktif Kart (Genel) --- */
+        .interactive-element {
+            background-color: var(--bg-card);
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 2px solid transparent;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .interactive-element:hover {
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(74, 222, 128, 0.1);
+        }
+
+        /* --- Çevirmeli Kartlar --- */
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        .flip-card-front {
+            background-color: var(--bg-card);
+        }
+        .flip-card-back {
+            background-image: linear-gradient(to bottom right, var(--flip-dark-1), var(--flip-dark-2));
+            transform: rotateY(180deg);
+            color: #e5e7eb; /* text-gray-200 */
+        }
+
+        /* --- Sadece Belirli Kartlar İçin Eğim Efekti --- */
+        .flip-card:hover,
+        .flow-step.interactive-element:hover,
+        .info-box.interactive-element:hover,
+        .code-block:hover {
+            transform: scale(1.03) rotate(-1deg);
+        }
+        
+        /* --- Sekmeler (Tabs) --- */
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            color: var(--border-green);
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+        }
+        .tab-button:hover {
+            color: var(--border-blue);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* --- Akordeon --- */
+        details.interactive-element summary {
+            cursor: pointer;
+            padding: 1rem;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details.interactive-element[open] summary {
+            border-bottom: 2px solid var(--bg-dark);
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .accordion-content {
+            padding: 1.5rem;
+            border-top: 1px solid var(--bg-dark);
+        }
+
+        /* --- Vurgulu Tablo --- */
+        .styled-table th {
+            background-color: var(--bg-dark);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--border-blue);
+        }
+        .styled-table td {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--bg-dark);
+        }
+        .styled-table tr {
+            transition: all 0.2s ease;
+        }
+        .styled-table tr:hover {
+            background-color: #2a3b52; /* Kart renginin biraz açığı */
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* --- Kod Bloğu --- */
+        .code-block {
+            /* background-color: #0c1432; Artık pre etiketinde */
+            font-family: 'Source Code Pro', monospace;
+            border-radius: 0.5rem;
+            border: 1px solid var(--bg-card);
+            font-size: 0.9rem;
+            overflow: hidden; /* pre'nin köşeleri ebeveynin köşelerini aşmasın */
+            transition: all 0.3s ease;
+            padding: 0; /* padding'i pre'ye verdik */
+        }
+
+        /* Prism.js Arka Plan Düzeltmesi (Eski "info2" rengine dönmek için) */
+        /* pre etiketine border-radius uygula */
+        pre[class*="language-"] {
+            background: #2d3748 !important; /* "info2" antrasit/koyu gri */
+            padding: 1.25rem !important;
+            margin: 0 !important; /* pre'nin varsayılan margin'ini sıfırla */
+            border-radius: 0; /* Dış .code-block'un radius'unu kullan */
+        }
+        
+        .code-block pre[class*="language-"] {
+            border-radius: inherit; /* Ebeveynin border-radius'unu al */
+        }
+
+        /* --- Animasyon --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Infographic Stilleri (Akış) --- */
+        .flow-container {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+        .flow-step {
+            flex: 1 1 150px;
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: var(--border-blue);
+            margin: 0 1rem;
+            align-self: center;
+            font-weight: bold;
+        }
+        
+        /* Bilgi Kutusu */
+        .info-box {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        /* Vurgu Kutusu */
+        .callout-box {
+            background-color: var(--bg-dark);
+            border-left: 4px solid var(--border-green);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 1rem 0;
+        }
+        
+        /* İletişim Akış Şeması (TCP/UDP) */
+        .comm-flow-diagram {
+            display: flex;
+            justify-content: space-around;
+            background-color: var(--bg-dark);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .flow-column {
+            width: 45%;
+        }
+        .flow-box {
+            padding: 0.6rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        .server-flow {
+            background-color: var(--live-emerald);
+            border: 1px solid var(--live-emerald);
+            color: #fff;
+        }
+        .client-flow {
+            background-color: var(--live-sky);
+            border: 1px solid var(--live-sky);
+            color: #fff;
+        }
+        .flow-line {
+            height: 30px;
+            border-left: 2px dashed #6b7280; /* text-gray-500 */
+            margin-left: 50%;
+            position: relative;
+        }
+        .sync-point {
+            border-top: 2px dashed var(--keyword-pink);
+            position: absolute;
+            width: 110%; /* Sütunlar arası */
+            left: -55%;
+            top: 50%;
+            z-index: 0;
+        }
+        .sync-point::after {
+            content: 'Synchronization Point';
+            background-color: var(--bg-dark);
+            color: var(--keyword-pink);
+            padding: 0 0.5rem;
+            font-size: 0.75rem;
+            position: absolute;
+            left: 50%;
+            top: -10px;
+            transform: translateX(-50%);
+        }
+
+        /* Java Sınıf Diyagramı */
+        .java-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .java-box {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            margin: 0.25rem;
+            min-width: 150px;
+            text-align: center;
+        }
+        .java-pkg { background-color: var(--live-rose); }
+        .java-stream { background-color: var(--live-sky); }
+        .java-socket { background-color: var(--live-emerald); }
+        
+        /* Endianness İnfografiği */
+        .endian-box {
+            background-color: var(--bg-card);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--bg-dark);
+        }
+        .endian-cell {
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #4b5563;
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 600;
+        }
+        .endian-cell.msb { background-color: var(--live-rose); }
+        .endian-cell.lsb { background-color: var(--live-sky); }
+
+        /* Download Butonu */
+        #downloadButton {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        #downloadButton:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25);
+        }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.my-2{margin-top:0.5rem;margin-bottom:0.5rem}.mx-4{margin-left:1rem;margin-right:1rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-4{margin-top:1rem}.ml-2{margin-left:0.5rem}.ml-7{margin-left:1.75rem}.ml-8{margin-left:2rem}.mt-2{margin-top:0.5rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.grid{display:grid}.h-2{height:0.5rem}.h-48{height:12rem}.h-\[104px\]{height:104px}.h-\[50px\]{height:50px}.w-full{width:100%}.max-w-7xl{max-width:80rem}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.gap-x-4{column-gap:1rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.self-center{align-self:center}.overflow-x-auto{overflow-x:auto}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.\!border-rose-500{--tw-border-opacity:1 !important;border-color:rgb(244 63 94 / var(--tw-border-opacity, 1)) !important}.\!border-sky-700{--tw-border-opacity:1 !important;border-color:rgb(3 105 161 / var(--tw-border-opacity, 1)) !important}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity, 1))}.border-green-500{--tw-border-opacity:1;border-color:rgb(34 197 94 / var(--tw-border-opacity, 1))}.\!bg-gray-700{--tw-bg-opacity:1 !important;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1)) !important}.\!bg-gray-900{--tw-bg-opacity:1 !important;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1)) !important}.\!bg-rose-700{--tw-bg-opacity:1 !important;background-color:rgb(190 18 60 / var(--tw-bg-opacity, 1)) !important}.\!bg-sky-700{--tw-bg-opacity:1 !important;background-color:rgb(3 105 161 / var(--tw-bg-opacity, 1)) !important}.\!bg-sky-900{--tw-bg-opacity:1 !important;background-color:rgb(12 74 110 / var(--tw-bg-opacity, 1)) !important}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-500{--tw-gradient-from:#3b82f6 var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-green-500{--tw-gradient-to:#22c55e var(--tw-gradient-to-position)}.\!p-6{padding:1.5rem !important}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.p-4{padding:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.\!text-left{text-align:left !important}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:mt-0{margin-top:0px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-12{padding:3rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Başlık ve Download Butonu -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div>
+                <h1 class="text-4xl font-bold text-white mb-2">Ağ Programlama - Hafta 5</h1>
+                <p class="text-xl text-gray-400">Soket Kavramı ve Soket Programlama</p>
+                <p class="text-md text-gray-500 mt-1">Dr. Öğr. Üyesi Musa BALTA | 29.09.2025</p>
+            </div>
+            <button id="downloadButton" class="mt-4 md:mt-0">
+                Notları İndir
+            </button>
+        </div>
+
+        <!-- 🎯 Haftalık İçerik - Çevirmeli Kartlar -->
+        <h2 class="section-title gradient-text">🎯 Konu İçeriği</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">Soket Kavramı</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">Uygulama ile Taşıma Katmanı arasında bir <span class="keyword">API</span> görevi gören <span class="keyword">iletişim uç noktası</span> (endpoint).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">İstemci-Sunucu</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center"><span class="keyword">Sunucu</span> (pasif) dinler, <span class="keyword">İstemci</span> (aktif) bağlantıyı başlatır.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">Soket Prosedürleri</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center"><span class="keyword">socket()</span>, <span class="keyword">bind()</span>, <span class="keyword">listen()</span>, <span class="keyword">connect()</span>, <span class="keyword">accept()</span>, <span class="keyword">send()</span>, <span class="keyword">recv()</span>, <span class="keyword">close()</span> gibi temel fonksiyonlar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">Byte Dizilimi</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center"><span class="keyword">Network Byte Order</span> (Big-Endian) standardı ve <span class="keyword">htons()</span>, <span class="keyword">htonl()</span> gibi dönüşüm fonksiyonları.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Soket Kavramı -->
+        <h2 class="section-title gradient-text mt-12">1. Soket Kavramı</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-soket-genel')">Genel Bakış</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-soket-turleri')">Soket Türleri</button>
+            </div>
+
+            <!-- Sekme İçerikleri -->
+            <div id="tab-soket-genel" class="tab-content active" style="display: block;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="interactive-element p-6">
+                        <p class="mb-4 text-lg"><span class="keyword">Soket (Socket)</span>, TCP veya UDP kullanan iki bilgisayar arasındaki genel iletişim mekanizmasını sağlayan bir yapıdır. Ağ programlama için bir Standart <span class="keyword">API (Uygulama Programlama Arayüzü)</span> olarak düşünülebilir.</p>
+                        <p class="mb-4">Bir uygulamanın ağ üzerinden iletişim kurması için bir "kapı" veya <span class="keyword">"uç nokta" (endpoint)</span> oluşturur. Soket, Uygulama Katmanı ile Taşıma Katmanı arasında bir arayüz görevi görür.</p>
+                        <div class="callout-box">
+                            <h4 class="font-bold text-white mb-2">Soketi Oluşturan 3 Ana Bileşen:</h4>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><span class="keyword">IP Adresi:</span> Cihazın ağdaki adresi.</li>
+                                <li><span class="keyword">Taşıma Katmanı Protokolü:</span> İletişim türü (TCP veya UDP).</li>
+                                <li><span class="keyword">Port Numarası:</span> Cihazdaki belirli bir uygulamayı hedefleyen kapı.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Soket Mimarisi İnfografik -->
+                    <div class="interactive-element p-6 flex flex-col items-center justify-center">
+                        <div class="flex justify-between w-full">
+                            <div class="text-center"><div class="flow-step interactive-element !bg-live-emerald">Host 1</div><i class="fa fa-arrow-down text-2xl text-gray-500"></i><div class="flow-step !bg-gray-700 p-2">Socket</div></div>
+                            <div class="text-center"><div class="flow-step interactive-element !bg-live-indigo">Router</div><i class="fa fa-arrow-down text-2xl text-gray-500"></i><div class="flow-step !bg-gray-700 p-2">IP</div></div>
+                            <div class="text-center"><div class="flow-step interactive-element !bg-live-emerald">Host 2</div><i class="fa fa-arrow-down text-2xl text-gray-500"></i><div class="flow-step !bg-gray-700 p-2">Socket</div></div>
+                        </div>
+                        <div class="w-full h-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-full my-2"></div>
+                        <div class="flex justify-between w-full">
+                            <div class="flow-step !bg-gray-700 p-2">TCP</div>
+                            <div class="flow-step !bg-gray-700 p-2">Channel</div>
+                            <div class="flow-step !bg-gray-700 p-2">Channel</div>
+                            <div class="flow-step !bg-gray-700 p-2">TCP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-soket-turleri" class="tab-content" style="display: none;">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-stream text-3xl text-blue-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-blue-300 mb-2">Akış Soketleri (Stream Sockets)</h4>
+                        <p class="text-sm"><span class="keyword">TCP</span> temellidir. Güvenilir, sıralı, <span class="keyword">bağlantı yönelimli (connection-oriented)</span> bir iletişim sağlar. Veri akışı kesintisizdir.</p>
+                    </div>
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-paper-plane text-3xl text-green-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-green-300 mb-2">Datagram Soketler (Datagram Sockets)</h4>
+                        <p class="text-sm"><span class="keyword">UDP</span> temellidir. Güvenilir olmayan, <span class="keyword">bağlantısız (connectionless)</span> bir iletişim sağlar. Veri, paket (datagram) bazlı gönderilir.</p>
+                    </div>
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-skull-crossbones text-3xl text-rose-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-rose-400 mb-2">Raw Soketler (Raw Sockets)</h4>
+                        <p class="text-sm"><span class="keyword">Ham paket</span> yapısı kullanır. Taşıma katmanını atlayarak doğrudan <span class="keyword">Ağ katmanına (IP)</span> erişir. Genellikle <span class="keyword">ping</span> ve <span class="keyword">traceroute</span> gibi analiz araçları için kullanılır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. İstemci-Sunucu Mimarisi -->
+        <h2 class="section-title gradient-text mt-12">2. İstemci-Sunucu Mimarisi</h2>
+        <div class="space-y-4 mb-12">
+            <details class="interactive-element" open="">
+                <summary>Aktif İstemci / Pasif Sunucu</summary>
+                <div class="accordion-content grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6 border-l-4 border-green-500">
+                        <h4 class="text-xl font-bold text-green-300 mb-2">Sunucu (Server)</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Ağda <span class="keyword">pasif</span> bir rol oynar.</li>
+                            <li>Belirli bir port üzerinden bağlantı isteklerini bekler (<span class="keyword">listen</span>).</li>
+                            <li>Gelen isteklere cevap verir.</li>
+                            <li>Bu yapıya <span class="keyword">pasif soket yapısı</span> denir.</li>
+                        </ul>
+                    </div>
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6 border-l-4 border-blue-500">
+                        <h4 class="text-xl font-bold text-blue-300 mb-2">İstemci (Client)</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Ağda <span class="keyword">aktif</span> bir rol oynar.</li>
+                            <li>Bağlantıyı başlatır (<span class="keyword">connect</span>).</li>
+                            <li>Sunucunun <span class="keyword">IP adresini</span> ve <span class="keyword">port numarasını</span> bilmesi gerekir.</li>
+                            <li>Bu yapıya <span class="keyword">aktif soket yapısı</span> denir.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+            <details class="interactive-element">
+                <summary>Soketlerin Katmanlı Gösterimi (Descriptor Table)</summary>
+                <div class="accordion-content">
+                    <p class="mb-4">İşletim sistemi, açılan her soketi bir <span class="keyword">"dosya tanımlayıcısı" (descriptor)</span> gibi yönetir. Bir <span class="keyword">Tanımlayıcı Tablosu (Descriptor Table)</span> tutulur. Bu tablo, bir soket tanımlayıcısını (örn: 3) o sokete ait dahili veri yapılarına bağlar.</p>
+                    <div class="flow-container bg-gray-900 p-4 rounded-lg">
+                        <div class="flow-step interactive-element !bg-gray-700"><strong>[ 0 ] [ 1 ] [ 2 ] [ <span class="keyword">3</span> ] ...</strong><br><small>Descriptor Table</small></div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step interactive-element !bg-live-indigo !text-left">
+                            <strong>Internal Data Structure (Socket 3)</strong>
+                            <small>Family: <span class="keyword">PF_INET</span> (IPv4)</small>
+                            <small>Service: <span class="keyword">SOCK_STREAM</span> (TCP)</small>
+                            <small>Local IP / Port: 192.168.1.10 / 5100</small>
+                            <small>Remote IP / Port: 130.88.1.5 / 80</small>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- 3. Soket Prosedürleri (Fonksiyonlar) -->
+        <h2 class="section-title gradient-text mt-12">3. Soket Prosedürleri (Temel Fonksiyonlar)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-proc-liste')">Fonksiyon Listesi</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-proc-adres')">Adres Yapıları (C)</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-proc-detay')">Detaylı Fonksiyonlar</button>
+            </div>
+
+            <!-- Fonksiyon Listesi -->
+            <div id="tab-proc-liste" class="tab-content active overflow-x-auto" style="display: block;">
+                <table class="styled-table w-full">
+                    <thead>
+                        <tr><th>Method</th><th>Tanımlama</th><th>Kullanım</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code class="keyword">socket()</code></td><td>Uç noktalarda bir bağlantı (soket) oluşturur.</td><td>Hepsi</td></tr>
+                        <tr><td><code class="keyword">bind()</code></td><td>Bir lokal IP ve portu bir sokete bağlar/ilişkilendirir.</td><td>Sunucu (Genellikle)</td></tr>
+                        <tr><td><code class="keyword">listen()</code></td><td>Bağlantıları pasif olarak dinler.</td><td>Sunucu (TCP)</td></tr>
+                        <tr><td><code class="keyword">connect()</code></td><td>Bir başka sokete bağlantıyı başlatır.</td><td>İstemci (TCP)</td></tr>
+                        <tr><td><code class="keyword">accept()</code></td><td>Yeni bir bağlantıyı kabul eder.</td><td>Sunucu (TCP)</td></tr>
+                        <tr><td><code class="keyword">write() / read()</code></td><td>Sokete veri yazar veya soketten veri okur.</td><td>TCP</td></tr>
+                        <tr><td><code class="keyword">sendto()</code></td><td>Bir başka UDP soketine datagram gönderir.</td><td>UDP</td></tr>
+                        <tr><td><code class="keyword">recvfrom()</code></td><td>Bir başka UDP soketinden datagram okur.</td><td>UDP</td></tr>
+                        <tr><td><code class="keyword">close()</code></td><td>Bağlantıyı sonlandırır (bağlantıyı koparır).</td><td>Hepsi</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Adres Yapıları (C) -->
+            <div id="tab-proc-adres" class="tab-content" style="display: none;">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-3">Genel Soket Adres Yapısı (sockaddr)</h4>
+                        <p class="mb-3 text-sm">Farklı protokol ailelerini destekleyebilen genel yapıdır.</p>
+                        <div class="code-block interactive-element">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token keyword">struct</span> <span class="token class-name">sockaddr</span> <span class="token punctuation">{</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">short</span> sa_family<span class="token punctuation">;</span> <span class="token comment">// Adres ailesi (e.g. AF_INET)</span>
+    <span class="token keyword">char</span>           sa_data<span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// Aileye özel adres bilgisi</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-3">TCP/IP (Internet) Adres Yapısı (sockaddr_in)</h4>
+                        <p class="mb-3 text-sm">Uygulamada genellikle TCP/IP (IPv4) için özelleşmiş bu yapı kullanılır ve <code class="keyword">(struct sockaddr *)</code> olarak dönüştürülür (cast edilir).</p>
+                        <div class="code-block interactive-element">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token keyword">struct</span> <span class="token class-name">in_addr</span> <span class="token punctuation">{</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">long</span> s_addr<span class="token punctuation">;</span> <span class="token comment">// Internet adresi (32 bit)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span> <span class="token punctuation">{</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">short</span> sin_family<span class="token punctuation">;</span> <span class="token comment">// Internet protokolü (AF_INET)</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">short</span> sin_port<span class="token punctuation">;</span>   <span class="token comment">// Adres portu (16 bit)</span>
+    <span class="token keyword">struct</span> <span class="token class-name">in_addr</span> sin_addr<span class="token punctuation">;</span>   <span class="token comment">// Internet adresi (32 bit)</span>
+    <span class="token keyword">char</span>           sin_zero<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// Kullanılmaz (dolgu)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Detaylı Fonksiyonlar -->
+            <div id="tab-proc-detay" class="tab-content" style="display: none;">
+                <div class="space-y-4">
+                    <details class="interactive-element"><summary><code>int sockid = socket(family, type, protocol);</code></summary>
+                        <div class="accordion-content">
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><code class="keyword">family:</code> İletişim domaini (örn: <code class="keyword">PF_INET</code> - IPv4).</li>
+                                <li><code class="keyword">type:</code> İletişim tipi (örn: <code class="keyword">SOCK_STREAM</code> - TCP, <code class="keyword">SOCK_DGRAM</code> - UDP).</li>
+                                <li><code class="keyword">protocol:</code> Genellikle 0 (varsayılanı kullan) veya <code class="keyword">IPPROTO_TCP</code>, <code class="keyword">IPPROTO_UDP</code>.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="interactive-element"><summary><code>int status = bind(sockid, &amp;addrport, size);</code> (Sunucu)</summary>
+                        <div class="accordion-content">
+                            <p>Soketi belirli bir IP/Port'a bağlar. Sunucular genellikle IP adresi olarak <code class="keyword">INADDR_ANY</code> kullanır; bu, makinenin herhangi bir ağ arayüzünden (IP adresinden) gelen bağlantıları kabul etmesi anlamına gelir.</p>
+                        </div>
+                    </details>
+                    <details class="interactive-element"><summary><code>int status = listen(sockid, queueLimit);</code> (TCP Sunucu)</summary>
+                        <div class="accordion-content">
+                            <p>Dinleme soketini (<code class="keyword">sockid</code>) pasif moda geçirir. <code class="keyword">queueLimit</code> (backlog), sunucu meşgulken kuyrukta bekleyecek maksimum istemci sayısını belirtir.</p>
+                            <div class="callout-box !border-rose-500 mt-2"><p>Bu "Listening socket" <span class="keyword">asla</span> send() ve recv() için kullanılmaz, sadece accept() için kullanılır.</p></div>
+                        </div>
+                    </details>
+                    <details class="interactive-element"><summary><code>connect()</code> (İstemci) ve <code>accept()</code> (Sunucu)</summary>
+                        <div class="accordion-content grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="text-lg font-semibold text-blue-300">İstemci: <code>connect(sockid, &amp;foreignAddr, ...)</code></h4>
+                                <p class="text-sm">Sunucunun adresini (<code class="keyword">&amp;foreignAddr</code>) kullanarak bağlantı isteği gönderir. Sunucu <code class="keyword">accept()</code> diyene kadar engellenir (bloke olur).</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-green-300">Sunucu: <code>int s = accept(sockid, &amp;clientAddr, ...)</code></h4>
+                                <p class="text-sm">Dinleyen <code class="keyword">sockid</code> üzerinde bir bağlantı bekler. İstek geldiğinde, istemcinin adresini <code class="keyword">&amp;clientAddr</code>'a yazar ve <span class="keyword">yeni bir soket (s)</span> döndürür. İletişim bu yeni soket üzerinden yapılır.</p>
+                            </div>
+                        </div>
+                    </details>
+                    <details class="interactive-element"><summary>Veri Okuma/Yazma (TCP vs UDP)</summary>
+                        <div class="accordion-content grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="text-lg font-semibold text-blue-300">TCP: <code>send() / recv()</code></h4>
+                                <p class="text-sm">Bağlantı kurulduğu için hedef adres belirtmeye gerek yoktur. <code class="keyword">send(sockid, msg, ...)</code> ve <code class="keyword">recv(sockid, buf, ...)</code> kullanılır.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-green-300">UDP: <code>sendto() / recvfrom()</code></h4>
+                                <p class="text-sm">Bağlantı olmadığı için her göndermede hedef adres belirtilmelidir: <code class="keyword">sendto(sockid, msg, ..., &amp;foreignAddr, ...)</code>. Her almada gönderenin adresi öğrenilir: <code class="keyword">recvfrom(sockid, buf, ..., &amp;clientAddr, ...)</code>.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. İstemci-Sunucu İletişim Akışı (Görsel) -->
+        <h2 class="section-title gradient-text mt-12">4. İstemci-Sunucu İletişim Akışı (Görsel)</h2>
+        <div class="comm-flow-diagram interactive-element">
+            <!-- TCP Sütunu -->
+            <div class="flow-column">
+                <h3 class="text-2xl font-bold text-center text-blue-300 mb-4">Stream (TCP)</h3>
+                <div class="grid grid-cols-2 gap-x-4">
+                    <!-- Sunucu (TCP) -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-center text-green-300 mb-2">Sunucu (Pasif)</h4>
+                        <div class="flow-box server-flow">socket()</div>
+                        <div class="flow-box server-flow">bind()</div>
+                        <div class="flow-box server-flow">listen()</div>
+                        <div class="flow-box server-flow relative">
+                            accept()
+                            <div class="sync-point"></div>
+                        </div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box server-flow">recv() / send()</div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box server-flow">close()</div>
+                    </div>
+                    <!-- İstemci (TCP) -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-center text-blue-300 mb-2">İstemci (Aktif)</h4>
+                        <div class="flow-box client-flow">socket()</div>
+                        <div class="h-[104px]"></div> <!-- bind+listen boşluğu -->
+                        <div class="flow-box client-flow">connect()</div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box client-flow">send() / recv()</div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box client-flow">close()</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- UDP Sütunu -->
+            <div class="flow-column">
+                <h3 class="text-2xl font-bold text-center text-green-300 mb-4">Datagram (UDP)</h3>
+                <div class="grid grid-cols-2 gap-x-4">
+                    <!-- Sunucu (UDP) -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-center text-green-300 mb-2">Sunucu (Pasif)</h4>
+                        <div class="flow-box server-flow">socket()</div>
+                        <div class="flow-box server-flow">bind()</div>
+                        <div class="flow-line h-[50px]"></div>
+                        <div class="flow-box server-flow">recvfrom()</div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box server-flow">sendto()</div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box server-flow">close()</div>
+                    </div>
+                    <!-- İstemci (UDP) -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-center text-blue-300 mb-2">İstemci (Aktif)</h4>
+                        <div class="flow-box client-flow">socket()</div>
+                        <div class="flow-box client-flow !bg-sky-900 !border-sky-700">bind() (Opsiyonel)</div>
+                        <div class="flow-line h-[50px]"></div>
+                        <div class="flow-box client-flow">sendto()</div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box client-flow">recvfrom()</div>
+                        <div class="flow-line"></div>
+                        <div class="flow-box client-flow">close()</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Örnek Kod Akışları (C Dili) -->
+        <h2 class="section-title gradient-text mt-12">5. Örnek Kod Akışları (C Dili)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-code-tcp')">Akış Temelli (TCP) Örnek Akışı</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-code-udp')">Datagram (UDP) Örnek Akışı</button>
+            </div>
+
+            <!-- TCP Örnek Kodu -->
+            <div id="tab-code-tcp" class="tab-content active" style="display: block;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- TCP Sunucu Kodu -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-300 mb-4 text-center">Sunucu (TCP) Kodu</h3>
+                        <div class="code-block interactive-element mb-2">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token comment">// 1. Soket oluşturma</span>
+servSock <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>PF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">,</span> IPPROTO_TCP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2. Sokete port atama (bind)</span>
+addrport<span class="token punctuation">.</span>sin_family <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>
+addrport<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span>servPort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+addrport<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>s_addr <span class="token operator">=</span> <span class="token function">htonl</span><span class="token punctuation">(</span>INADDR_ANY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">bind</span><span class="token punctuation">(</span>servSock<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>addrport<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. Soketi dinleme</span>
+<span class="token function">listen</span><span class="token punctuation">(</span>servSock<span class="token punctuation">,</span> MAXPENDING<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 4. Tekrarla</span>
+    <span class="token comment">// a. Yeni bağlantı kabul etme (Bloke olur)</span>
+    clientSock <span class="token operator">=</span> <span class="token function">accept</span><span class="token punctuation">(</span>servSock<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// b. İletişim (Echo)</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">recv</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">send</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// c. İletişim bitince istemci soketini kapat</span>
+    <span class="token function">close</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                        </div>
+                    </div>
+                    <!-- TCP İstemci Kodu -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-300 mb-4 text-center">İstemci (TCP) Kodu</h3>
+                        <div class="code-block interactive-element mb-2">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token comment">// 1. Soket oluşturma</span>
+clientSock <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>PF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">,</span> IPPROTO_TCP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2. Bağlantı kurma (connect)</span>
+addrport<span class="token punctuation">.</span>sin_family <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>
+addrport<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>s_addr <span class="token operator">=</span> <span class="token function">inet_addr</span><span class="token punctuation">(</span>servIP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+addrport<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span>servPort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">connect</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>addrport<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. İletişim (Gönder)</span>
+<span class="token function">send</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> echoString<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. İletişim (Al)</span>
+<span class="token function">recv</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 4. Bağlantıyı kapat</span>
+<span class="token function">close</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UDP Örnek Kodu -->
+            <div id="tab-code-udp" class="tab-content" style="display: none;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- UDP Sunucu Kodu -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-300 mb-4 text-center">Sunucu (UDP) Kodu</h3>
+                        <div class="code-block interactive-element mb-2">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token comment">// 1. Soket oluşturma</span>
+servSock <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>PF_INET<span class="token punctuation">,</span> SOCK_DGRAM<span class="token punctuation">,</span> IPPROTO_UDP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2. Sokete port atama (bind)</span>
+addrport<span class="token punctuation">.</span>sin_family <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>
+addrport<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span>servPort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+addrport<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>s_addr <span class="token operator">=</span> <span class="token function">htonl</span><span class="token punctuation">(</span>INADDR_ANY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">bind</span><span class="token punctuation">(</span>servSock<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>addrport<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 3. Tekrarla</span>
+    <span class="token comment">// a. İletişim (Al) (Bloke olur)</span>
+    <span class="token comment">// İstemci adresi (echoClientAddr) burada dolar</span>
+    recvMsgSize <span class="token operator">=</span> <span class="token function">recvfrom</span><span class="token punctuation">(</span>servSock<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>echoClientAddr<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// a. İletişim (Gönder)</span>
+    <span class="token comment">// echoClientAddr adresine geri gönder</span>
+    <span class="token function">sendto</span><span class="token punctuation">(</span>servSock<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> recvMsgSize<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>echoClientAddr<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                        </div>
+                    </div>
+                    <!-- UDP İstemci Kodu -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-300 mb-4 text-center">İstemci (UDP) Kodu</h3>
+                        <div class="code-block interactive-element mb-2">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token comment">// 1. Soket oluşturma</span>
+clientSock <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>PF_INET<span class="token punctuation">,</span> SOCK_DGRAM<span class="token punctuation">,</span> IPPROTO_UDP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2. Sunucu adresini hazırla</span>
+servAddr<span class="token punctuation">.</span>sin_family <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>
+servAddr<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>s_addr <span class="token operator">=</span> <span class="token function">inet_addr</span><span class="token punctuation">(</span>servIP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+servAddr<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span>servPort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. İletişim (Gönder)</span>
+<span class="token comment">// Hedef adres (servAddr) burada belirtilir</span>
+<span class="token function">sendto</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> echoString<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>servAddr<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. İletişim (Al)</span>
+<span class="token comment">// Sunucudan cevabı bekle</span>
+<span class="token function">recvfrom</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 4. Bağlantıyı kapat</span>
+<span class="token function">close</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Java ile Soket Programlama -->
+        <h2 class="section-title gradient-text mt-12">6. Java ile Soket Programlama</h2>
+        <div class="space-y-4 mb-12">
+            <details class="interactive-element">
+                <summary>Java Ağ Sınıfları (java.net ve java.io)</summary>
+                <div class="accordion-content">
+                    <p class="mb-4">Java, soket programlamayı <code class="keyword">java.net</code> paketi içindeki sınıflarla çok daha yüksek bir seviyede yönetir. Veri okuma/yazma ise C'deki <code class="keyword">send/recv</code> yerine <code class="keyword">java.io</code> Akış (Stream) sınıflarıyla yapılır.</p>
+                    <div class="java-diagram">
+                        <div class="flex">
+                            <div class="java-box java-pkg">Java</div>
+                            <i class="fa fa-arrow-right text-2xl mx-4 self-center"></i>
+                            <div class="flex flex-col">
+                                <div class="java-box java-pkg">java.io</div>
+                                <div class="java-box java-pkg">java.net</div>
+                            </div>
+                            <i class="fa fa-arrow-right text-2xl mx-4 self-center"></i>
+                            <div class="flex flex-col">
+                                <div class="java-box java-stream">Byte Stream</div>
+                                <div class="java-box java-stream">Character Stream</div>
+                                <div class="java-box java-socket">ServerSocket (TCP-Sunucu)</div>
+                                <div class="java-box java-socket">Socket (TCP-İstemci)</div>
+                                <div class="java-box java-socket">DatagramSocket (UDP)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            <details class="interactive-element">
+                <summary>ServerSocket Sınıfı (TCP Sunucu)</summary>
+                <div class="accordion-content overflow-x-auto">
+                    <p class="mb-4">Gelen istemci isteklerini dinlemek için kullanılır. <code class="keyword">bind()</code> ve <code class="keyword">listen()</code> işlemlerini birleştirir.</p>
+                    <table class="styled-table w-full">
+                        <thead><tr><th>Metot</th><th>Açıklama</th></tr></thead>
+                        <tbody>
+                            <tr><td><code class="keyword">public ServerSocket(int port)</code></td><td>Belirtilen porta bağlı bir sunucu soketi oluşturur.</td></tr>
+                            <tr><td><code class="keyword">public ServerSocket(int port, int backlog)</code></td><td>Port ve kuyruk limiti (backlog) belirtir.</td></tr>
+                            <tr><td><code class="keyword">public Socket accept()</code></td><td>Gelen bir istemci bağlantısını bekler. Bu metot, bir istemci bağlanana kadar <span class="keyword">engellenir (bloke olur)</span>. İletişim için yeni bir <span class="keyword">Socket</span> nesnesi döndürür.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+            <details class="interactive-element">
+                <summary>Socket Sınıfı (TCP İstemci / Bağlantı)</summary>
+                <div class="accordion-content overflow-x-auto">
+                    <p class="mb-4">İstemci ve sunucu arasındaki asıl iletişimi temsil eder.</p>
+                    <table class="styled-table w-full">
+                        <thead><tr><th>Metot</th><th>Açıklama</th></tr></thead>
+                        <tbody>
+                            <tr><td><code class="keyword">public Socket(String host, int port)</code></td><td>(İstemci Kurucusu) Belirtilen sunucu (host) ve portuna hemen bağlanmaya çalışır.</td></tr>
+                            <tr><td><code class="keyword">public InputStream getInputStream()</code></td><td>Soketten veri okumak için bir giriş akışı (InputStream) döndürür.</td></tr>
+                            <tr><td><code class="keyword">public OutputStream getOutputStream()</code></td><td>Sokete veri yazmak için bir çıkış akışı (OutputStream) döndürür.</td></tr>
+                            <tr><td><code class="keyword">public int getPort()</code></td><td>Uzak makinede bağlı olduğu portu döndürür.</td></tr>
+                            <tr><td><code class="keyword">public int getLocalPort()</code></td><td>Soketin yerel makinede bağlı olduğu portu döndürür.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </div>
+
+        <!-- 7. Mesaj Oluşturma (Veri Kodlama ve Byte Dizilimi) -->
+        <h2 class="section-title gradient-text mt-12">7. Mesaj Oluşturma (Veri Kodlama ve Byte Dizilimi)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-byte-encoding')">Veri Kodlama (Encoding)</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-byte-ordering')">Byte Dizilimi (Endianness)</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-byte-code')">Dönüşüm Kodu (C)</button>
+            </div>
+
+            <!-- Veri Kodlama -->
+            <div id="tab-byte-encoding" class="tab-content active" style="display: block;">
+                <p class="mb-4">Ağ üzerinden sayılar gibi ham verileri gönderirken iki temel sorunla karşılaşırız. İlk sorun kodlamadır.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="interactive-element p-6">
+                        <h4 class="text-xl font-bold text-white mb-3">Çözüm 1: Karakter Kodlama (ASCII)</h4>
+                        <p class="mb-3 text-sm">Sayıları metne (string) çevirip göndermek. (örn: <code class="keyword">sprintf(msgBuffer, "%d %d", x, y);</code>)</p>
+                        <h5 class="font-semibold text-rose-400">Handikapları:</h5>
+                        <ul class="list-disc list-inside text-sm space-y-1">
+                            <li>Ayırıcı (delimiter) gerekir.</li>
+                            <li>Verimsizdir (örn: '1' rakamı 1 bayt yer kaplar).</li>
+                            <li>Alıcı tarafında metni tekrar sayıya çevirmek (parsing) gerekir.</li>
+                        </ul>
+                    </div>
+                    <div class="interactive-element p-6">
+                        <h4 class="text-xl font-bold text-white mb-3">Çözüm 2: Değerleri (Binary) Gönderme</h4>
+                        <p class="mb-3 text-sm">Sayıların bellekteki ham bayt karşılıklarını (örn: 4 bayt) doğrudan göndermek. (örn: <code class="keyword">send(sock, &amp;x, sizeof(x));</code>)</p>
+                        <h5 class="font-semibold text-green-400">Gereklilik:</h5>
+                        <p class="text-sm">Her iki tarafın da bir protokol üzerinde anlaşması gerekir (int kaç bit? hangi kodlama?). Ancak bu, ikinci bir soruna yol açar: <span class="keyword">Byte Dizilimi</span>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Byte Dizilimi -->
+            <div id="tab-byte-ordering" class="tab-content" style="display: none;">
+                <p class="mb-4">Farklı makine mimarileri, tamsayıları (integer) bellekte farklı şekillerde sıralar.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="endian-box interactive-element">
+                        <h4 class="text-xl font-bold text-rose-300 mb-3">Big-Endian (Yüksek Bayt Önce)</h4>
+                        <p class="text-sm mb-3">(örn: IBM, eski SPARC). <span class="keyword">MSB</span> (En Yüksek Değerli Bayt) bellekte <span class="keyword">ilk</span> adrese yazılır.</p>
+                        <p class="text-xs">Sayı: 0x0A0B0C0D (A=MSB, D=LSB)</p>
+                        <div class="mt-2"><span class="endian-cell !bg-rose-700">0A</span><span class="endian-cell">0B</span><span class="endian-cell">0C</span><span class="endian-cell !bg-sky-700">0D</span></div>
+                        <div class="mt-1"><span class="text-xs ml-2">A</span><span class="text-xs ml-8">A+1</span><span class="text-xs ml-7">A+2</span><span class="text-xs ml-7">A+3</span></div>
+                    </div>
+                    <div class="endian-box interactive-element">
+                        <h4 class="text-xl font-bold text-sky-300 mb-3">Little-Endian (Düşük Bayt Önce)</h4>
+                        <p class="text-sm mb-3">(örn: Intel x86, AMD64). <span class="keyword">LSB</span> (En Düşük Değerli Bayt) bellekte <span class="keyword">ilk</span> adrese yazılır.</p>
+                        <p class="text-xs">Sayı: 0x0A0B0C0D (A=MSB, D=LSB)</p>
+                        <div class="mt-2"><span class="endian-cell !bg-sky-700">0D</span><span class="endian-cell">0C</span><span class="endian-cell">0B</span><span class="endian-cell !bg-rose-700">0A</span></div>
+                        <div class="mt-1"><span class="text-xs ml-2">A</span><span class="text-xs ml-8">A+1</span><span class="text-xs ml-7">A+2</span><span class="text-xs ml-7">A+3</span></div>
+                    </div>
+                </div>
+                <div class="callout-box mt-6">
+                    <h4 class="font-bold text-white mb-2">Çözüm: Network Byte-Ordering (Ağ Bayt Sıralaması)</h4>
+                    <p>Ağ protokolleri tarafından kullanılan standart sıralama her zaman <span class="keyword">Big-Endian</span>'dır. Veriler gönderilmeden önce <span class="keyword">Host</span> sıralamasından <span class="keyword">Network</span> sıralamasına dönüştürülmelidir. C fonksiyonları (<code class="keyword">htonl</code>, <code class="keyword">htons</code>) bu işi yapar.</p>
+                </div>
+            </div>
+
+            <!-- Dönüşüm Kodu (C) -->
+            <div id="tab-byte-code" class="tab-content" style="display: none;">
+                <p class="mb-4">Port numaraları (16 bit) ve IP adresleri (32 bit) gibi tamsayılar, ağa gönderilmeden önce <span class="keyword">Host</span> bayt sıralamasından <span class="keyword">Network</span> bayt sıralamasına dönüştürülmelidir.</p>
+                <div class="code-block interactive-element mb-4">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token comment">// Host to Network (Göndermeden Önce)</span>
+u_long  <span class="token function">htonl</span><span class="token punctuation">(</span>u_long x<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// (Host to Network Long - 32 bit)</span>
+u_short <span class="token function">htons</span><span class="token punctuation">(</span>u_short x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// (Host to Network Short - 16 bit)</span>
+
+<span class="token comment">// Network to Host (Aldıktan Sonra)</span>
+u_long  <span class="token function">ntohl</span><span class="token punctuation">(</span>u_long x<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// (Network to Host Long - 32 bit)</span>
+u_short <span class="token function">ntohs</span><span class="token punctuation">(</span>u_short x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// (Network to Host Short - 16 bit)</span>
+</code></pre>
+                </div>
+                <p class="mb-4">Örnek (UDP İstemci ve Sunucu):</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="code-block interactive-element">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token comment">// --- İstemci (Gönderen) ---</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">short</span> clientPort <span class="token operator">=</span> <span class="token number">1111</span><span class="token punctuation">;</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">short</span> message<span class="token punctuation">;</span>
+
+<span class="token comment">// Portu Network Byte Order'a çevir</span>
+message <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span>clientPort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">sendto</span><span class="token punctuation">(</span>clientSock<span class="token punctuation">,</span> <span class="token operator">&amp;</span>message<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                    </div>
+                    <div class="code-block interactive-element">
+<pre class="language-c" tabindex="0"><code class="language-c">
+<span class="token comment">// --- Sunucu (Alıcı) ---</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">short</span> clientPort<span class="token punctuation">;</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">short</span> rcvBuffer<span class="token punctuation">;</span>
+
+<span class="token function">recvfrom</span><span class="token punctuation">(</span>servSock<span class="token punctuation">,</span> <span class="token operator">&amp;</span>rcvBuffer<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Ağından gelen veriyi Host Byte Order'a çevir</span>
+clientPort <span class="token operator">=</span> <span class="token function">ntohs</span><span class="token punctuation">(</span>rcvBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Client's port: %d"</span><span class="token punctuation">,</span> clientPort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Sekme (Tab) Fonksiyonu ---
+        function openTab(event, tabID) {
+            let i, tabcontent, tabbuttons;
+            let tabGroup = event.currentTarget.parentElement.parentElement;
+            
+            tabcontent = tabGroup.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            tabbuttons = tabGroup.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            
+            tabGroup.querySelector("#" + tabID).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+        // Başlangıçta ilk sekmeyi aç
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".tab-button.active").forEach(button => {
+                button.click();
+            });
+            // Prism.js'i tetikle
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+        });
+
+        // --- Download Butonu Fonksiyonu ---
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'Hafta_5_Soket_Programlama.html';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        });
+
+    </script>
+
+    <!-- Prism.js Core & C Language Component (Düzeltilmiş Yükleme Sırası) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js" crossorigin="anonymous"></script>
+
+
+
+
+
+</body></html>

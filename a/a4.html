@@ -1,0 +1,1776 @@
+<html lang="tr"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImQzNTlhZTBjMTczYzc3YjFjZDU1MjFiMjVhMWY2YTQ5ZWU1YTZkMjQiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMDU3ODMyNDgwMjM0NDYwNDE0OSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzMwZjFlMzQ2MThlYWUwMmZfaXBfaWNtcF9ub3Rlc19pbmZvMi5odG1sLTE3OCJ9LCJleHAiOjE3NjIwMzIzNjcsImlhdCI6MTc2MjAyODc2NywiYWxnIjoiUlMyNTYifQ.KjAKpOwDvkUrAEEXFfuzBqAgDKbOEhqEiwvU0-KNlYX1Fkvajd3DInmvA_6sAJIFSe-CWc2pdRfHKnv6RvcyMNgq5Sl7hPFFFuv1Cb2WIYH43SuNBpiMTOIT3noCAiUnxfbYmteUSyhV4_xKM0Zuq1or_OyAuVb6NrU2JmsF-8ux0umrYvUStUQ3PTMNZQAHOPRwkhlODm-vYTnN1ybiBIXM1JMdCxswsRBJpPc1v6xoV2dh-RhEoVohlp061FbmgoTpUdGyl2TUASaXSEeLWk7D35gwvS4YjHBHCuj1pFH-sjx3j8alJCfE0HbAqrpKuBRWnw2vdRSJ4Ro2xUYtRA","c_30f1e34618eae02f_ip_icmp_notes_info2.html-178")</script><script>'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-2.5-flash-preview-09-2025","imageModelName":"imagen-3.0-generate-002","imageEditModelName":"gemini-2.5-flash-image-preview","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20"],"deprecatedImageModelNames":["imagen-3.0-generate-001"]})</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta 3: Katman 3 Protokolleri</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* --- Temel "info2" Stilleri --- */
+        :root {
+            --bg-dark: #0f172a;       /* Ana Arka Plan */
+            --bg-card: #1e293b;       /* Kart Arka Planı */
+            --keyword-pink: #f472b6;   /* Vurgu Rengi */
+            --border-blue: #3b82f6;
+            --border-green: #4ade80;
+            --flip-dark-1: #0c1432;
+            --flip-dark-2: #110e2b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Inter', sans-serif;
+        }
+
+        .keyword {
+            color: var(--keyword-pink);
+            font-weight: 600;
+        }
+
+        .gradient-text {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem; /* mb-6 */
+            font-size: 1.875rem; /* text-3xl */
+        }
+
+        /* --- İnteraktif Kart (Genel) --- */
+        .interactive-element {
+            background-color: var(--bg-card);
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 2px solid transparent;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .interactive-element:hover {
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(74, 222, 128, 0.1);
+        }
+
+        /* --- Çevirmeli Kartlar --- */
+        .flip-card {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        .flip-card-front {
+            background-color: var(--bg-card);
+        }
+
+        .flip-card-back {
+            background-image: linear-gradient(to bottom right, var(--flip-dark-1), var(--flip-dark-2));
+            transform: rotateY(180deg);
+            color: #e5e7eb; /* text-gray-200 */
+        }
+
+        /* --- Sadece Belirli Kartlar İçin Eğim Efekti --- */
+        .flip-card:hover,
+        .ip-header-block:hover,
+        .flow-step.interactive-element:hover,
+        .info-box.interactive-element:hover {
+            transform: scale(1.03) rotate(-1deg);
+        }
+        
+        /* --- Sekmeler (Tabs) --- */
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            color: var(--border-green);
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+        }
+        .tab-button:hover {
+            color: var(--border-blue);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* --- Akordeon --- */
+        details.interactive-element summary {
+            cursor: pointer;
+            padding: 1rem;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details.interactive-element[open] summary {
+            border-bottom: 2px solid var(--bg-dark);
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .accordion-content {
+            padding: 1.5rem;
+            border-top: 1px solid var(--bg-dark);
+        }
+
+        /* --- Vurgulu Tablo --- */
+        .styled-table th {
+            background-color: var(--bg-dark);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--border-blue);
+        }
+        .styled-table td {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--bg-dark);
+        }
+        .styled-table tr {
+            transition: all 0.2s ease;
+        }
+        .styled-table tr:hover {
+            background-color: #2a3b52; /* Kart renginin biraz açığı */
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* --- Kod Bloğu (ICMP Formatı için) --- */
+        .code-block {
+            background-color: #0c1432; /* Koyu fon */
+            font-family: 'Source Code Pro', monospace;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            border: 1px solid var(--bg-card);
+            font-size: 0.9rem;
+        }
+        .code-block .type { color: #e879f9; } /* fuchsia-400 */
+        .code-block .comment { color: #6b7280; } /* gray-500 */
+
+        /* --- Animasyon --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Infographic Stilleri (Akış) --- */
+        .flow-container {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            align-items: center;
+        }
+        .flow-step {
+            flex: 1 1 150px;
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: var(--border-blue);
+            margin: 0 1rem;
+            align-self: center;
+            font-weight: bold;
+        }
+        /* Dikey Akış (Fragmantasyon) */
+        .vertical-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .vertical-flow .flow-step {
+            width: 80%;
+        }
+        .vertical-flow .flow-step::after {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--border-blue);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+        .vertical-flow .flow-step:last-child::after {
+            content: '';
+        }
+
+        /* Bilgi Kutusu (ICMP Hataları için) */
+        .info-box {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        /* Vurgu Kutusu (Checksum için) */
+        .callout-box {
+            background-color: var(--bg-dark);
+            border-left: 4px solid var(--border-green);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 1rem 0;
+        }
+        
+        /* IP Header Infographic Stili */
+        .ip-header-block {
+            padding: 0.75rem;
+            border: 1px solid var(--bg-card);
+            text-align: center;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 80px;
+        }
+        .ip-header-block .title {
+            font-weight: 600;
+            color: var(--border-green);
+        }
+        .ip-header-block .bits {
+            font-size: 0.75rem;
+            color: var(--keyword-pink);
+        }
+        .col-span-1 { grid-column: span 1 / span 1; }
+        .col-span-2 { grid-column: span 2 / span 2; }
+        .col-span-3 { grid-column: span 3 / span 3; }
+        .col-span-4 { grid-column: span 4 / span 4; }
+
+        /* Download Butonu */
+        #downloadButton {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        #downloadButton:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25);
+        }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.col-span-1{grid-column:span 1 / span 1}.col-span-2{grid-column:span 2 / span 2}.col-span-4{grid-column:span 4 / span 4}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-4{margin-left:1rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.h-48{height:12rem}.h-64{height:16rem}.w-48{width:12rem}.w-64{width:16rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.\!flex-none{flex:none !important}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-1{gap:0.25rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-x-auto{overflow-x:auto}.rounded-lg{border-radius:0.5rem}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity, 1))}.border-gray-500{--tw-border-opacity:1;border-color:rgb(107 114 128 / var(--tw-border-opacity, 1))}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68 / var(--tw-border-opacity, 1))}.border-yellow-500{--tw-border-opacity:1;border-color:rgb(234 179 8 / var(--tw-border-opacity, 1))}.border-green-500{--tw-border-opacity:1;border-color:rgb(34 197 94 / var(--tw-border-opacity, 1))}.\!bg-blue-900{--tw-bg-opacity:1 !important;background-color:rgb(30 58 138 / var(--tw-bg-opacity, 1)) !important}.\!bg-emerald-700{--tw-bg-opacity:1 !important;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1)) !important}.\!bg-indigo-700{--tw-bg-opacity:1 !important;background-color:rgb(67 56 202 / var(--tw-bg-opacity, 1)) !important}.\!bg-purple-700{--tw-bg-opacity:1 !important;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1)) !important}.\!bg-rose-700{--tw-bg-opacity:1 !important;background-color:rgb(190 18 60 / var(--tw-bg-opacity, 1)) !important}.\!bg-sky-700{--tw-bg-opacity:1 !important;background-color:rgb(3 105 161 / var(--tw-bg-opacity, 1)) !important}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.\!p-4{padding:1rem !important}.p-2{padding:0.5rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.\!text-left{text-align:left !important}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-300{--tw-text-opacity:1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:mt-0{margin-top:0px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-12{padding:3rem}}@media (min-width: 1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}.lg\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}}</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Başlık ve Download Butonu -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div>
+                <h1 class="text-4xl font-bold text-white mb-2">Ağ Programlama - Hafta 3</h1>
+                <p class="text-xl text-gray-400">Katman 3 Protokolleri ve Çalışma Yapıları</p>
+                <p class="text-md text-gray-500 mt-1">Dr. Öğr. Üyesi Musa BALTA | 29.09.2025</p>
+            </div>
+            <button id="downloadButton" class="mt-4 md:mt-0">
+                Notları İndir
+            </button>
+        </div>
+
+        <!-- 🎯 Haftalık İçerik - Çevirmeli Kartlar -->
+        <h2 class="section-title gradient-text">🎯 Konu İçeriği</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">IP (Internet Protocol)</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center"><span class="keyword">Ağ Katmanı</span>'nın temel iletim mekanizması. <span class="keyword">Bağlantısız</span>, <span class="keyword">en iyi teslim</span> (best effort) prensibiyle çalışır.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">Fragmantasyon</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">Büyük IP datagramlarının, daha küçük <span class="keyword">MTU</span>'lara sığmak için parçalara ayrılması işlemi.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">IPv6</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center"><span class="keyword">128-bit</span> adresleme ile <span class="keyword">NAT</span> ihtiyacını ortadan kaldıran, daha basit başlıklı yeni nesil IP.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">ICMP</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">IP'nin çalışması sırasında oluşan <span class="keyword">hataları raporlamak</span> (örn: TTL bitti) ve <span class="keyword">sorgu</span> yapmak (örn: ping) için kullanılır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. IP Protokolü - Sekmeler -->
+        <h2 class="section-title gradient-text mt-12">1. IP Protokolü (IPv4)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-ip-ozellikler')">Genel Özellikler</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-ip-baslik')">Başlık Yapısı (Infographic)</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-ip-payload')">Payload (Protokol Alanı)</button>
+            </div>
+
+            <!-- Sekme İçerikleri -->
+            <div id="tab-ip-ozellikler" class="tab-content active" style="display: block;">
+                <div class="interactive-element p-6">
+                    <p class="mb-4 text-lg"><span class="keyword">Internet Protokolü (IP)</span>, TCP/IP protokol takımında <span class="keyword">Ağ Katmanı</span> (Network Layer) tarafından kullanılan temel iletim mekanizmasıdır. Verinin bir ağdan diğerine yönlendirilmesinden sorumludur.</p>
+                    <ul class="list-disc list-inside space-y-3 mt-4">
+                        <li><span class="keyword">Datagram:</span> IP protokolünde taşınan veri paketlerine <span class="keyword">datagram</span> denir.</li>
+                        <li><span class="keyword">Başlık Boyutu:</span> Bir IP datagram başlığı <span class="keyword">20 ila 60 bayt</span> arasında değişir.</li>
+                        <li><span class="keyword">Bağlantısız (Connectionless):</span> Veri göndermeden önce alıcıyla bir bağlantı veya oturum <span class="keyword">kurmaz</span>. Her paket birbirinden bağımsızdır.</li>
+                        <li><span class="keyword">En İyi Teslim (Best Effort):</span> IP, paketin hedefe ulaşacağını <span class="keyword">garanti etmez</span>. Güvenilirlik, üst katman (örn: <span class="keyword">TCP</span>) tarafından sağlanır.</li>
+                        <li><span class="keyword">Ortam Bağımsız:</span> Alttaki fiziksel teknolojiden (Ethernet, Wi-Fi, Fiber) <span class="keyword">bağımsız</span> çalışır.</li>
+                        <li><span class="keyword">Kapsülleme (Encapsulation):</span> IP datagramları, <span class="keyword">Katman 2</span>'de bir çerçeve (frame) içine kapsüllenerek gönderilir.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="tab-ip-baslik" class="tab-content" style="display: none;">
+                <div class="interactive-element p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4">IPv4 Başlık Yapısı (Min 20 Byte)</h3>
+                    <p class="mb-6">Başlık, paketin nasıl yönlendirileceği hakkında kritik bilgiler içerir. Her satır 32 bit (4 byte) uzunluğundadır.</p>
+                    <div class="grid grid-cols-4 gap-1 bg-gray-900 p-2 rounded-lg">
+                        <!-- Satır 1: VER, HLEN, Service Type, Total Length -->
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">VER</span><span class="bits">(4)</span></div>
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">HLEN</span><span class="bits">(4)</span></div>
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">Service Type</span><span class="bits">(8)</span></div>
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">Total Length</span><span class="bits">(16)</span></div>
+                        
+                        <!-- Satır 2: Identification, Flags, Fragment Offset -->
+                        <div class="ip-header-block interactive-element col-span-2"><span class="title">Identification</span><span class="bits">(16)</span></div>
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">Flags</span><span class="bits">(3)</span></div>
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">Fragment Offset</span><span class="bits">(13)</span></div>
+
+                        <!-- Satır 3: TTL, Protocol, Header Checksum -->
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">Time to Live (TTL)</span><span class="bits">(8)</span></div>
+                        <div class="ip-header-block interactive-element col-span-1"><span class="title">Protocol</span><span class="bits">(8)</span></div>
+                        <div class="ip-header-block interactive-element col-span-2"><span class="title">Header Checksum</span><span class="bits">(16)</span></div>
+
+                        <!-- Satır 4: Source IP Address -->
+                        <div class="ip-header-block interactive-element col-span-4"><span class="title">Source IP Address</span><span class="bits">(32)</span></div>
+                        
+                        <!-- Satır 5: Destination IP Address -->
+                        <div class="ip-header-block interactive-element col-span-4"><span class="title">Destination IP Address</span><span class="bits">(32)</span></div>
+
+                        <!-- Satır 6: Options + Padding -->
+                        <div class="ip-header-block interactive-element col-span-4 !bg-blue-900"><span class="title">Options + Padding</span><span class="bits">(0 - 40 bytes)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-ip-payload" class="tab-content" style="display: none;">
+                <div class="interactive-element p-6">
+                    <h3 class="text-2xl font-bold text-white mb-4">Payload (Protokol Alanı)</h3>
+                    <p class="mb-6">IP başlığındaki <span class="keyword">Protocol (8 bit)</span> alanı, IP'nin taşıdığı verinin (payload) hangi üst katman protokolüne ait olduğunu belirtir. Bu, hedef makinenin veriyi hangi servise (TCP, UDP, vb.) ileteceğini bilmesini sağlar.</p>
+                    <div class="overflow-x-auto">
+                        <table class="styled-table w-full">
+                            <thead>
+                                <tr><th>Değer (Value)</th><th>Protokol</th><th>Açıklama</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td class="text-green-300 font-bold">ICMP</td><td>Internet Control Message Protocol (Ping, Hata Mesajları)</td></tr>
+                                <tr><td>2</td><td class="text-gray-400">IGMP</td><td>Internet Group Management Protocol (Multicast)</td></tr>
+                                <tr><td>6</td><td class="text-blue-300 font-bold">TCP</td><td>Transmission Control Protocol (Güvenilir İletim)</td></tr>
+                                <tr><td>17</td><td class="text-yellow-300 font-bold">UDP</td><td>User Datagram Protocol (Hızlı, Güvenilirsiz İletim)</td></tr>
+                                <tr><td>89</td><td class="text-gray-400">OSPF</td><td>Open Shortest Path First (Yönlendirme Protokolü)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. IP Fragmantasyonu (Parçalama) -->
+        <h2 class="section-title gradient-text mt-12">2. IP Datagramı Fragmantasyonu (Parçalama)</h2>
+        <div class="interactive-element p-6 mb-12">
+            <p class="mb-6">Bir IP datagramı, farklı <span class="keyword">MTU (Maximum Transmission Unit)</span> değerlerine sahip ağlardan geçerken parçalanabilir. Bir router, bir datagramı MTU'su daha küçük bir ağa göndermek zorundaysa ve paketin <span class="keyword">DF (Don't Fragment)</span> bayrağı 0 ise, datagramı <span class="keyword">parçalamak</span> zorundadır. Parçalar hedefte birleştirilir.</p>
+            
+            <h4 class="text-xl font-semibold text-green-300 mb-4 text-center">Detaylı Fragmantasyon Örneği (Yeniden Parçalama)</h4>
+            <div class="flex flex-col lg:flex-row justify-around items-center bg-gray-900 p-4 rounded-lg space-y-4 lg:space-y-0">
+                
+                <!-- Orijinal Datagram -->
+                <div class="flow-step interactive-element !bg-rose-700">
+                    <strong>Orijinal Datagram</strong>
+                    <small>ID: 14567, MF: 0, DF: 0</small>
+                    <small>Total Length: 4020 (20B Başlık + 4000B Veri)</small>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <!-- Ağ 1 (MTU 1420) -->
+                <div class="vertical-flow">
+                    <div class="flow-step interactive-element">
+                        <strong>Fragment 1 (Ağ 1)</strong>
+                        <small>ID: 14567, <span class="keyword">MF: 1</span>, Offset: 0</small>
+                        <small>Total Length: 1420 (20B Başlık + 1400B Veri [0-1399])</small>
+                    </div>
+                    <div class="flow-step interactive-element">
+                        <strong>Fragment 2 (Ağ 1)</strong>
+                        <small>ID: 14567, <span class="keyword">MF: 1</span>, Offset: 175 (1400/8)</small>
+                        <small>Total Length: 1420 (20B Başlık + 1400B Veri [1400-2799])</small>
+                    </div>
+                    <div class="flow-step interactive-element">
+                        <strong>Fragment 3 (Ağ 1)</strong>
+                        <small>ID: 14567, <span class="keyword">MF: 0</span>, Offset: 350 (2800/8)</small>
+                        <small>Total Length: 1220 (20B Başlık + 1200B Veri [2800-3999])</small>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <!-- Ağ 2 (MTU 820) - Sadece Fragment 2 etkilenir -->
+                <div class="vertical-flow">
+                    <div class="flow-step interactive-element !bg-purple-700">
+                        <strong>Fragment 2.1 (Ağ 2)</strong>
+                        <small>ID: 14567, <span class="keyword">MF: 1</span>, Offset: 175</small>
+                        <small>Total Length: 820 (20B Başlık + 800B Veri [1400-2199])</small>
+                    </div>
+                    <div class="flow-step interactive-element !bg-purple-700">
+                        <strong>Fragment 2.2 (Ağ 2)</strong>
+                        <small>ID: 14567, <span class="keyword">MF: 1</span>, Offset: 275 (2200/8)</small>
+                        <small>Total Length: 620 (20B Başlık + 600B Veri [2200-2799])</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. IP Opsiyonları ve Kontrol Toplamı -->
+        <h2 class="section-title gradient-text mt-12">3. IP Opsiyonları ve Kontrol Toplamı (Checksum)</h2>
+        <div class="space-y-4 mb-12">
+            
+            <details class="interactive-element">
+                <summary>IP Datagramı Başlık Yapısı (Opsiyonlar)</summary>
+                <div class="accordion-content">
+                    <p class="mb-4">IP başlığının değişken kısmı (<span class="keyword">maksimum 40 bayt</span>) opsiyonel bilgiler içerir. Bu seçenekler genellikle ağ testi ve hata ayıklama için kullanılır. Her opsiyonun <span class="keyword">Type</span>, <span class="keyword">Length</span> ve <span class="keyword">Value</span> alanları vardır.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="info-box interactive-element !text-left !p-4 border-l-4 border-gray-500">
+                            <h4 class="text-lg font-bold text-gray-300">Tek Baytlık Opsiyonlar</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li><span class="keyword">No Operation (NO-OP):</span> Hizalama (padding) için kullanılır.</li>
+                                <li><span class="keyword">End of Option (END-OP):</span> Opsiyon listesinin sonunu belirtir.</li>
+                            </ul>
+                        </div>
+                        <div class="info-box interactive-element !text-left !p-4 border-l-4 border-blue-500">
+                            <h4 class="text-lg font-bold text-blue-300">Çok Baytlık Opsiyonlar</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li><span class="keyword">Record Route:</span> Paketin geçtiği router'ların IP'lerini kaydeder.</li>
+                                <li><span class="keyword">Strict Source Route:</span> Paketin izlemesi gereken *kesin* rotayı belirler.</li>
+                                <li><span class="keyword">Loose Source Route:</span> Paketin uğraması gereken router listesini belirler (aralara başka router girebilir).</li>
+                                <li><span class="keyword">Timestamp:</span> Paketin router'lardan geçtiği zaman damgalarını kaydeder.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            
+            <details class="interactive-element">
+                <summary>IP Datagramı Başlık Yapısı (Kontrol Toplamı - Checksum)</summary>
+                <div class="accordion-content">
+                    <p class="mb-4"><span class="keyword">Checksum</span>, IP başlığında taşıma sırasında bir hata olup olmadığını tespit etmek için kullanılır. <span class="keyword">Sadece başlık için</span> hesaplanır (veri kısmı için değil). Her router'da <span class="keyword">TTL</span> değiştiği için bu değer <span class="keyword">yeniden hesaplanır</span>.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-xl font-semibold text-green-300 mb-3">Gönderen Taraf (Hesaplama)</h4>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li>Checksum alanı <span class="keyword">0</span> olarak ayarlanır.</li>
+                                <li>Tüm başlık <span class="keyword">16-bit'lik</span> parçalara bölünür.</li>
+                                <li>Tüm bu parçalar toplanır.</li>
+                                <li>Toplamda taşan kısım (elde) varsa, toplamın sonuna eklenir.</li>
+                                <li>Çıkan sonucun <span class="keyword">1'e tümleyeni</span> (1's complement) alınır.</li>
+                                <li>Bu sonuç Checksum alanına yazılır.</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-blue-300 mb-3">Alıcı Taraf (Doğrulama)</h4>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li>Gelen paketin başlığındaki tüm 16-bit'lik parçalar (Checksum dahil) toplanır.</li>
+                                <li>Elde (carry) varsa, toplama eklenir.</li>
+                                <li>Eğer başlıkta hata yoksa, bu toplamın 1'e tümleyeni <span class="keyword">0</span> olmalıdır.</li>
+                            </ol>
+                            <div class="callout-box mt-4">
+                                <p class="text-sm">Hatasız bir başlıkta, doğrulama toplamının sonucu <span class="keyword font-mono">1111 1111 1111 1111</span> (yani 1'e tümleyeni 0) olmalıdır.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- 4. IP Datagramının İşletimi -->
+        <h2 class="section-title gradient-text mt-12">4. IP Datagramının İşletimi (Modüler Yapı)</h2>
+        <div class="interactive-element p-6 mb-12 bg-gray-900">
+            <div class="flow-container justify-center items-stretch">
+                <!-- Sol Taraf: Gelen Paketler -->
+                <div class="flow-step interactive-element !flex-none w-48"><strong>Giriş (Veri Bağı Katmanı)</strong><br><small>Frame alındı</small></div>
+                <div class="flow-arrow">→</div>
+                
+                <!-- Merkez: İşleme Modülü -->
+                <div class="flow-step interactive-element !bg-indigo-700 !flex-none w-64">
+                    <strong>Processing Module</strong>
+                    <small>Hedef IP kontrol edilir. Lokal adres mi? TTL kontrol edilir.</small>
+                </div>
+
+                <!-- Sağ Taraf: Dallanma -->
+                <div class="flex flex-col space-y-4 ml-4">
+                    <!-- Dal 1: Lokal Teslim -->
+                    <div class="flow-container items-center">
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step interactive-element !bg-emerald-700">
+                            <strong>Reassembly Module</strong>
+                            <small>Parçalar birleştirilir ve Üst Katmana (TCP/UDP) iletilir.</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Dal 2: Yönlendirme -->
+                    <div class="flow-container items-center">
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step interactive-element !bg-sky-700">
+                            <strong>Forwarding Module</strong>
+                            <small>Routing Table'a bakılır, Next-Hop bulunur, MTU kontrol edilir.</small>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step interactive-element !bg-purple-700">
+                            <strong>Fragmentation Module</strong>
+                            <small>Gerekirse parçalanır ve Çıkış Arayüzü Kuyruğuna eklenir.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. IPv6 -->
+        <h2 class="section-title gradient-text mt-12">5. IPv6 (Yeni Nesil IP)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-ipv6-ozellikler')">Temel Özellikler</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-ipv6-baslik')">IPv4 -&gt; IPv6 Başlık Değişimi</button>
+            </div>
+
+            <!-- Sekme İçerikleri -->
+            <div id="tab-ipv6-ozellikler" class="tab-content active" style="display: block;">
+                <div class="interactive-element p-6">
+                    <p class="mb-4 text-lg">IPv4 adres alanının tükenmesi sorununa çözüm olarak geliştirilmiştir.</p>
+                    <ul class="list-disc list-inside space-y-3 mt-4">
+                        <li><span class="keyword">128 bit Adresleme:</span> IPv4'ün 32 biti yerine 128 bit kullanarak astronomik sayıda (340 undesilyon) adres sağlar.</li>
+                        <li><span class="keyword">Geliştirilmiş Paket İşleme:</span> IPv6 başlığı, IPv4'e göre daha basittir. <span class="keyword">Checksum</span> ve <span class="keyword">Opsiyonlar</span> gibi alanlar başlıktan çıkarılmıştır. Bu, router'ların paketleri daha hızlı işlemesini sağlar.</li>
+                        <li><span class="keyword">NAT İhtiyacını Ortadan Kaldırır:</span> Adres alanı çok geniş olduğu için, her cihazın benzersiz bir genel IP adresine sahip olmasına olanak tanır ve <span class="keyword">NAT (Network Address Translation)</span> ihtiyacını kaldırır.</li>
+                        <li><span class="keyword">Entegre Güvenlik:</span> <span class="keyword">IPsec (IP Security)</span> protokolü IPv6 standardına entegre edilmiştir.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="tab-ipv6-baslik" class="tab-content" style="display: none;">
+                <div class="interactive-element p-6">
+                    <h3 class="text-2xl font-bold text-white mb-6">IPv4'ten IPv6'ya Başlıktaki Değişiklikler</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="info-box interactive-element !text-left !p-4 border-l-4 border-red-500">
+                            <h4 class="text-lg font-bold text-red-300">Kaldırılan Alanlar</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li>IHL (HLEN)</li>
+                                <li>Identification</li>
+                                <li>Flags</li>
+                                <li>Fragment Offset (Opsiyonel başlık oldu)</li>
+                                <li><span class="keyword">Header Checksum</span> (Hata kontrolü üst katmanlara bırakıldı)</li>
+                                <li>Options &amp; Padding</li>
+                            </ul>
+                        </div>
+                        <div class="info-box interactive-element !text-left !p-4 border-l-4 border-yellow-500">
+                            <h4 class="text-lg font-bold text-yellow-300">Adı Değişen Alanlar</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li>Service Type → <span class="keyword">Traffic Class</span></li>
+                                <li>Total Length → <span class="keyword">Payload Length</span> (Sadece veri uzunluğu)</li>
+                                <li>Time to Live → <span class="keyword">Hop Limit</span></li>
+                                <li>Protocol → <span class="keyword">Next Header</span></li>
+                            </ul>
+                        </div>
+                        <div class="info-box interactive-element !text-left !p-4 border-l-4 border-green-500">
+                            <h4 class="text-lg font-bold text-green-300">Yeni Eklenen Alan</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li><span class="keyword">Flow Label:</span> Aynı akışa ait paketleri (örn: video akışı) etiketlemek ve <span class="keyword">QoS</span> (Hizmet Kalitesi) sağlamak için kullanılır.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. ICMP -->
+        <h2 class="section-title gradient-text mt-12">6. ICMP (Internet Control Message Protocol)</h2>
+        <div class="space-y-4 mb-12">
+            
+            <details class="interactive-element" open="">
+                <summary>ICMP Nedir? (Genel Format)</summary>
+                <div class="accordion-content">
+                    <p class="mb-4"><span class="keyword">ICMP</span>, IP protokolünün ayrılmaz bir parçasıdır ve ağ katmanında çalışır. IP'nin "en iyi teslim" (best-effort) doğası gereği ortaya çıkan sorunları <span class="keyword">raporlamak</span> ve ağ hakkında bilgi <span class="keyword">sorgulamak</span> için kullanılır. ICMP mesajları, IP datagramının <span class="keyword">Payload</span> kısmında (Protokol No: 1) taşınır.</p>
+                    <div class="code-block">
+                        <pre><code><span class="type">Type (8 bits):</span>     <span class="comment">// Mesajın türü (örn: 8 = Echo Request)</span>
+<span class="type">Code (8 bits):</span>     <span class="comment">// Mesaj türünün alt nedeni (örn: Type 3, Code 1)</span>
+<span class="type">Checksum (16 bits):</span> <span class="comment">// Sadece ICMP mesajının bütünlüğü için</span>
+<span class="type">Rest of Header:</span>  <span class="comment">// Mesaj türüne göre değişir</span>
+<span class="type">Data Section:</span>    <span class="comment">// (Opsiyonel) Hata durumunda orijinal IP başlığı...</span></code></pre>
+                    </div>
+                </div>
+            </details>
+
+            <details class="interactive-element">
+                <summary>ICMP Mesaj Kategorileri</summary>
+                <div class="accordion-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="h-64">
+                            <canvas id="icmpChart" style="display: block; box-sizing: border-box; height: 256px; width: 411.3px;" width="617" height="384"></canvas>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="styled-table w-full">
+                                <thead>
+                                    <tr><th>Kategori</th><th>Type</th><th>Mesaj</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Hata</td><td class="text-red-400">3</td><td>Destination Unreachable</td></tr>
+                                    <tr><td>Hata</td><td class="text-red-400">4</td><td>Source Quench (Tıkanıklık)</td></tr>
+                                    <tr><td>Hata</td><td class="text-red-400">11</td><td>Time Exceeded (TTL=0)</td></tr>
+                                    <tr><td>Hata</td><td class="text-red-400">12</td><td>Parameter Problem</td></tr>
+                                    <tr><td>Hata</td><td class="text-red-400">5</td><td>Redirection (Yeniden Yönlendirme)</td></tr>
+                                    <tr><td>Sorgu</td><td class="text-green-400">8 / 0</td><td>Echo Request / Reply (Ping)</td></tr>
+                                    <tr><td>Sorgu</td><td class="text-green-400">13 / 14</td><td>Timestamp Request / Reply</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            
+            <details class="interactive-element">
+                <summary>ICMP Hata Raporlama Mesajları (Detay)</summary>
+                <div class="accordion-content">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="info-box interactive-element border-l-4 border-red-500">
+                            <h4 class="text-lg font-bold text-red-300">Type 3: Destination Unreachable</h4>
+                            <p class="text-sm">Hedef <span class="keyword">Ağ</span> (Code 0), <span class="keyword">Host</span> (Code 1), <span class="keyword">Protokol</span> (Code 2) veya <span class="keyword">Port</span> (Code 3) ulaşılamaz olduğunda gönderilir. Ayrıca <span class="keyword">DF=1</span> iken parçalanma gerekirse (Code 4) bu hata kullanılır.</p>
+                        </div>
+                        <div class="info-box interactive-element border-l-4 border-red-500">
+                            <h4 class="text-lg font-bold text-red-300">Type 11: Time Exceeded</h4>
+                            <p class="text-sm">Bir router paketin <span class="keyword">TTL</span> değerini 0 yaptığında (Code 0 - <span class="keyword">traceroute</span> bu mekanizmayı kullanır) veya hedef host parçalanmış paketin tüm parçalarını zamanında alamadığında (Code 1) gönderilir.</p>
+                        </div>
+                        <div class="info-box interactive-element border-l-4 border-red-500">
+                            <h4 class="text-lg font-bold text-red-300">Type 5: Redirection</h4>
+                            <p class="text-sm">Bir router, bir host'un <span class="keyword">daha iyi bir rota</span> kullanabileceğini fark ettiğinde (örn: aynı ağdaki başka bir router'a gitmesi gerekirken kendisine geldiyse) bu mesajı göndererek host'un <span class="keyword">yönlendirme tablosunu</span> günceller.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="interactive-element">
+                <summary>ICMP Sorgu Mesajları (Detay)</summary>
+                <div class="accordion-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="info-box interactive-element border-l-4 border-green-500">
+                            <h4 class="text-lg font-bold text-green-300">Type 8 (Request) / Type 0 (Reply)</h4>
+                            <p class="text-sm"><span class="keyword">ping</span> komutunun temelidir. Bir host'un veya router'ın ağda <span class="keyword">ulaşılabilir</span> (hayatta) olup olmadığını test etmek için kullanılır. <span class="keyword">Identifier</span> ve <span class="keyword">Sequence Number</span> alanları, istek ve cevapları eşleştirmek için kullanılır.</p>
+                        </div>
+                        <div class="info-box interactive-element border-l-4 border-green-500">
+                            <h4 class="text-lg font-bold text-green-300">Type 13 (Request) / Type 14 (Reply)</h4>
+                            <p class="text-sm">İki makine arasındaki <span class="keyword">gidiş-dönüş süresini (RTT)</span> hesaplamak veya makinelerin saatlerini <span class="keyword">senkronize etmek</span> için kullanılır. Original, Receive ve Transmit zaman damgalarını içerir.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+        </div>
+
+    </div>
+
+    <script>
+        // --- Sekme (Tab) Fonksiyonu ---
+        function openTab(event, tabID) {
+            let i, tabcontent, tabbuttons;
+            
+            // Tüm tab içeriklerini gizle
+            let tabGroup = event.currentTarget.parentElement.parentElement;
+            tabcontent = tabGroup.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Tüm tab butonlarından 'active' sınıfını kaldır
+            tabbuttons = tabGroup.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            
+            // Tıklanan tabı göster ve butonunu 'active' yap
+            tabGroup.querySelector("#" + tabID).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+        // Başlangıçta ilk sekmeyi aç
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".tab-button.active").forEach(button => {
+                button.click();
+            });
+        });
+
+
+        // --- Chart.js ICMP Kategori Grafiği ---
+        const ctx = document.getElementById('icmpChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Hata Raporlama Mesajları', 'Sorgu Mesajları'],
+                    datasets: [{
+                        label: 'ICMP Mesaj Kategorileri',
+                        data: [5, 2], // Listelenen 5 Hata mesajı türü, 2 Sorgu mesajı türü
+                        backgroundColor: [
+                            'rgba(244, 114, 182, 0.7)', // --keyword-pink
+                            'rgba(59, 130, 246, 0.7)'   // --border-blue
+                        ],
+                        borderColor: [
+                            '#f472b6',
+                            '#3b82f6'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#d1d5db'
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'ICMP Mesaj Türleri Dağılımı',
+                            color: '#e5e7eb'
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- Download Butonu Fonksiyonu ---
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'Hafta_3_IP_ICMP_Notlari.html';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        });
+
+    </script>
+
+
+
+
+</body></html>

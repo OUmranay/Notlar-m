@@ -1,0 +1,1582 @@
+<html lang="tr"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImQzNTlhZTBjMTczYzc3YjFjZDU1MjFiMjVhMWY2YTQ5ZWU1YTZkMjQiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMDU3ODMyNDgwMjM0NDYwNDE0OSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzMwZjFlMzQ2MThlYWUwMmZfYXBwX2xheWVyX25vdGVzX2luZm8yLmh0bWwtNiJ9LCJleHAiOjE3NjIwMzY4MzMsImlhdCI6MTc2MjAzMzIzMywiYWxnIjoiUlMyNTYifQ.akHjoVi9WplPQBe1iylLeMOd0haXLIjY7LtrCuQt1wJOAUlNUFTbPGNj8NhCmQzNaUw7F_qLWiK9AXdB9Kn8WzlPe3ZmTDJ20qtaoFfH7QszAQ5Rx2z4717A2eh68eQRTIgdZZpa-Ex_vdcInwPjlb7s2sMoKRGG0mYOxF00poLhYmQGVmzV6J4eUxMIiAMQI-_WQ0h3wqBFThdbJXa318b9WAtkLDanQlgWGRxgxNhBcffT_6zQBwKmrYL7kkqrKy2_-54SHJ7MKz43XoUcZ4a4F9Aya6KHSFRcR_KV5TJ0_d8dc2PS5MUAvWrNr_ExGf12EcqI9dh_UQUbO1os-A","c_30f1e34618eae02f_app_layer_notes_info2.html-6")</script><script>'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-2.5-flash-preview-09-2025","imageModelName":"imagen-3.0-generate-002","imageEditModelName":"gemini-2.5-flash-image-preview","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20"],"deprecatedImageModelNames":["imagen-3.0-generate-001"]})</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta 6: Katman 7 Protokolleri</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome (İkonlar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS (Okaidia Teması - Antrasit arka plan için özelleştirilecek) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
+
+    <style>
+        /* --- Temel "info2" Stilleri --- */
+        :root {
+            --bg-dark: #0f172a;      /* Ana Arka Plan */
+            --bg-card: #1e293b;      /* Kart Arka Planı */
+            --keyword-pink: #f472b6;  /* Vurgu Rengi */
+            --border-blue: #3b82f6;
+            --border-green: #4ade80;
+            --flip-dark-1: #0c1432;
+            --flip-dark-2: #110e2b;
+            --code-bg-antrasit: #2d3748; /* İstenen Antrasit Rengi */
+            /* Canlı Renk Paleti */
+            --live-rose: #be123c;
+            --live-purple: #7e22ce;
+            --live-indigo: #4338ca;
+            --live-emerald: #047857;
+            --live-sky: #0369a1;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Inter', sans-serif;
+        }
+
+        .keyword {
+            color: var(--keyword-pink);
+            font-weight: 600;
+        }
+
+        .gradient-text {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem; /* mb-6 */
+            font-size: 1.875rem; /* text-3xl */
+        }
+
+        /* --- İnteraktif Kart (Genel) --- */
+        .interactive-element {
+            background-color: var(--bg-card);
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 2px solid transparent;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .interactive-element:hover {
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(74, 222, 128, 0.1);
+        }
+
+        /* --- Çevirmeli Kartlar --- */
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        .flip-card-front {
+            background-color: var(--bg-card);
+        }
+        .flip-card-back {
+            background-image: linear-gradient(to bottom right, var(--flip-dark-1), var(--flip-dark-2));
+            transform: rotateY(180deg);
+            color: #e5e7eb; /* text-gray-200 */
+        }
+
+        /* --- Sadece Belirli Kartlar İçin Eğim Efekti --- */
+        .flip-card:hover,
+        .flow-step.interactive-element:hover,
+        .info-box.interactive-element:hover,
+        .code-block:hover,
+        .styled-table tr:hover,
+        .mib-node:hover {
+            transform: scale(1.03) rotate(-1deg);
+        }
+        
+        /* --- Sekmeler (Tabs) --- */
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            color: var(--border-green);
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+        }
+        .tab-button:hover {
+            color: var(--border-blue);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* --- Akordeon --- */
+        details.interactive-element summary {
+            cursor: pointer;
+            padding: 1rem;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details.interactive-element[open] summary {
+            border-bottom: 2px solid var(--bg-dark);
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .accordion-content {
+            padding: 1.5rem;
+            border-top: 1px solid var(--bg-dark);
+        }
+
+        /* --- Vurgulu Tablo --- */
+        .styled-table th {
+            background-color: var(--bg-dark);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--border-blue);
+        }
+        .styled-table td {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--bg-dark);
+        }
+        .styled-table tr {
+            transition: all 0.2s ease;
+        }
+        .styled-table tr:hover {
+            background-color: #2a3b52; /* Kart renginin biraz açığı */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* --- Kod Bloğu ve Prism.js Özelleştirmesi --- */
+        .code-block {
+            font-family: 'Source Code Pro', monospace;
+            border-radius: 0.5rem;
+            border: 1px solid var(--bg-card);
+            font-size: 0.9rem;
+            overflow: hidden; /* pre için */
+            transition: all 0.3s ease;
+        }
+        /* pre etiketine border-radius uygula */
+        pre[class*="language-"] {
+            background: var(--code-bg-antrasit) !important; /* İstenen Antrasit Rengi */
+            padding: 1.25rem !important;
+            margin: 0 !important; /* pre'nin varsayılan margin'ini sıfırla */
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+        /* HTTP dili için token renklerini ayarla */
+        .token.property, .token.header-name, .token.keyword {
+            color: #f08d49 !important; /* Turuncu */
+        }
+        .token.string, .token.url, .token.header-value {
+            color: #a5e075 !important; /* Yeşil */
+        }
+        .token.function, .token.request-line .token.string:first-child, .token.status-line .token.string:first-child {
+            color: #61afef !important; /* Mavi */
+        }
+        .token.punctuation {
+            color: #abb2bf !important; /* Gri */
+        }
+        .token.operator {
+             background: none !important;
+        }
+
+        /* --- Animasyon --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Infographic Stilleri (Genel) --- */
+        .flow-step {
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .info-box {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .callout-box {
+            background-color: var(--bg-dark);
+            border-left: 4px solid var(--border-green);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 1rem 0;
+        }
+
+        /* FTP Mimarisi */
+        .ftp-diagram {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+            background-color: var(--bg-dark);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .ftp-box {
+            background-color: var(--bg-card);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        .ftp-box h4 {
+            font-weight: 700;
+            color: white;
+        }
+        .ftp-connection {
+            position: relative;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+        .ftp-connection::before {
+            content: '';
+            position: absolute;
+            left: -50px;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 3px dashed;
+            z-index: 0;
+        }
+        .ftp-connection.control::before { border-color: var(--live-sky); }
+        .ftp-connection.data::before { border-color: var(--live-purple); }
+        
+        .ftp-connection span {
+            background-color: var(--bg-dark);
+            padding: 0 0.5rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+        .ftp-control { color: var(--live-sky); }
+        .ftp-data { color: var(--live-purple); }
+
+        /* SMTP Modeli */
+        .smtp-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .smtp-box {
+            background-color: var(--bg-card);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid var(--bg-dark);
+        }
+        .smtp-arrow {
+            font-size: 1.5rem;
+            color: var(--border-blue);
+            font-weight: bold;
+        }
+
+        /* SNMP MIB Ağacı */
+        .mib-tree {
+            padding: 1.5rem;
+            background: var(--bg-dark);
+            border-radius: 0.5rem;
+            font-family: 'Source Code Pro', monospace;
+            overflow-x: auto;
+        }
+        .mib-tree ul {
+            list-style: none;
+            padding-left: 2rem;
+            position: relative;
+            min-width: 600px; /* Yatay kaydırma için */
+        }
+        .mib-tree ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0.5rem;
+            bottom: 0;
+            width: 2px;
+            background-color: #4b5563; /* gray-600 */
+        }
+        .mib-tree li {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        .mib-tree li::before {
+            content: '';
+            position: absolute;
+            top: 1.25rem; /* Dikey çizginin ortası */
+            left: -1.5rem;
+            width: 1.25rem;
+            height: 2px;
+            background-color: #4b5563; /* gray-600 */
+        }
+        .mib-node {
+            display: inline-block;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--bg-dark);
+            transition: all 0.3s ease;
+            white-space: nowrap; /* Kırılmayı engelle */
+        }
+        .mib-node.iso { background-color: var(--live-rose); color: white; }
+        .mib-node.internet { background-color: var(--live-indigo); color: white; }
+        .mib-node.mgmt { background-color: var(--live-sky); color: white; }
+        .mib-node.mib-2 { background-color: var(--live-emerald); color: white; }
+        .mib-node.system { background-color: var(--live-purple); color: white; }
+        .mib-node.leaf { background-color: #f0b90b; color: black; }
+
+        /* HTTP Mesaj Yapısı */
+        .http-message {
+            background-color: var(--bg-dark);
+            border: 2px solid var(--bg-card);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            font-family: 'Source Code Pro', monospace;
+        }
+        .http-part {
+            padding: 0.75rem;
+            border: 1px dashed #4b5563;
+            border-radius: 0.375rem;
+            margin-bottom: 0.5rem;
+            color: white; /* Tüm metinleri beyaz yap */
+        }
+        .http-request-line { background-color: var(--live-sky); } /* Güncellendi */
+        .http-status-line { background-color: var(--live-emerald); }
+        .http-header { background-color: var(--live-purple); } /* Güncellendi */
+        .http-blank { background-color: #4b5563; color: #e5e7eb; }
+        .http-body { background-color: #374151; }
+
+        /* Download Butonu */
+        #downloadButton {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        #downloadButton:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25);
+        }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\!m-1{margin:0.25rem !important}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-16{margin-top:4rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.grid{display:grid}.h-48{height:12rem}.h-full{height:100%}.w-full{width:100%}.max-w-7xl{max-width:80rem}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-x-auto{overflow-x:auto}.\!border-0{border-width:0px !important}.border-b-2{border-bottom-width:2px}.\!border-purple-500{--tw-border-opacity:1 !important;border-color:rgb(168 85 247 / var(--tw-border-opacity, 1)) !important}.\!border-sky-500{--tw-border-opacity:1 !important;border-color:rgb(14 165 233 / var(--tw-border-opacity, 1)) !important}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.\!bg-gray-900{--tw-bg-opacity:1 !important;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1)) !important}.\!bg-transparent{background-color:transparent !important}.\!p-0{padding:0px !important}.\!p-2{padding:0.5rem !important}.\!p-4{padding:1rem !important}.\!p-6{padding:1.5rem !important}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-0{padding-bottom:0px}.\!text-left{text-align:left !important}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.\!text-white{--tw-text-opacity:1 !important;color:rgb(255 255 255 / var(--tw-text-opacity, 1)) !important}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-purple-300{--tw-text-opacity:1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:mt-0{margin-top:0px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-12{padding:3rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Başlık ve Download Butonu -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div>
+                <h1 class="text-4xl font-bold text-white mb-2">Ağ Programlama - Hafta 6</h1>
+                <p class="text-xl text-gray-400">Katman 7 Protokolleri ve Çalışma Yapıları</p>
+                <p class="text-md text-gray-500 mt-1">Dr. Öğr. Üyesi Musa BALTA | 29.09.2025</p>
+            </div>
+            <button id="downloadButton" class="mt-4 md:mt-0">
+                Notları İndir
+            </button>
+        </div>
+
+        <!-- 🎯 Haftalık İçerik - Çevirmeli Kartlar -->
+        <h2 class="section-title gradient-text">🎯 Konu İçeriği</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">FTP</h3>
+                        <p class="text-gray-400">(File Transfer Protocol)</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center"><span class="keyword">Port 21 (Kontrol)</span> ve <span class="keyword">Port 20 (Veri)</span> olmak üzere iki TCP bağlantısı kullanan dosya transfer protokolü.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">SMTP</h3>
+                        <p class="text-gray-400">(Simple Mail Transfer Protocol)</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">E-postaları sunucular arasında "itmek" (<span class="keyword">push</span>) için kullanılan <span class="keyword">TCP Port 25</span> tabanlı protokol.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">SNMP</h3>
+                        <p class="text-gray-400">(Simple Network Management)</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center"><span class="keyword">UDP (Port 161/162)</span> kullanarak ağ cihazlarını izleyen ve <span class="keyword">MIB</span> veritabanı üzerinden yöneten protokol.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">HTTP</h3>
+                        <p class="text-gray-400">(Hypertext Transfer Protocol)</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">Web dökümanlarına erişmek için kullanılan, <span class="keyword">TCP Port 80</span> tabanlı, "durum bilgisi olmayan" (<span class="keyword">stateless</span>) istek-yanıt protokolü.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Dosya Transfer Protokolü (FTP) -->
+        <h2 class="section-title gradient-text mt-12">1. Dosya Transfer Protokolü (FTP)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-ftp-mimari')">FTP Mimarisi (İki Bağlantı)</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-ftp-veri')">Veri İletişimi</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-ftp-komut')">Komutlar ve Cevaplar</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-ftp-ornek')">Örnek Kullanım (LIST)</button>
+            </div>
+
+            <!-- FTP Mimarisi -->
+            <div id="tab-ftp-mimari" class="tab-content active" style="display: none;">
+                <p class="text-lg mb-6">FTP, diğer protokollerden farklı olarak, <span class="keyword">kontrol</span> ve <span class="keyword">veri</span> için iki ayrı <span class="keyword">TCP</span> bağlantısı kurar.</p>
+                
+                <div class="ftp-diagram interactive-element">
+                    <!-- İstemci -->
+                    <div class="ftp-box">
+                        <h4>İstemci (Client)</h4>
+                        <div class="flow-step interactive-element !bg-live-indigo !text-white !p-2 !m-1">Control Process</div>
+                        <div class="flow-step interactive-element !bg-live-purple !text-white !p-2 !m-1">Data Transfer Process</div>
+                    </div>
+                    
+                    <!-- Bağlantılar -->
+                    <div class="flex flex-col justify-center h-full">
+                        <div class="ftp-connection control">
+                            <span class="ftp-control"><i class="fa fa-cog"></i> Kontrol Bağlantısı (Port 21)</span>
+                        </div>
+                        <div class="ftp-connection data mt-16">
+                            <span class="ftp-data"><i class="fa fa-file-alt"></i> Veri Bağlantısı (Port 20)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Sunucu -->
+                    <div class="ftp-box">
+                        <h4>Sunucu (Server)</h4>
+                        <div class="flow-step interactive-element !bg-live-indigo !text-white !p-2 !m-1">Control Process</div>
+                        <div class="flow-step interactive-element !bg-live-purple !text-white !p-2 !m-1">Data Transfer Process</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="interactive-element p-6">
+                        <h4 class="text-xl font-bold text-sky-300 mb-3"><i class="fa fa-cog"></i> 1. Kontrol Bağlantısı (Port 21)</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Komutlar (<span class="keyword">USER, PASS, LIST...</span>) ve Cevaplar (<span class="keyword">200, 331...</span>) için kullanılır.</li>
+                            <li>Sunucu <span class="keyword">Port 21</span>'de <span class="keyword">Pasif Açma</span> (Passive Open) yapar.</li>
+                            <li>İstemci, geçici (ephemeral) porttan sunucunun 21. portuna <span class="keyword">Aktif Açma</span> (Active Open) yapar.</li>
+                            <li>Tüm oturum boyunca <span class="keyword">açık kalır</span>.</li>
+                        </ul>
+                    </div>
+                    <div class="interactive-element p-6">
+                        <h4 class="text-xl font-bold text-purple-300 mb-3"><i class="fa fa-file-alt"></i> 2. Veri Bağlantısı (Port 20)</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Asıl dosya aktarımı (<span class="keyword">dosya içeriği, dizin listesi</span>) için kullanılır.</li>
+                            <li>İstemci geçici portta <span class="keyword">Pasif Açma</span> yapar.</li>
+                            <li>İstemci, bu port numarasını <code class="keyword">PORT</code> komutuyla sunucuya bildirir.</li>
+                            <li><span class="keyword">Sunucu</span>, kendi <span class="keyword">Port 20</span>'sinden istemcinin bildirdiği porta <span class="keyword">Aktif Açma</span> yapar.</li>
+                            <li>Her dosya aktarımı için <span class="keyword">açılır ve kapanır</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veri İletişimi -->
+            <div id="tab-ftp-veri" class="tab-content" style="display: block;">
+                <p class="mb-4">FTP, farklı sistemler arasındaki (heterojenlik) uyum sorununu 3 niteliği tanımlayarak çözer:</p>
+                <div class="callout-box !border-sky-500 mb-4">
+                    <h4 class="font-bold text-white mb-2">Kontrol Bağlantısı İletişimi</h4>
+                    <p>Kontrol bağlantısı (komutlar/yanıtlar) için FTP, SMTP gibi <span class="keyword">NVT (Network Virtual Terminal) 7-bit ASCII</span> karakter kümesini kullanır. Komutlar ve yanıtlar kısa satırlar halinde olduğundan, dosya formatı endişesi yoktur ve her satır <span class="keyword">CRLF</span> ile biter.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-file-alt text-3xl text-blue-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-blue-300 mb-2">1. Dosya Tipi (File Type)</h4>
+                        <ul class="list-disc list-inside text-sm space-y-1">
+                            <li><span class="keyword">ASCII Dosyası:</span> (Varsayılan) Metin dosyaları. 7-bit ASCII'ye dönüştürülür.</li>
+                            <li><span class="keyword">EBCDIC Dosyası:</span> IBM sistemleri için.</li>
+                            <li><span class="keyword">Görüntü Dosyası (Image File):</span> (İkili) .exe, resim gibi dosyalar. Bit akışı olarak yorumlanmadan gönderilir.</li>
+                        </ul>
+                    </div>
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-sitemap text-3xl text-green-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-green-300 mb-2">2. Veri Yapısı (Data Structure)</h4>
+                        <ul class="list-disc list-inside text-sm space-y-1">
+                            <li><span class="keyword">Dosya Yapısı:</span> (Varsayılan) Sürekli bayt akışı.</li>
+                            <li><span class="keyword">Kayıt Yapısı:</span> Dosya kayıtlara bölünmüştür.</li>
+                            <li><span class="keyword">Sayfa Yapısı:</span> Sayfalara bölünmüş, rastgele erişim mümkün.</li>
+                        </ul>
+                    </div>
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-exchange-alt text-3xl text-purple-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-purple-300 mb-2">3. İletim Modu (Transmission Mode)</h4>
+                        <ul class="list-disc list-inside text-sm space-y-1">
+                            <li><span class="keyword">Akış (Stream) Modu:</span> (Varsayılan) Veri TCP'ye sürekli bayt akışı olarak verilir. Dosya sonu, bağlantının kapatılmasıyla anlaşılır.</li>
+                            <li><span class="keyword">Blok (Block) Modu:</span> Veri, 3 baytlık başlıklara sahip bloklar halinde gönderilir.</li>
+                            <li><span class="keyword">Sıkıştırılmış (Compressed) Modu:</span> Büyük dosyalar için Run-Length Encoding ile sıkıştırma kullanılır.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Komutlar ve Cevaplar -->
+            <div id="tab-ftp-komut" class="tab-content" style="display: none;">
+                <p class="mb-4">İletişim, kontrol bağlantısı üzerinden <span class="keyword">Komutlar</span> (İstemci -&gt; Sunucu) ve <span class="keyword">Cevaplar</span> (Sunucu -&gt; İstemci) ile yönetilir.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-300">FTP Komutları (6 Grup)</h3>
+                        <details class="interactive-element"><summary>1. Erişim Komutları (USER, PASS, QUIT...)</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">USER</code></td><td>Kullanıcı Bilgisi</td></tr><tr><td><code class="keyword">PASS</code></td><td>Şifre</td></tr><tr><td><code class="keyword">QUIT</code></td><td>Sistemden çıkış yap</td></tr></tbody></table></div></details>
+                        <details class="interactive-element"><summary>2. Dosya Yönetim Komutları (CWD, DELE, LIST...)</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">CWD</code></td><td>Dizini değiştir</td></tr><tr><td><code class="keyword">DELE</code></td><td>Dosya sil</td></tr><tr><td><code class="keyword">LIST</code></td><td>Dizin veya dosyaları listele (detaylı)</td></tr><tr><td><code class="keyword">MKD</code></td><td>Yeni dizin oluştur</td></tr><tr><td><code class="keyword">PWD</code></td><td>Mevcut dizinin adını göster</td></tr></tbody></table></div></details>
+                        <details class="interactive-element"><summary>3. Veri Biçimlendirme Komutları (TYPE, STRU, MODE)</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">TYPE</code></td><td>Dosya tipini (A: ASCII, I: Image) tanımla</td></tr><tr><td><code class="keyword">STRU</code></td><td>Veri yapısını (F: File) tanımla</td></tr><tr><td><code class="keyword">MODE</code></td><td>İletim modunu (S: Stream) tanımla</td></tr></tbody></table></div></details>
+                        <details class="interactive-element"><summary>4. Port Tanımlama Komutları (PORT, PASV)</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">PORT</code></td><td>İstemci bir port seçer (Aktif Mod)</td></tr><tr><td><code class="keyword">PASV</code></td><td>Sunucudan bir port seçmesini ister (Pasif Mod)</td></tr></tbody></table></div></details>
+                        <details class="interactive-element"><summary>5. Dosya Transfer Komutları (RETR, STOR, APPE)</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">RETR</code></td><td>Dosyaları al (Sunucudan İstemciye)</td></tr><tr><td><code class="keyword">STOR</code></td><td>Dosyaları sakla (İstemciden Sunucuya)</td></tr><tr><td><code class="keyword">APPE</code></td><td>Dosya varsa veriyi sonuna ekler.</td></tr></tbody></table></div></details>
+                        <details class="interactive-element"><summary>6. Çeşitli Komutlar (HELP, NOOP, SYST)</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">HELP</code></td><td>Sunucu hakkında bilgi iste</td></tr><tr><td><code class="keyword">NOOP</code></td><td>Sunucunun hayatta olup olmadığını kontrol et</td></tr><tr><td><code class="keyword">SYST</code></td><td>Sunucunun işletim sistemini sor</td></tr></tbody></table></div></details>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-green-300">FTP Cevapları (3 Haneli Kod)</h3>
+                        <p class="text-sm">İlk hane durumu belirtir (2xx = Başarı, 3xx = Daha fazla bilgi gerekli, 4xx/5xx = Hata).</p>
+                        <details class="interactive-element"><summary>2xx: Olumlu Tamamlanma</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Kod</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">200</code></td><td>Komut OK.</td></tr><tr><td><code class="keyword">220</code></td><td>Servis hazır (Oturum açılış mesajı).</td></tr><tr><td><code class="keyword">221</code></td><td>Servis kapatılıyor.</td></tr><tr><td><code class="keyword">226</code></td><td>Veri bağlantısı kapatılıyor.</td></tr><tr><td><code class="keyword">230</code></td><td>Kullanıcı girişi başarılı.</td></tr></tbody></table></div></details>
+                        <details class="interactive-element"><summary>3xx: Olumlu Ara Cevap</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Kod</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">331</code></td><td>Kullanıcı adı OK; şifre gerekli.</td></tr><tr><td><code class="keyword">350</code></td><td>Dosya eylemi bekliyor (daha fazla bilgi gerekli).</td></tr></tbody></table></div></details>
+                        <details class="interactive-element"><summary>4xx/5xx: Hata Cevapları</summary><div class="accordion-content overflow-x-auto"><table class="styled-table w-full"><thead><tr><th>Kod</th><th>Açıklama</th></tr></thead><tbody><tr><td><code class="keyword">425</code></td><td>Veri bağlantısı açılamıyor.</td></tr><tr><td><code class="keyword">450</code></td><td>Dosya mevcut değil / meşgul.</td></tr><tr><td><code class="keyword">500</code></td><td>Syntax hatası, komut tanınmadı.</td></tr><tr><td><code class="keyword">530</code></td><td>Kullanıcı giriş yapmadı.</td></tr><tr><td><code class="keyword">550</code></td><td>Eylem yapılmadı (Dosya mevcut değil).</td></tr></tbody></table></div></details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Örnek Kullanım (LIST) -->
+            <div id="tab-ftp-ornek" class="tab-content" style="display: none;">
+                <p class="mb-4">Bir istemcinin bir sunucudaki dizini listeleme (<code class="keyword">LIST</code>) süreci:</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2 interactive-element p-6">
+                        <h4 class="text-xl font-bold text-sky-300 mb-3"><i class="fa fa-cog"></i> Kontrol Bağlantısı (Port 21) Akışı</h4>
+                        <div class="code-block !bg-gray-900 !border-0 !p-0">
+                            <pre class="!bg-transparent !p-4 language-http" tabindex="0"><code class="language-http">
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">220 Service ready</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">USER forouzan</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">331 User name OK. Password?</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">PASS xxxxxx</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">230 User login OK</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">PORT 8888</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">150 Data connection opens shortly</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">LIST /usr/user/forouzan/reports</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">125 Data connection OK
+   (...Veri bağlantısı üzerinden transfer yapılır...)</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">226 Closing data connection</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">QUIT</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">221 Service closing
+                            </span></span></code></pre>
+                        </div>
+                    </div>
+                    <div class="interactive-element p-6">
+                        <h4 class="text-xl font-bold text-purple-300 mb-3"><i class="fa fa-file-alt"></i> Veri Bağlantısı Akışı</h4>
+                        <p>Kontrol adım 9-10 arasındayken:</p>
+                        <div class="callout-box !border-purple-500 mt-4">
+                            <p>Sunucu (Port 20) -&gt; İstemci (Port 8888)</p>
+                            <p class="keyword mt-2">Sunucu, dosya ve dizinlerin listesini (metin olarak) istemciye bu bağlantı üzerinden gönderir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Basit Mail Transfer Protokolü (SMTP) -->
+        <h2 class="section-title gradient-text mt-12">2. Basit Mail Transfer Protokolü (SMTP)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-smtp-model')">SMTP Modeli ve Mimarisi</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-smtp-mime')">MIME ve Mesaj Erişimi (POP/IMAP)</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-smtp-komut')">Komutlar ve Aşamalar</button>
+            </div>
+
+            <!-- SMTP Modeli ve Mimarisi -->
+            <div id="tab-smtp-model" class="tab-content active" style="display: block;">
+                <p class="text-lg mb-6">SMTP, e-postayı bir sunucudan diğerine "itmek" (<span class="keyword">push</span>) için kullanılan <span class="keyword">TCP Port 25</span> tabanlı ana protokoldür. E-postaları sunucudan "çekmek" (<span class="keyword">pull</span>) için <span class="keyword">POP3</span> veya <span class="keyword">IMAP</span> kullanılır.</p>
+                <div class="smtp-flow interactive-element">
+                    <div class="smtp-box !bg-live-indigo !text-white">Gönderici (UA)</div>
+                    <div class="smtp-arrow">→</div>
+                    <div class="smtp-box">Kuyruk (Queue)</div>
+                    <div class="smtp-arrow">→</div>
+                    <div class="smtp-box !bg-live-sky !text-white">İstemci (MTA)</div>
+                    <div class="smtp-arrow">↓ <span class="text-sm keyword">SMTP (TCP/25)</span></div>
+                    <div class="smtp-box !bg-live-sky !text-white">Sunucu (MTA)</div>
+                    <div class="smtp-arrow">→</div>
+                    <div class="smtp-box">Posta Kutusu</div>
+                    <div class="smtp-arrow">→</div>
+                    <div class="smtp-box !bg-live-indigo !text-white">Alıcı (UA)</div>
+                </div>
+                <div class="callout-box mt-6">
+                    <h4 class="font-bold text-white mb-2">Temel Bileşenler:</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><span class="keyword">Kullanıcı Ajanı (User Agent - UA):</span> E-posta istemcisi (örn: Outlook, Thunderbird). Mesajı oluşturur ve okur.</li>
+                        <li><span class="keyword">Mesaj Transfer Ajanı (Message Transfer Agent - MTA):</span> Mail sunucusu yazılımı. SMTP kullanarak postayı iletir.</li>
+                        <li><span class="keyword">Mesaj Erişim Ajanı (Message Access Agent - MAA):</span> POP3/IMAP kullanarak postanın sunucudan çekilmesini sağlar.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MIME ve Mesaj Erişimi (POP/IMAP) -->
+            <div id="tab-smtp-mime" class="tab-content" style="display: none;">
+                <details class="interactive-element mb-4">
+                    <summary>MIME (Multipurpose Internet Mail Extensions)</summary>
+                    <div class="accordion-content">
+                        <p>SMTP temelde sadece <span class="keyword">7-bit ASCII</span> metin taşır. <span class="keyword">MIME</span>, SMTP'yi genişleterek metin olmayan içeriklerin (resim, ses, non-ASCII karakterler) e-postaya eklenebilmesini sağlar.</p>
+                        <p class="mt-2">İşleyişi: Gönderici UA, <span class="keyword">Non-ASCII</span> veriyi (örn: resim) alır -&gt; <span class="keyword">Base64</span> veya <span class="keyword">Quoted-Printable</span> kullanarak 7-bit ASCII metne kodlar -&gt; SMTP ile taşır -&gt; Alıcı UA, bu metni tekrar orijinal veriye çevirir.</p>
+                        <h5 class="font-semibold text-blue-300 mt-4">MIME Veri Tipleri (Özet):</h5>
+                        <ul class="list-disc list-inside text-sm">
+                            <li>Text (plain, HTML)</li>
+                            <li>Image (JPEG, GIF)</li>
+                            <li>Multipart (Mixed, Alternative)</li>
+                            <li>Application (Octet-stream - ikili veri)</li>
+                        </ul>
+                    </div>
+                </details>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-download text-3xl text-blue-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-blue-300 mb-2">POP3 (Post Office Protocol 3)</h4>
+                        <p class="text-sm">Sunucuya bağlanır, <span class="keyword">tüm yeni iletileri</span> kullanıcının bilgisayarına <span class="keyword">indirir</span> ve ardından (genellikle) sunucudan <span class="keyword">siler</span>. Klasörler yerel bilgisayarda depolanır.</p>
+                    </div>
+                    <div class="info-box interactive-element !bg-gray-900 !text-left !p-6">
+                        <i class="fa fa-sync-alt text-3xl text-green-400 mb-3"></i>
+                        <h4 class="text-xl font-bold text-green-300 mb-2">IMAP (Internet Message Access Protocol)</h4>
+                        <p class="text-sm">İletiler <span class="keyword">sunucuda depolanmaya devam eder</span>. Sadece tıkladığınız ileti indirilir. Bu sayede <span class="keyword">birden fazla cihazdan</span> (telefon, PC) aynı posta kutusuna erişebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Komutlar ve Aşamalar -->
+            <div id="tab-smtp-komut" class="tab-content" style="display: none;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-300">SMTP Komutları</h3>
+                        <table class="styled-table w-full">
+                            <thead><tr><th>Komut</th><th>Açıklama</th></tr></thead>
+                            <tbody>
+                                <tr><td><code class="keyword">HELO</code></td><td>Oturumu başlatır (Merhaba).</td></tr>
+                                <tr><td><code class="keyword">MAIL FROM</code></td><td>Yeni bir mail transferi başlatır.</td></tr>
+                                <tr><td><code class="keyword">RCPT TO</code></td><td>Mailin alıcısını belirtir.</td></tr>
+                                <tr><td><code class="keyword">DATA</code></td><td>Mail gövdesinin başladığını belirtir (metin <code class="keyword">.</code> ile biter).</td></tr>
+                                <tr><td><code class="keyword">QUIT</code></td><td>Bağlantıyı sonlandırır.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-green-300">SMTP Cevapları (Özet)</h3>
+                        <table class="styled-table w-full">
+                            <thead><tr><th>Kod</th><th>Açıklama</th></tr></thead>
+                            <tbody>
+                                <tr><td><code class="keyword">220</code></td><td>Servis hazır (Bağlantı açılışında).</td></tr>
+                                <tr><td><code class="keyword">221</code></td><td>İletişim kanalı sonlandırılıyor (QUIT sonrası).</td></tr>
+                                <tr><td><code class="keyword">250</code></td><td>İstek komutu tamamlandı (OK).</td></tr>
+                                <tr><td><code class="keyword">354</code></td><td>Mail gövdesi girişini başlat (DATA komutu sonrası).</td></tr>
+                                <tr><td><code class="keyword">550</code></td><td>Mail kutusu servis dışı (Hata).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-white mt-8 mb-4">SMTP Bağlantı Aşamaları</h3>
+                <div class="code-block interactive-element">
+                    <pre class="language-http" tabindex="0"><code class="language-http">
+--- 1. Bağlantı Kurulumu ---
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">220 service ready</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">HELO deanza.edu</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">250 OK</span></span>
+
+--- 2. Mesaj Transferi ---
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">MAIL FROM: forouzan@deanza.edu</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">250 OK</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">RCPT TO: sophie@net.edu</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">250 OK</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">DATA</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">354 start mail input</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">From: Behrouz Forouzan</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">Subject: Network</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">Dear Ms. Fegan ...</span></span>
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">.</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">250 OK</span></span>
+
+--- 3. Bağlantı Sonlandırma ---
+<span class="token header"><span class="token header-name keyword">C</span><span class="token punctuation">:</span> <span class="token header-value">QUIT</span></span>
+<span class="token header"><span class="token header-name keyword">S</span><span class="token punctuation">:</span> <span class="token header-value">221 service closed
+                    </span></span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Basit Ağ Yönetim Protokolü (SNMP) -->
+        <h2 class="section-title gradient-text mt-12">3. Basit Ağ Yönetim Protokolü (SNMP)</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-snmp-mimari')">SNMP Mimarisi ve Sürümleri</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-snmp-mib')">Paket Yapısı ve MIB</button>
+            </div>
+
+            <!-- SNMP Mimarisi ve Sürümleri -->
+            <div id="tab-snmp-mimari" class="tab-content active" style="display: block;">
+                <p class="text-lg mb-6">SNMP, ağı yönetmek için <span class="keyword">UDP</span> kullanan bir sorgu-cevap protokolüdür.</p>
+                
+                <div class="interactive-element p-6 mb-6">
+                    <h4 class="text-xl font-bold text-white mb-3 text-center">SNMP Mimarisi</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                        <div class="info-box !p-4 !bg-gray-900">
+                            <i class="fa fa-desktop text-3xl text-blue-400 mb-2"></i>
+                            <h5 class="text-lg font-semibold">NMS (Yönetim Sistemi)</h5>
+                            <p class="text-sm">Ağı yöneten merkezi yazılım.</p>
+                        </div>
+                        <div class="info-box !p-4 !bg-gray-900">
+                            <i class="fa fa-cogs text-3xl text-green-400 mb-2"></i>
+                            <h5 class="text-lg font-semibold">Ajan (Agent)</h5>
+                            <p class="text-sm">Yönetilen cihazda (router, switch) çalışan yazılım.</p>
+                        </div>
+                        <div class="info-box !p-4 !bg-gray-900">
+                            <i class="fa fa-database text-3xl text-purple-400 mb-2"></i>
+                            <h5 class="text-lg font-semibold">MIB (Veri Tabanı)</h5>
+                            <p class="text-sm">Ajanda bulunan, cihazın durumunu tutan değişkenler.</p>
+                        </div>
+                    </div>
+                    <div class="callout-box !border-sky-500 mt-4">
+                        <h4 class="font-bold text-white mb-2">Portlar ve 'Trap'</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><span class="keyword">NMS -&gt; Ajan:</span> İstekler <span class="keyword">UDP Port 161</span>'e gönderilir. (Get, Set)</li>
+                            <li><span class="keyword">Ajan -&gt; NMS:</span> <span class="keyword">Trap</span> (Tuzak) bildirimleri <span class="keyword">UDP Port 162</span>'ye gönderilir.</li>
+                            <li><span class="keyword">Trap:</span> Ajanın, NMS'in sormasını beklemeden, bir sorun (hata, eşik aşımı) olduğunda <span class="keyword">kendiliğinden</span> bildirim göndermesidir.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-3">SNMP Sürümleri</h4>
+                <div class="space-y-4">
+                    <details class="interactive-element"><summary>SNMPv1</summary><div class="accordion-content"><p>İlk sürüm. Temel komutları: <code class="keyword">Get</code>, <code class="keyword">GetNext</code>, <code class="keyword">Set</code>, <code class="keyword">Trap</code>. Güvenlik (kimlik denetimi) yoktur.</p></div></details>
+                    <details class="interactive-element"><summary>SNMPv2c</summary><div class="accordion-content"><p>v1'in gelişmiş halidir. Yeni komutlar: <code class="keyword">GetBulk</code> (büyük veri çekme) ve <code class="keyword">Inform</code> (NMS'ler arası bildirim). Güvenlik yoktur (Community string kullanılır).</p></div></details>
+                    <details class="interactive-element"><summary>SNMPv3</summary><div class="accordion-content"><p>Güvenlik odaklı sürümdür. 3 güvenlik düzeyi sunar:
+                        </p><ul class="list-disc list-inside mt-2">
+                            <li><span class="keyword">noAuthNoPriv:</span> Güvenlik yok.</li>
+                            <li><span class="keyword">authNoPriv:</span> Kimlik denetimi var (MD5/SHA), şifreleme yok.</li>
+                            <li><span class="keyword">authPriv:</span> Hem kimlik denetimi hem de şifreleme (DES/AES) var.</li>
+                        </ul>
+                    <p></p></div></details>
+                </div>
+            </div>
+
+            <!-- Paket Yapısı ve MIB -->
+            <div id="tab-snmp-mib" class="tab-content" style="display: none;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="interactive-element p-6">
+                        <h4 class="text-xl font-bold text-white mb-3">SNMP Paket Yapısı (PDU)</h4>
+                        <p class="mb-3">Paket, bir <span class="keyword">Mesaj Başlığı</span> (Sürüm, Community İsmi) ve bir <span class="keyword">PDU</span> (Protokol Veri Birimi) içerir.</p>
+                        <h5 class="font-semibold text-blue-300">PDU İçeriği:</h5>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><span class="keyword">İstek ID:</span> İstek ve cevapları eşleştirir.</li>
+                            <li><span class="keyword">Hata Durumu:</span> 0 (Hata yok) veya 1-5 (Hata var).</li>
+                            <li><span class="keyword">Hata İndeksi:</span> Hata varsa, listede nerede olduğunu gösterir.</li>
+                            <li><span class="keyword">Değişken Listesi (Variable Bindings):</span> (OID, Değer) çiftlerinin listesidir. (GetRequest'te Değer boştur).</li>
+                        </ul>
+                    </div>
+                    <div class="interactive-element p-6">
+                        <h4 class="text-xl font-bold text-white mb-3">MIB (Management Information Base)</h4>
+                        <p>Ağaç yapısında, hiyerarşik bir veritabanıdır. Her bir değişkene <span class="keyword">OID (Object Identifier)</span> denir ve noktalarla ayrılmış sayılarla ifade edilir.</p>
+                        <p class="mt-2 text-sm keyword">Örnek OID: 1.3.6.1.2.1.1.5.0 (sysName.0)</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mt-8 mb-4 text-center">MIB Ağaç Yapısı Örneği (sysName.0)</h4>
+                <div class="mib-tree interactive-element">
+                    <ul>
+                        <li><span class="mib-node mib-node.iso">iso (1)</span>
+                            <ul>
+                                <li><span class="mib-node">identified-organization (3)</span>
+                                    <ul>
+                                        <li><span class="mib-node">dod (6)</span>
+                                            <ul>
+                                                <li><span class="mib-node mib-node.internet">internet (1)</span>
+                                                    <ul>
+                                                        <li><span class="mib-node mib-node.mgmt">mgmt (2)</span>
+                                                            <ul>
+                                                                <li><span class="mib-node mib-node.mib-2">mib-II (1)</span>
+                                                                    <ul>
+                                                                        <li><span class="mib-node mib-node.system">system (1)</span>
+                                                                            <ul>
+                                                                                <li><span class="mib-node mib-node.leaf">sysName (5)</span>
+                                                                                    <ul>
+                                                                                        <li><span class="mib-node">0</span></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Hypertext Transfer Protocol (HTTP) -->
+        <h2 class="section-title gradient-text mt-12">4. Hypertext Transfer Protocol (HTTP)</h2>
+        <div class="w-full mb-12">
+            <p class="text-lg mb-6">HTTP, web üzerinde veriye erişmek için kullanılan <span class="keyword">Uygulama Katmanı</span> (Katman 7) protokolüdür. <span class="keyword">TCP Port 80</span> kullanır, <span class="keyword">durum bilgisi olmayan (stateless)</span> bir "çekme" (pull) protokolüdür.</p>
+            
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-http-mesaj')">HTTP Mesaj Yapısı</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-http-metot')">Metotlar ve Durum Kodları</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-http-ornek')">HTTP Örnekleri</button>
+            </div>
+
+            <!-- HTTP Mesaj Yapısı -->
+            <div id="tab-http-mesaj" class="tab-content active" style="display: block;">
+                <p class="mb-4">HTTP, asimetrik bir <span class="keyword">İstek-Yanıt</span> protokolüdür. Hem istek hem de cevap mesajları 4 bölümden oluşur:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="http-message interactive-element">
+                        <h4 class="text-xl font-bold text-white mb-3 text-center">İstek Mesajı (Request)</h4>
+                        <div class="http-part http-request-line">İstek Satırı (GET /doc/test.html HTTP/1.1)</div>
+                        <div class="http-part http-header">Başlık Yapısı (Host:, Accept:, User-Agent:)</div>
+                        <div class="http-part http-blank">Boş Satır (CRLF)</div>
+                        <div class="http-part http-body">Mesaj Metni (Body) (POST veya PUT ile gönderilen veri)</div>
+                    </div>
+                    <div class="http-message interactive-element">
+                        <h4 class="text-xl font-bold text-white mb-3 text-center">Cevap Mesajı (Response)</h4>
+                        <div class="http-part http-status-line">Durum Satırı (HTTP/1.1 200 OK)</div>
+                        <div class="http-part http-header">Başlık Yapısı (Date:, Server:, Content-Type:)</div>
+                        <div class="http-part http-blank">Boş Satır (CRLF)</div>
+                        <div class="http-part http-body">Mesaj Metni (Body) (İstenen HTML kodu, resim verisi vb.)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Metotlar ve Durum Kodları -->
+            <div id="tab-http-metot" class="tab-content" style="display: none;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-300">HTTP İstek Metotları</h3>
+                        <details class="interactive-element"><summary>GET / HEAD</summary><div class="accordion-content"><code class="keyword">GET</code>: Sunucudan bir kaynak (döküman) ister.<br><code class="keyword">HEAD</code>: GET ile aynıdır, ancak dökümanın kendisini değil, <span class="keyword">sadece başlık (header)</span> bilgilerini ister.</div></details>
+                        <details class="interactive-element"><summary>POST / PUT</summary><div class="accordion-content"><code class="keyword">POST</code>: İstemciden sunucuya veri (örn: form bilgisi) gönderir.<br><code class="keyword">PUT</code>: İstemciden sunucuya bir döküman (dosya) gönderir (yükler).</div></details>
+                        <details class="interactive-element"><summary>Diğer Metotlar</summary><div class="accordion-content"><code class="keyword">TRACE</code>: Gelen istekleri (hata ayıklama için) geri yansıtır.<br><code class="keyword">OPTIONS</code>: Sunucunun desteklediği metotları sorar.<br><code class="keyword">CONNECT</code>: Genellikle SSL tünelleme için kullanılır.</div></details>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-green-300">HTTP Durum Kodları (Özet)</h3>
+                        <details class="interactive-element"><summary>2xx: Başarı</summary><div class="accordion-content"><code class="keyword">200 OK:</code> İstek başarılı.<br><code class="keyword">201 Created:</code> Sunucuda yeni bir kaynak oluşturuldu.<br><code class="keyword">204 No Content:</code> Başarılı, ancak cevap gövdesinde içerik yok.</div></details>
+                        <details class="interactive-element"><summary>3xx: Yönlendirme</summary><div class="accordion-content"><code class="keyword">301 Moved Permanently:</code> Kaynak kalıcı olarak taşındı.<br><code class="keyword">304 Not Modified:</code> (Önbellek) Belge değişmedi.</div></details>
+                        <details class="interactive-element"><summary>4xx: İstemci Hatası</summary><div class="accordion-content"><code class="keyword">400 Bad Request:</code> İstekte syntax hatası.<br><code class="keyword">401 Unauthorized:</code> Kimlik doğrulaması gerekiyor.<br><code class="keyword">403 Forbidden:</code> Sunucu reddediyor.<br><code class="keyword">404 Not Found:</code> Kaynak bulunamadı.</div></details>
+                        <details class="interactive-element"><summary>5xx: Sunucu Hatası</summary><div class="accordion-content"><code class="keyword">500 Internal Server Error:</code> Sunucu tarafında beklenmedik hata.<br><code class="keyword">503 Service Unavailable:</code> Sunucu geçici olarak hizmet veremiyor.</div></details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- HTTP Örnekleri -->
+            <div id="tab-http-ornek" class="tab-content" style="display: none;">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="code-block interactive-element">
+                        <h4 class="text-xl font-bold text-white mb-3 p-4 pb-0">Örnek 1: GET (Belge Alma)</h4>
+                        <pre class="language-http" tabindex="0"><code class="language-http">
+<span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/usr/bin/image1</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">www.test101.com</span></span>
+<span class="token header"><span class="token header-name keyword">Accept</span><span class="token punctuation">:</span> <span class="token header-value">image/gif, image/jpeg</span></span>
+<span class="token header"><span class="token header-name keyword">User-Agent</span><span class="token punctuation">:</span> <span class="token header-value">Mozilla/4.0</span></span>
+
+--- CEVAP ---
+
+<span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
+<span class="token header"><span class="token header-name keyword">Date</span><span class="token punctuation">:</span> <span class="token header-value">Mon, 07-Jan-05 13:15:14 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Server</span><span class="token punctuation">:</span> <span class="token header-value">Challenger</span></span>
+<span class="token header"><span class="token header-name keyword">Content-length</span><span class="token punctuation">:</span> <span class="token header-value">2048</span></span>
+
+(Body of the document - 2048 bayt resim verisi)
+                        </code></pre>
+                    </div>
+                    <div class="code-block interactive-element">
+                        <h4 class="text-xl font-bold text-white mb-3 p-4 pb-0">Örnek 2: POST (Veri Gönderme)</h4>
+                        <pre class="language-http" tabindex="0"><code class="language-http">
+<span class="token request-line"><span class="token method property">POST</span> <span class="token request-target url">/cgi-bin/doc.pl</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">www.test101.com</span></span>
+<span class="token header"><span class="token header-name keyword">Content-length</span><span class="token punctuation">:</span> <span class="token header-value">50</span></span>
+
+bookId=12345&amp;author=Tan+Ah+Teck
+
+--- CEVAP ---
+
+<span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
+<span class="token header"><span class="token header-name keyword">Date</span><span class="token punctuation">:</span> <span class="token header-value">Mon, 07-Jan-02 13:15:14 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Server</span><span class="token punctuation">:</span> <span class="token header-value">Challenger</span></span>
+<span class="token header"><span class="token header-name keyword">Content-length</span><span class="token punctuation">:</span> <span class="token header-value">2000</span></span>
+
+(Body of the document - CGI'dan dönen 2000 bayt)
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Prism.js Kütüphaneleri -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-http.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        // --- Sekme (Tab) Fonksiyonu ---
+        function openTab(event, tabID) {
+            let i, tabcontent, tabbuttons;
+            let tabGroup = event.currentTarget.parentElement.parentElement;
+            
+            tabcontent = tabGroup.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            tabbuttons = tabGroup.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            
+            let activeTabContent = tabGroup.querySelector("#" + tabID);
+            if(activeTabContent) {
+                activeTabContent.style.display = "block";
+            }
+            event.currentTarget.className += " active";
+        }
+        // Başlangıçta ilk sekmeyi aç
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".tab-button.active").forEach(button => {
+                button.click();
+            });
+
+            // Prism.js'i manuel olarak tetikle
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+        });
+
+        // --- Download Butonu Fonksiyonu ---
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'Hafta_6_Katman7_Protokolleri.html';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        });
+
+    </script>
+
+
+
+</body></html>
