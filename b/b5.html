@@ -1,0 +1,1514 @@
+<html lang="tr"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImQzNTlhZTBjMTczYzc3YjFjZDU1MjFiMjVhMWY2YTQ5ZWU1YTZkMjQiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMDU3ODMyNDgwMjM0NDYwNDE0OSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzMwZjFlMzQ2MThlYWUwMmZfbW9uZ29kYl96b29rZWVwZXJfaW5mbzIuaHRtbC05MDIifSwiZXhwIjoxNzYyMDQzODExLCJpYXQiOjE3NjIwNDAyMTEsImFsZyI6IlJTMjU2In0.ZiOXMzzalQdSE8iUlmZo6QW54BL3NG0uCWRlDIvj56VDpLVp4uKPnKu61DHOKkUtpX4GD--tAom0tml0al2o4H81w6zYmVHYQLrTv4Yh-bsVgs6vpSjJbADKp-zzEfhn49YbXt7xwNH5sN5ZEQxUSPsbLAKWg3ZZtqN3vNFh622WOAy7FWs-vWGahdygBcC7nZbaxnY6S0cxIxC0429JmdhJMae1kTUAAw1HvWKq_fUeIM6fJ8H-hkSS-qnKGYfcZdyO22m2i76QXC1b-WDVFdGoKrSdKmIwdZMCjQKttoUntJbAUr8SPlRC3AUhCpX0j4SJ6ShozdhmBj6MNHlNKg","c_30f1e34618eae02f_mongodb_zookeeper_info2.html-902")</script><script>'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-2.5-flash-preview-09-2025","imageModelName":"imagen-3.0-generate-002","imageEditModelName":"gemini-2.5-flash-image-preview","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20"],"deprecatedImageModelNames":["imagen-3.0-generate-001"]})</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta 5: NoSQL, MongoDB ve Koordinasyon</title>
+    <!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome (İkonlar için) --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS (Okaidia Teması) --><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
+
+    <style>
+        /* --- Temel "info2" Stilleri --- */
+        :root {
+            --bg-dark: #0f172a;      /* Ana Arka Plan */
+            --bg-card: #1e293b;      /* Kart Arka Planı */
+            --keyword-pink: #f472b6;  /* Vurgu Rengi */
+            --border-blue: #3b82f6;
+            --border-green: #4ade80;
+            --flip-dark-1: #0c1432;
+            --flip-dark-2: #110e2b;
+            --code-bg-antrasit: #2d3748; /* Antrasit Rengi */
+            /* Canlı Renk Paleti */
+            --live-rose: #be123c;
+            --live-purple: #7e22ce;
+            --live-indigo: #4338ca;
+            --live-emerald: #047857;
+            --live-sky: #0369a1;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Inter', sans-serif;
+        }
+
+        .keyword {
+            color: var(--keyword-pink);
+            font-weight: 600;
+        }
+
+        .gradient-text {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem; /* mb-6 */
+            font-size: 1.875rem; /* text-3xl */
+        }
+
+        /* --- İnteraktif Kart (Genel) --- */
+        .interactive-element {
+            background-color: var(--bg-card);
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 2px solid transparent;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .interactive-element:hover {
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(74, 222, 128, 0.1);
+        }
+
+        /* --- Çevirmeli Kartlar --- */
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        .flip-card-front {
+            background-color: var(--bg-card);
+        }
+        .flip-card-back {
+            background-image: linear-gradient(to bottom right, var(--flip-dark-1), var(--flip-dark-2));
+            transform: rotateY(180deg);
+            color: #e5e7eb; /* text-gray-200 */
+        }
+
+        /* --- ARTIRILMIŞ Eğim Efekti (Tablolar Hariç) --- */
+        .flip-card:hover,
+        .flow-step.interactive-element:hover,
+        .info-box.interactive-element:hover,
+        .code-block:hover,
+        .analytics-box:hover,
+        .mongo-diagram-box:hover,
+        .id-byte:hover,
+        .zk-usecase:hover {
+            transform: scale(1.04) rotate(-1deg); /* İstenen -1 dereceye düşürüldü, scale 1.04 korundu */
+        }
+        
+        /* --- Sekmeler (Tabs) --- */
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            color: var(--border-green);
+            border-image: linear-gradient(to right, var(--border-blue), var(--border-green)) 1;
+        }
+        .tab-button:hover {
+            color: var(--border-blue);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* --- Akordeon --- */
+        details.interactive-element summary {
+            cursor: pointer;
+            padding: 1rem;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details.interactive-element[open] summary {
+            border-bottom: 2px solid var(--bg-dark);
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .accordion-content {
+            padding: 1.5rem;
+            border-top: 1px solid var(--bg-dark);
+        }
+
+        /* --- Vurgulu Tablo --- */
+        .styled-table th {
+            background-color: var(--bg-dark);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .styled-table th.col-pro { color: var(--border-green); }
+        .styled-table th.col-con { color: var(--live-rose); }
+        .styled-table th.col-platform { color: var(--border-blue); }
+        .styled-table td {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--bg-dark);
+            vertical-align: top;
+        }
+        .styled-table tr {
+            transition: all 0.2s ease;
+        }
+        /* Tablo satırları için özel hover efekti (eğimsiz) */
+        .styled-table tr:hover {
+            background-color: #2a3b52; /* Kart renginin biraz açığı */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transform: translateY(-3px); /* Eğim yerine yukarı kaydırma */
+        }
+
+        /* --- Kod Bloğu ve Prism.js Özelleştirmesi --- */
+        .code-block {
+            font-family: 'Source Code Pro', monospace;
+            border-radius: 0.5rem;
+            border: 1px solid var(--bg-card);
+            font-size: 0.9rem;
+            overflow: hidden; /* pre için */
+            transition: all 0.3s ease;
+            padding: 0; /* padding'i pre'ye verdik */
+        }
+        pre[class*="language-"] {
+            background: var(--code-bg-antrasit) !important; /* İstenen Antrasit Rengi */
+            padding: 1.25rem !important;
+            margin: 0 !important; /* pre'nin varsayılan margin'ini sıfırla */
+            border-radius: 0; /* Dış .code-block'un radius'unu kullan */
+        }
+        .code-block pre[class*="language-"] {
+            border-radius: inherit; /* Ebeveynin border-radius'unu al */
+        }
+        /* Kod Renkleri (Genel) */
+        .token.keyword { color: #f472b6 !important; }
+        .token.function { color: #61afef !important; }
+        .token.string { color: #a5e075 !important; }
+        .token.number, .token.boolean { color: #f08d49 !important; }
+        .token.operator { background: none !important; }
+        .token.comment { color: #6a9955 !important; }
+        .token.punctuation { color: #d1d5db !important; }
+        /* C# */
+        .token.class-name { color: #4ec9b0 !important; }
+        .token.namespace { color: #c586c0 !important; }
+        /* JSON */
+        .token.property { color: #61afef !important; }
+
+        /* --- Animasyon --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Infographic Stilleri (Genel) --- */
+        .info-box {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .callout-box {
+            background-color: var(--bg-dark);
+            border-left: 4px solid var(--border-green);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 1rem 0;
+        }
+
+        /* Sharding Mimarisi Şeması */
+        .sharding-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .shard-box {
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            margin: 0.5rem;
+            border: 1px solid #4b5563;
+        }
+        .shard-mongos { background-color: var(--live-sky); color: white; }
+        .shard-config { background-color: var(--live-rose); color: white; }
+        .shard-shard { background-color: var(--live-emerald); color: white; }
+        .shard-arrow {
+            font-size: 2rem;
+            color: var(--border-green);
+            margin: 0.25rem 0;
+        }
+        .shard-bidirectional {
+            height: 40px;
+            border-left: 3px dashed var(--border-green);
+            margin: 0.5rem 0;
+        }
+
+        /* MongoDB _id Yapısı */
+        .mongo-diagram-box {
+            background-color: var(--bg-dark);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--bg-card);
+        }
+        .id-byte-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 600;
+            text-align: center;
+        }
+        .id-byte {
+            border: 1px solid var(--bg-card);
+            padding: 0.5rem;
+            min-width: 40px;
+            transition: all 0.3s ease;
+        }
+        .id-label {
+            width: 100%;
+            font-size: 0.75rem;
+            color: var(--keyword-pink);
+            padding-top: 0.25rem;
+        }
+        .id-group1 { background-color: var(--live-rose); }
+        .id-group2 { background-color: var(--live-sky); }
+        .id-group3 { background-color: var(--live-purple); }
+        .id-group4 { background-color: var(--live-emerald); }
+        
+        /* Zookeeper Use Cases */
+        .zk-usecase {
+            /* border-left kaldırıldı, normal interactive-element stili korundu */
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+            border: 2px solid transparent; /* Varsayılan şeffaf kenarlık */
+        }
+        .zk-usecase h5 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--border-green); /* Rengi yeşil/border-green yaptık */
+            margin-bottom: 0.25rem;
+        }
+
+        /* Download Butonu */
+        #downloadButton {
+            background-image: linear-gradient(to right, var(--border-blue), var(--border-green));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        #downloadButton:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25);
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.grid{display:grid}.h-48{height:12rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-x-auto{overflow-x:auto}.rounded-lg{border-radius:0.5rem}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.\!border-indigo-500{--tw-border-opacity:1 !important;border-color:rgb(99 102 241 / var(--tw-border-opacity, 1)) !important}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-rose-500{--tw-border-opacity:1;border-color:rgb(244 63 94 / var(--tw-border-opacity, 1))}.\!bg-gray-900{--tw-bg-opacity:1 !important;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1)) !important}.\!p-4{padding:1rem !important}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-0{padding-bottom:0px}.\!text-left{text-align:left !important}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:mt-0{margin-top:0px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-12{padding:3rem}}@media (min-width: 1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Başlık ve Download Butonu -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div>
+                <h1 class="text-4xl font-bold text-white mb-2">Hafta 5: NoSQL, MongoDB ve Koordinasyon</h1>
+                <p class="text-xl text-gray-400">Dağıtık Sistemler, Zookeeper ve MongoDB Mimarisi</p>
+                <p class="text-md text-gray-500 mt-1">Sümeyye Kaynak tarafından hazırlanan notlar (29.09.2025)</p>
+            </div>
+            <button id="downloadButton" class="mt-4 md:mt-0">
+                Notları İndir
+            </button>
+        </div>
+
+        <!-- 🎯 Haftalık İçerik - Çevirmeli Kartlar -->
+        <h2 class="section-title gradient-text">🎯 Konu İçeriği</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">Dağıtık Sistemler</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">Ortak bir hedef için ağ üzerinden iletişim kuran birden fazla bilgisayardan oluşan sistem.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-blue-300">Zookeeper</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">Dağıtık uygulamalar için <span class="keyword">merkezi koordinasyon</span> servisi. (<span class="keyword">Lider Seçimi</span>, <span class="keyword">Yapılandırma Yönetimi</span>).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">MongoDB (NoSQL)</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">Belge yönelimli (<span class="keyword">Document-oriented</span>), <span class="keyword">Yatay Ölçeklenebilir</span> (Sharding) NoSQL veritabanı.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card interactive-element h-48">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-2xl font-bold text-green-300">ASP.NET Core &amp; CRUD</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-center">MongoDB.Driver kullanarak <span class="keyword">ASP.NET Core MVC</span> uygulamasında <span class="keyword">CRUD</span> (Create, Read, Update, Delete) işlemleri.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bölüm 1: Dağıtık Sistemler (Distributed Systems) -->
+        <h2 class="section-title gradient-text mt-12">1. Dağıtık Sistemler (Distributed Systems)</h2>
+        <p class="text-lg mb-6">Dağıtık Sistem, ortak bir hedefe ulaşmak için bir bilgisayar ağı üzerinden iletişim kuran ve birbirleriyle etkileşime giren <span class="keyword">birden fazla bilgisayardan</span> oluşan bir sistemdir.</p>
+        
+        <div class="space-y-4 mb-12">
+            <details class="interactive-element">
+                <summary>Dağıtık Sistemlerin 8 Yanılgısı (Fallacies)</summary>
+                <div class="accordion-content">
+                    <p class="mb-4">Dağıtık sistem tasarlarken, geliştiricilerin sıklıkla düştüğü 8 yaygın yanlış varsayım (yanılgı) vardır:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-wifi-slash text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Ağ güvenilirdir.</h5></div>
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-hourglass-half text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Gecikme (latency) sıfırdır.</h5></div>
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-infinity text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Bant genişliği (bandwidth) sonsuzdur.</h5></div>
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-user-secret text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Ağ güvenlidir.</h5></div>
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-map-signs text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Topoloji (ağ yapısı) değişmez.</h5></div>
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-user-shield text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Tek bir yönetici vardır.</h5></div>
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-wallet text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Taşıma maliyeti sıfırdır.</h5></div>
+                        <div class="info-box interactive-element !bg-gray-900 !text-left !p-4 border-l-4 border-rose-500"><i class="fa fa-laptop-code text-xl text-rose-400 mb-2"></i><h5 class="font-bold text-white">Ağ homojendir.</h5></div>
+                    </div>
+                    <p class="mt-4"><span class="keyword">Bu varsayımların tümü yanlıştır</span> ve sistem tasarımında dikkate alınmalıdır.</p>
+                </div>
+            </details>
+            <details class="interactive-element">
+                <summary>Dağıtık Sistemlerin Temel Özellikleri ve Zorlukları</summary>
+                <div class="accordion-content grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-green-300 mb-3">Temel Özellikler</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><span class="keyword">Ölçeklenebilirlik (Scalability):</span> Yeni düğümler ekleyerek sistemin büyüme yeteneği.</li>
+                            <li><span class="keyword">Eşzamanlılık (Concurrency):</span> Bileşenlerin aynı anda çalışması (global bir saat yoktur).</li>
+                            <li><span class="keyword">Hata Toleransı (Fault Tolerance):</span> Bir düğüm arızalansa bile sistemin çalışmaya devam etmesi.</li>
+                            <li><span class="keyword">Şeffaflık (Transparency):</span> Sistemin dışarıdan tek bir birim olarak görünmesi.</li>
+                            <li><span class="keyword">Heterojenlik (Heterogeneity):</span> Farklı donanım ve yazılımların bir arada çalışması.</li>
+                            <li><span class="keyword">Çoğaltma (Replication):</span> Güvenilirliği artırmak için bileşenlerin kopyalanması.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-rose-300 mb-3">Zorluklar</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><span class="keyword">Artan Hata Olasılığı:</span> Ne kadar çok bileşen varsa, hata olasılığı o kadar artar.</li>
+                            <li><span class="keyword">Senkronizasyon Zorlukları:</span> Global bir saat olmadığı için yarış koşulları (race conditions) ve kilitlenme (deadlock) riski.</li>
+                            <li><span class="keyword">Mükemmel Olmayan Ölçeklenebilirlik:</span> Düğüm sayısını ikiye katlamak performansı ikiye katlamaz.</li>
+                            <li><span class="keyword">Artan Güvenlik Karmaşıklığı:</span> Daha geniş bir saldırı yüzeyi (attack surface) oluşturur.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Bölüm 2: Zookeeper -->
+        <h2 class="section-title gradient-text mt-12">2. Zookeeper (Dağıtık Koordinasyon Servisi)</h2>
+        <div class="callout-box !border-indigo-500 mb-6">
+            <p class="text-lg"><span class="keyword">Zookeeper:</span> Dağıtık uygulamaların birbiriyle koordine olmasını sağlayan açık kaynaklı bir servistir. Dağıtık mimaride <span class="keyword">yapılandırma bilgilerini</span>, <span class="keyword">isimlendirmeyi</span> korumak ve <span class="keyword">senkronizasyonu</span> sağlamak için tasarlanmıştır.</p>
+            <p class="mt-2 text-sm">Temel motivasyonu, <span class="keyword">yarış koşulları (race conditions)</span> ve <span class="keyword">kilitlenme (deadlock)</span> gibi hatalara yatkın olan koordinasyon servislerini sıfırdan uygulama zorluğunu ortadan kaldırmaktır.</p>
+        </div>
+        <div class="space-y-4 mb-12">
+            <details class="interactive-element" open="">
+                <summary>Zookeeper Kullanım Alanları (Use Cases)</summary>
+                <div class="accordion-content grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="zk-usecase interactive-element">
+                        <h5><i class="fa fa-crown mr-2"></i>Lider Seçimi (Leader Election)</h5>
+                        <p class="text-sm">Dağıtık sistemde görevleri yönetecek bir "lider" (master) düğüm belirler. (Örn: Kafka broker'ları veya HDFS NameNode HA arasında lider seçimi).</p>
+                    </div>
+                    <div class="zk-usecase interactive-element">
+                        <h5><i class="fa fa-lock mr-2"></i>Dağıtık Kilit (Distributed Locking)</h5>
+                        <p class="text-sm">Aynı kaynağa birden fazla düğümün aynı anda müdahale etmesini engelleyerek veri tutarlılığını sağlar.</p>
+                    </div>
+                    <div class="zk-usecase interactive-element">
+                        <h5><i class="fa fa-cogs mr-2"></i>Yapılandırma Yönetimi (Configuration Management)</h5>
+                        <p class="text-sm">Uygulama ayarlarının merkezi bir noktada saklanmasını sağlar. "Watch" mekanizması sayesinde, konfigürasyon değiştiğinde tüm sistemler anında haberdar olur.</p>
+                    </div>
+                    <div class="zk-usecase interactive-element">
+                        <h5><i class="fa fa-search-location mr-2"></i>Servis Keşfi (Service Discovery)</h5>
+                        <p class="text-sm">Dağıtık sistemde çalışan servislerin (IP adresleri değişse bile) birbirini bulmasını sağlar.</p>
+                    </div>
+                    <div class="zk-usecase interactive-element">
+                        <h5><i class="fa fa-sync-alt mr-2"></i>Koordinasyon ve Senkronizasyon</h5>
+                        <p class="text-sm">Farklı düğümlerin belirli bir sırayla işlem yapmasını sağlar.</p>
+                    </div>
+                    <div class="zk-usecase interactive-element">
+                        <h5><i class="fa fa-heartbeat mr-2"></i>Durum Takibi / Meta Veri Yönetimi</h5>
+                        <p class="text-sm">Sistem bileşenlerinin çalışma durumunu izler. Canlı olan ve çöken düğümleri bilir (Örn: Kafka, topic/partition bilgilerini Zookeeper'da tutar).</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Bölüm 3 & 4: NoSQL ve MongoDB Mimarisi -->
+        <h2 class="section-title gradient-text mt-12">3 &amp; 4. NoSQL ve MongoDB Mimarisi</h2>
+        <div class="w-full mb-12">
+            <!-- Sekme Butonları -->
+            <div class="flex border-b-2 border-gray-700 mb-6">
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-mongo-compare-adv')">RDBMS vs. MongoDB</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-mongo-sharding')">MongoDB Sharding (Yatay Ölçeklenme)</button>
+                <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-mongo-id-adv')">MongoDB `_id` Yapısı</button>
+            </div>
+
+            <!-- RDBMS vs. MongoDB -->
+            <div id="tab-mongo-compare-adv" class="tab-content active" style="display: none;">
+                <p class="mb-4">Veri hacmindeki ve çeşitliliğindeki artış, geleneksel RDBMS sistemlerini yetersiz hale getirmiştir. NoSQL, bu soruna <span class="keyword">yatay ölçeklenebilen</span> ve <span class="keyword">dinamik şemalı</span> bir alternatif sunar.</p>
+                <div class="overflow-x-auto interactive-element rounded-lg mb-6">
+                    <table class="styled-table w-full">
+                        <thead>
+                            <tr>
+                                <th class="col-platform">Özellik</th>
+                                <th>RDBMS (İlişkisel, örn: MySQL)</th>
+                                <th>MongoDB (NoSQL)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Veri Modeli</td>
+                                <td>İlişkisel, Satır tabanlı (Row-based)</td>
+                                <td>Belge yönelimli (Document-based), JSON/BSON</td>
+                            </tr>
+                            <tr>
+                                <td>Ölçeklenme</td>
+                                <td><span class="keyword">Dikey Ölçeklenme</span> (Vertical Scaling - RAM artırmak)</td>
+                                <td><span class="keyword">Yatay Ölçeklenme</span> (Horizontal Scaling - Sunucu eklemek)</td>
+                            </tr>
+                            <tr>
+                                <td>Şema (Schema)</td>
+                                <td><span class="keyword">Önceden Tanımlı Şema</span> (Predefined Schema)</td>
+                                <td><span class="keyword">Dinamik Şema</span> (Dynamic Schema)</td>
+                            </tr>
+                            <tr>
+                                <td>Temel Teorem</td>
+                                <td><span class="keyword">ACID</span> (Atomicity, Consistency, Isolation, Durability)</td>
+                                <td><span class="keyword">CAP</span> (Consistency, Availability, Partition tolerance)</td>
+                            </tr>
+                            <tr>
+                                <td>Join (Birleştirme)</td>
+                                <td>Karmaşık <span class="keyword">JOIN</span> işlemlerini destekler.</td>
+                                <td>JOIN desteği yoktur (Yerine <span class="keyword">Embedded Documents</span> kullanılır).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- MongoDB Sharding -->
+            <div id="tab-mongo-sharding" class="tab-content" style="display: block;">
+                <p class="mb-4"><span class="keyword">Sharding</span>, veriyi birden fazla makineye (sunucuya) dağıtma yöntemidir. MongoDB, çok büyük veri setlerini ve yüksek işlem hacmini desteklemek için sharding (yatay ölçeklenme) kullanır.</p>
+                <div class="sharding-diagram interactive-element">
+                    <h4 class="text-xl font-bold text-white mb-3 text-center">MongoDB Sharded Cluster Mimarisi</h4>
+                    <div class="shard-box shard-mongos interactive-element">
+                        <i class="fa fa-route mr-2"></i>Mongos (Router - Yönlendirici)
+                        <p class="text-sm font-normal mt-1">İstemci isteklerini alır ve doğru Shard'a yönlendirir.</p>
+                    </div>
+                    <div class="shard-bidirectional"></div>
+                    <div class="shard-box shard-config interactive-element">
+                        <i class="fa fa-clipboard-list mr-2"></i>Config Servers (Replica Set)
+                        <p class="text-sm font-normal mt-1">Kümenin meta verilerini (hangi verinin hangi shard'da olduğu) saklar.</p>
+                    </div>
+                    <div class="shard-arrow"><i class="fa fa-arrow-down"></i></div>
+                    <div class="flex justify-around w-full">
+                        <div class="shard-box shard-shard interactive-element">
+                            <i class="fa fa-database mr-2"></i>Shard A (Replica Set)
+                            <p class="text-sm font-normal mt-1">Verinin bir alt kümesini tutar.</p>
+                        </div>
+                        <div class="shard-box shard-shard interactive-element">
+                            <i class="fa fa-database mr-2"></i>Shard B (Replica Set)
+                            <p class="text-sm font-normal mt-1">Verinin başka bir alt kümesini tutar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MongoDB _id Yapısı -->
+            <div id="tab-mongo-id-adv" class="tab-content" style="display: none;">
+                <p class="mb-4">MongoDB'ye bir belge eklendiğinde, <code class="keyword">_id</code> adında bir alan otomatik olarak eklenir. Bu alan, dağıtık sistemlerde çakışma olmadan ID üretilmesini sağlayan <span class="keyword">12 baytlık</span> benzersiz bir <code class="keyword">ObjectId</code> değeridir.</p>
+                <h4 class="text-xl font-bold text-white mb-3 mt-6 text-center">ObjectId 12-Bayt Yapısı</h4>
+                <div class="mongo-diagram-box interactive-element">
+                    <div class="id-byte-container">
+                        <!-- 1-4. baytlar: Timestamp -->
+                        <div class="id-group1"><div class="id-byte interactive-element">1</div><div class="id-byte interactive-element">2</div><div class="id-byte interactive-element">3</div><div class="id-byte interactive-element">4</div><div class="id-label">Timestamp (Zaman Damgası)</div></div>
+                        <!-- 5-7. baytlar: Machine ID -->
+                        <div class="id-group2"><div class="id-byte interactive-element">5</div><div class="id-byte interactive-element">6</div><div class="id-byte interactive-element">7</div><div class="id-label">Machine Identifier (Makine ID)</div></div>
+                        <!-- 8-9. baytlar: Process ID -->
+                        <div class="id-group3"><div class="id-byte interactive-element">8</div><div class="id-byte interactive-element">9</div><div class="id-label">Process ID (İşlem ID)</div></div>
+                        <!-- 10-12. baytlar: Counter -->
+                        <div class="id-group4"><div class="id-byte interactive-element">10</div><div class="id-byte interactive-element">11</div><div class="id-byte interactive-element">12</div><div class="id-label">Counter (Sayaç)</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bölüm 5, 6, 7: MongoDB Kurulumu, CRUD ve ASP.NET Core -->
+        <h2 class="section-title gradient-text mt-12">5, 6 &amp; 7: MongoDB Kurulumu, CRUD ve ASP.NET Core</h2>
+        <div class="space-y-4 mb-12">
+            <details class="interactive-element">
+                <summary>MongoDB Kurulumu ve CRUD Operasyonları</summary>
+                <div class="accordion-content">
+                    <div class="w-full">
+                        <!-- Sekme Butonları -->
+                        <div class="flex border-b-2 border-gray-700 mb-6">
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-mongo-setup')">Kurulum ve Başlatma</button>
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-mongo-crud')">CRUD (Mongo Shell)</button>
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-mongo-robo3t')">Robo 3T (GUI)</button>
+                        </div>
+
+                        <!-- Kurulum ve Başlatma -->
+                        <div id="tab-mongo-setup" class="tab-content active" style="display: block;">
+                            <h4 class="text-xl font-bold text-white mb-3">Adımlar:</h4>
+                            <p class="mb-4">Sunucuyu manuel yapılandırma ve başlatma adımları:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <ol class="list-decimal list-inside space-y-2 text-sm">
+                                        <li>MongoDB Community Server <code class="keyword">.msi</code> indirilir ve kurulur (Compass ile birlikte).</li>
+                                        <li><code class="keyword">C:\mongodb\data</code> klasörleri oluşturulur.</li>
+                                        <li><code class="keyword">C:\mongodb\mongo.config</code> dosyası oluşturulur ve içine yollar eklenir.</li>
+                                        <li><code class="keyword">C:\mongodb\mongo.log</code> adında boş bir log dosyası oluşturulur.</li>
+                                        <li>CMD (Komut İstemi) açılır ve <code class="keyword">mongod.exe</code> (sunucu) config dosyası ile başlatılır.</li>
+                                    </ol>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="code-block interactive-element">
+                                        <h4 class="text-lg font-bold text-white mb-2 p-4 pb-0">mongo.config Dosyası</h4>
+                                        <pre class="language-bash" tabindex="0"><code class="language-bash">
+<span class="token comment"># Veri dosyalarının yolu</span>
+dbpath <span class="token operator">=</span> C:<span class="token punctuation">\</span>mongodb<span class="token punctuation">\</span>data
+<span class="token comment"># Log dosyasının yolu</span>
+logpath <span class="token operator">=</span> C:<span class="token punctuation">\</span>mongodb<span class="token punctuation">\</span>mongo.log
+                                        </code></pre>
+                                    </div>
+                                    <div class="code-block interactive-element">
+                                        <h4 class="text-lg font-bold text-white mb-2 p-4 pb-0">Sunucuyu Başlatma (CMD)</h4>
+                                        <pre class="language-bash" tabindex="0"><code class="language-bash">
+<span class="token comment"># MongoDB'nin bin klasörüne git</span>
+<span class="token builtin class-name">cd</span> <span class="token string">"C:\Program Files\MongoDB\Server<span class="token entity" title="\5">\5</span>.0<span class="token entity" title="\b">\b</span>in"</span>
+
+<span class="token comment"># Sunucuyu yapılandırma dosyasıyla başlat</span>
+mongod.exe <span class="token parameter variable">--config</span> C:<span class="token punctuation">\</span>mongodb<span class="token punctuation">\</span>mongo.config
+                                        </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CRUD (Mongo Shell) -->
+                        <div id="tab-mongo-crud" class="tab-content" style="display: none;">
+                            <p class="mb-4">İkinci bir CMD açılır ve <code class="keyword">mongo.exe</code> (veya <code class="keyword">mongosh</code>) komutu ile Mongo Shell başlatılır.</p>
+                            <div class="code-block interactive-element">
+                                <pre class="language-javascript" tabindex="0"><code class="language-javascript">
+// 'firstexample' adında bir veritabanı oluşturur ve ona geçer
+use firstexample;
+
+// Mevcut veritabanındaki koleksiyonları (tabloları) listeler
+show collections;
+
+// CREATE: "person" adında yeni bir koleksiyon oluşturur
+db.createCollection("person");
+
+// CREATE: "person" koleksiyonuna yeni bir belge (kayıt) ekler
+db.person.insert({adi: "Stephen Hawking"});
+db.person.insert({adi: "Isaac Newton"});
+
+// READ (All): "person" koleksiyonundaki tüm belgeleri listeler
+db.person.find();
+// Çıktı: { _id: ObjectId(...), adi: "Stephen Hawking" } ...
+
+// READ (Filter): Adı "Isaac Newton" olanları bulur
+db.person.find( {adi: "Isaac Newton"} );
+                                </code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Robo 3T -->
+                        <div id="tab-mongo-robo3t" class="tab-content" style="display: none;">
+                            <p class="mb-4">Robo 3T (eski adıyla Robomongo), MongoDB için bir grafiksel kullanıcı arayüzüdür (GUI). Sunucuya (localhost:27017) bağlanarak veritabanlarını, koleksiyonları ve belgeleri görsel olarak yönetmenizi sağlar.</p>
+                            <p>Bir koleksiyona çift tıklamak, <code class="keyword">db.getCollection('person').find({})</code> komutunu otomatik çalıştırır ve sonuçları bir tablo olarak gösterir. Ayrıca, komutları manuel olarak yazıp çalıştırabileceğiniz bir shell arayüzü de sunar.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            <details class="interactive-element" open="">
+                <summary>ASP.NET Core ve MongoDB Uygulaması (CarGalleryApp)</summary>
+                <div class="accordion-content">
+                    <p class="mb-4">MongoDB'nin bir ASP.NET Core MVC web uygulamasında nasıl veritabanı olarak kullanılacağına dair adımlar.</p>
+                    <div class="w-full">
+                        <!-- Sekme Butonları -->
+                        <div class="flex border-b-2 border-gray-700 mb-6">
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-asp-setup')">1-2. Kurulum ve Driver</button>
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-asp-model')">3. Model (Cars.cs)</button>
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-asp-service')">4. Servis Sınıfı (CarServices.cs)</button>
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400" onclick="openTab(event, 'tab-asp-config')">5-6. Yapılandırma (Startup/JSON)</button>
+                            <button class="tab-button py-2 px-6 text-lg font-semibold text-gray-400 active" onclick="openTab(event, 'tab-asp-controller')">7. Controller (CarsController.cs)</button>
+                        </div>
+
+                        <!-- 1-2. Kurulum ve Driver -->
+                        <div id="tab-asp-setup" class="tab-content active" style="display: none;">
+                            <h4 class="text-xl font-bold text-white mb-3">1. Proje Kurulumu</h4>
+                            <p class="mb-4">Visual Studio'da "ASP.NET Core Web Application" (Model-View-Controller) şablonu kullanılarak yeni bir proje (<code class="keyword">CarGalleryApp</code>) oluşturulur.</p>
+                            <h4 class="text-xl font-bold text-white mb-3 mt-6">2. MongoDB Driver Ekleme</h4>
+                            <p>Proje üzerinde "NuGet Package Manager" (NuGet Paket Yöneticisi) açılır. "Browse" sekmesinden <code class="keyword">MongoDB.Driver</code> paketi aranır ve projeye yüklenir.</p>
+                        </div>
+
+                        <!-- 3. Model (Cars.cs) -->
+                        <div id="tab-asp-model" class="tab-content" style="display: none;">
+                            <p class="mb-4">MongoDB'deki "Cars" koleksiyonunda saklanacak veriyi temsil eden bir C# sınıfı (<code class="keyword">Models/Cars.cs</code>) oluşturulur.</p>
+                            <div class="code-block interactive-element">
+                                <pre class="language-csharp" tabindex="0"><code class="language-csharp">
+<span class="token keyword">using</span> <span class="token namespace">MongoDB<span class="token punctuation">.</span>Bson</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">MongoDB<span class="token punctuation">.</span>Bson<span class="token punctuation">.</span>Serialization<span class="token punctuation">.</span>Attributes</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>ComponentModel<span class="token punctuation">.</span>DataAnnotations</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cars</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">BsonId</span></span><span class="token punctuation">]</span> <span class="token comment">// Bu alanın MongoDB _id'si olduğunu belirtir.</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">BsonRepresentation</span><span class="token attribute-arguments"><span class="token punctuation">(</span>BsonType<span class="token punctuation">.</span>ObjectId<span class="token punctuation">)</span></span></span><span class="token punctuation">]</span> <span class="token comment">// Tipi ObjectId olarak ayarlar.</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> ID <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Required</span></span><span class="token punctuation">]</span> <span class="token comment">// ASP.NET doğrulaması</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">BsonElement</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"Model"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span> <span class="token comment">// MongoDB'deki alan adını belirtir.</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> Model <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Required</span></span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">BsonElement</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"Year"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">int</span></span> Year <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">BsonElement</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"Price"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">decimal</span></span> Price <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">BsonElement</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"ImageURL"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Required</span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> ImageURL <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+                                </code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 4. Servis Sınıfı (CarServices.cs) -->
+                        <div id="tab-asp-service" class="tab-content" style="display: none;">
+                            <p class="mb-4">Veritabanı işlemlerini (CRUD) yönetecek bir servis sınıfı (<code class="keyword">CarServices.cs</code>) oluşturulur.</p>
+                            <div class="code-block interactive-element">
+                                <pre class="language-csharp" tabindex="0"><code class="language-csharp">
+<span class="token keyword">using</span> <span class="token namespace">MongoDB<span class="token punctuation">.</span>Driver</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span>Configuration</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CarServices</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> <span class="token class-name">IMongoCollection</span> _cars<span class="token punctuation">;</span>
+
+    <span class="token comment">// Constructor: Veritabanı bağlantısını ayarlar</span>
+    <span class="token keyword">public</span> <span class="token function">CarServices</span><span class="token punctuation">(</span><span class="token class-name">IConfiguration</span> config<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Bağlantı dizesini appsettings.json'dan okur</span>
+        <span class="token class-name">MongoClient</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">MongoClient</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span><span class="token function">GetConnectionString</span><span class="token punctuation">(</span><span class="token string">"CarGalleryDb"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// "CarGalleryDb" veritabanını alır</span>
+        <span class="token class-name">IMongoDatabase</span> database <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">GetDatabase</span><span class="token punctuation">(</span><span class="token string">"CarGalleryDb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// "Cars" koleksiyonunu alır</span>
+        _cars <span class="token operator">=</span> database<span class="token punctuation">.</span><span class="token function">GetCollection</span><span class="token punctuation">(</span><span class="token string">"Cars"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// CREATE</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Cars</span> <span class="token function">Create</span><span class="token punctuation">(</span><span class="token class-name">Cars</span> car<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _cars<span class="token punctuation">.</span><span class="token function">InsertOne</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> car<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// READ (Tümü)</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">List</span> <span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> _cars<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span>car <span class="token operator">=&gt;</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// READ (Tek)</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Cars</span> <span class="token function">Get</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> id<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> _cars<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span>car <span class="token operator">=&gt;</span> car<span class="token punctuation">.</span>ID <span class="token operator">==</span> id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">FirstOrDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// UPDATE</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> id<span class="token punctuation">,</span> <span class="token class-name">Cars</span> carIn<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _cars<span class="token punctuation">.</span><span class="token function">ReplaceOne</span><span class="token punctuation">(</span>car <span class="token operator">=&gt;</span> car<span class="token punctuation">.</span>ID <span class="token operator">==</span> id<span class="token punctuation">,</span> carIn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// DELETE</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Remove</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> id<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _cars<span class="token punctuation">.</span><span class="token function">DeleteOne</span><span class="token punctuation">(</span>car <span class="token operator">=&gt;</span> car<span class="token punctuation">.</span>ID <span class="token operator">==</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+                                </code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 5-6. Yapılandırma (Startup/JSON) -->
+                        <div id="tab-asp-config" class="tab-content" style="display: none;">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-3">5. Bağlantı Dizesi (appsettings.json)</h4>
+                                    <p class="mb-2 text-sm"><code class="keyword">appsettings.json</code> dosyasına MongoDB bağlantı dizesi eklenir.</p>
+                                    <div class="code-block interactive-element">
+                                        <pre class="language-json" tabindex="0"><code class="language-json">
+<span class="token punctuation">{</span>
+  ...
+  <span class="token property">"ConnectionStrings"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"CarGalleryDb"</span><span class="token operator">:</span> <span class="token string">"mongodb://localhost:27017"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"AllowedHosts"</span><span class="token operator">:</span> <span class="token string">"*"</span>
+<span class="token punctuation">}</span>
+                                        </code></pre>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-3">6. Servisi Kaydetme (Startup.cs)</h4>
+                                    <p class="mb-2 text-sm"><code class="keyword">CarServices</code> sınıfı Dependency Injection'a eklenir.</p>
+                                    <div class="code-block interactive-element">
+                                        <pre class="language-csharp" tabindex="0"><code class="language-csharp">
+<span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">ConfigureServices</span><span class="token punctuation">(</span><span class="token class-name">IServiceCollection</span> services<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// CarServices sınıfını Scoped olarak ekle</span>
+    services<span class="token punctuation">.</span><span class="token function">AddScoped</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    services<span class="token punctuation">.</span><span class="token function">AddControllersWithViews</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+                                        </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. Controller (CarsController.cs) -->
+                        <div id="tab-asp-controller" class="tab-content" style="display: block;">
+                            <p class="mb-4">Kullanıcıdan gelen web isteklerini işleyecek ve <code class="keyword">CarServices</code>'i kullanacak Controller sınıfı.</p>
+                            <div class="code-block interactive-element">
+                                <pre class="language-csharp" tabindex="0"><code class="language-csharp">
+<span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>AspNetCore<span class="token punctuation">.</span>Mvc</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CarsController</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Controller</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> <span class="token class-name">CarServices</span> _carService<span class="token punctuation">;</span>
+
+    <span class="token comment">// Servis, constructor injection ile otomatik olarak alınır</span>
+    <span class="token keyword">public</span> <span class="token function">CarsController</span><span class="token punctuation">(</span><span class="token class-name">CarServices</span> carService<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _carService <span class="token operator">=</span> carService<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// GET: CarsController (Liste sayfası)</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">ActionResult</span> <span class="token function">Index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Tüm arabaları servisten al ve View'a gönder</span>
+        <span class="token keyword">return</span> <span class="token function">View</span><span class="token punctuation">(</span>_carService<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// POST: CarsController/Create (Yeni kayıt)</span>
+    <span class="token punctuation">[</span>HttpPost<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">ValidateAntiForgeryToken</span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">ActionResult</span> <span class="token function">Create</span><span class="token punctuation">(</span><span class="token class-name">Cars</span> car<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ModelState<span class="token punctuation">.</span>IsValid<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            _carService<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">RedirectToAction</span><span class="token punctuation">(</span><span class="token keyword">nameof</span><span class="token punctuation">(</span>Index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">View</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// GET: CarsController/Edit/5 (Düzenleme sayfası)</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">ActionResult</span> <span class="token function">Edit</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> id<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> car <span class="token operator">=</span> _carService<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//... (hata kontrolü) ...</span>
+        <span class="token keyword">return</span> <span class="token function">View</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// POST: CarsController/Edit/5 (Güncelleme)</span>
+    <span class="token punctuation">[</span>HttpPost<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">ValidateAntiForgeryToken</span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">ActionResult</span> <span class="token function">Edit</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> id<span class="token punctuation">,</span> <span class="token class-name">Cars</span> cars<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ModelState<span class="token punctuation">.</span>IsValid<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            _carService<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> cars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">RedirectToAction</span><span class="token punctuation">(</span><span class="token keyword">nameof</span><span class="token punctuation">(</span>Index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">View</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// POST: CarsController/Delete/5 (Silme)</span>
+    <span class="token punctuation">[</span>HttpPost<span class="token punctuation">,</span> <span class="token function">ActionName</span><span class="token punctuation">(</span><span class="token string">"Delete"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">ValidateAntiForgeryToken</span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">ActionResult</span> <span class="token function">DeleteConfirmed</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> id<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> car <span class="token operator">=</span> _carService<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//... (hata kontrolü) ...</span>
+        _carService<span class="token punctuation">.</span><span class="token function">Remove</span><span class="token punctuation">(</span>car<span class="token punctuation">.</span>ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">RedirectToAction</span><span class="token punctuation">(</span><span class="token keyword">nameof</span><span class="token punctuation">(</span>Index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+                                </code></pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <!-- Prism.js Kütüphaneleri -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" crossorigin="anonymous"></script> 
+
+    <script>
+        // --- Sekme (Tab) Fonksiyonu ---
+        function openTab(event, tabID) {
+            let i, tabcontent, tabbuttons;
+            let tabGroup = event.currentTarget.parentElement.parentElement;
+            
+            tabcontent = tabGroup.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            tabbuttons = tabGroup.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            
+            let activeTabContent = tabGroup.querySelector("#" + tabID);
+            if(activeTabContent) {
+                activeTabContent.style.display = "block";
+            }
+            event.currentTarget.className += " active";
+        }
+        // Başlangıçta ilk sekmeyi aç
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".tab-button.active").forEach(button => {
+                button.click();
+            });
+
+            // Prism.js'i manuel olarak tetikle
+            if (window.Prism) {
+                // Mongo Shell'i JS olarak takma adla
+                Prism.languages.mongoshell = Prism.languages.javascript;
+                Prism.highlightAll();
+            }
+        });
+
+        // --- Download Butonu Fonksiyonu ---
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'Hafta_5_NoSQL_MongoDB.html';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        });
+
+    </script>
+
+
+</body></html>

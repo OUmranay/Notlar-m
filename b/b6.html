@@ -1,0 +1,1661 @@
+<html lang="tr"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImI4Y2EzODU1OTU1ZmQ1MTMxOGFmNzI2ZTM0YzZjYWUzZmYyYWY4N2YiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMDU3ODMyNDgwMjM0NDYwNDE0OSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjX2Q0MGFlYzUzNTkxYTVkMmFfaGFmdGEtNi1idXl1ay12ZXJpLmh0bWwtMzE5In0sImV4cCI6MTc2MjU3MTgxOSwiaWF0IjoxNzYyNTY4MjE5LCJhbGciOiJSUzI1NiJ9.emdBUXBFIsj0DEaD1r5p5GBrffAgtuDigruWTT_fRDapYSJOy8wZEr2-E8wYuzlubVjHSZc75eh748Mqy6ihWZDCu1ZRIY_AuPk4wLSp5q_RR9VM32aClbKwdIi7J9b_KGtvAW9APhrkw5pjoaKuevyCQu0xnHSFORLSWbfvi8QrM7g8BIlMOVwjHh58CEikj-beCktadxrJbN6tkL51Egso1D7i_p3Z7CCujGhBIdpjmPzzvhcwELRsA6ZWD_l57-Z7II9RpZ6X_znS9eF_S_r9uuvyi7WwxGFwtR_C_tzBvBXr6_7MQFBSuDIVvaGyEQubMsHyFdAm-GDmRPA-hg","c_d40aec53591a5d2a_hafta-6-buyuk-veri.html-319")</script><script>'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-2.5-flash-preview-09-2025","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-2.5-flash-image-preview","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"]})</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta 6: Büyük Veri Depolama Teknolojileri</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome (Güncel sürüm) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Ana Arka Plan: Koyu Lacivert */
+            color: #e2e8f0; /* Ana Metin Rengi: Açık Gri */
+        }
+
+        /* Anahtar Kelime Rengi */
+        .keyword {
+            color: #f472b6; /* Pembe */
+            font-weight: 600;
+        }
+
+        /* Gradient Kenarlık ve Hover Efekti (info2 standardı) */
+        .gradient-border-wrapper {
+            border-radius: 0.75rem; /* 12px */
+            background: linear-gradient(135deg, #3b82f6, #4ade80);
+            padding: 2px; /* Kenarlık kalınlığı */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .interactive-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Kart, Sekme, Akordiyon vb. için hover efekti (info2 standardı: scale + rotate) */
+        .interactive-hover:hover {
+            transform: scale(1.03) rotate(-1deg); /* Büyüme + Hafif Dönme (DÖNME GERİ EKLENDİ) */
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3), 0 8px 10px -6px rgba(74, 222, 128, 0.3); /* Mavi-Yeşil gölge */
+            background: linear-gradient(135deg, #4ade80, #3b82f6); /* Gradient yön değiştirme */
+        }
+        
+        /* Tablo satırları için hover (info2 standardı) */
+        .table-row-hover:hover {
+            background-color: #334155; /* slate-700 */
+            transform: scale(1.02) rotate(-0.5deg); /* DÖNME GERİ EKLENDİ */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #4ade80;
+        }
+
+        /* İç Kart Arka Planı */
+        .card-inner {
+            background-color: #1e293b; /* Kart Arka Planı: Koyu Gri-Mavi */
+            border-radius: 0.6rem; /* Kenarlıktan biraz daha küçük */
+            height: auto; /* height: 100%; idi, auto olarak değiştirildi */
+            width: 100%;
+        }
+
+        /* Çevirme Kart Stilleri */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            min-height: 380px; /* 340px idi, 380px olarak artırıldı */
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.6rem; /* 10px */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem; /* 24px */
+        }
+        .flip-card-front {
+            background-color: #1e293b; /* Kart ön yüzü */
+            border: 2px solid #3b82f6; /* Mavi kenar */
+        }
+        .flip-card-back {
+            /* info2'ye özel degrade arka plan */
+            background: linear-gradient(145deg, #0c1432, #110e2b); 
+            color: white;
+            transform: rotateY(180deg);
+            overflow-y: auto;
+            font-size: 0.875rem; /* 14px */
+            text-align: left;
+            border: 2px solid #4ade80;
+        }
+
+        /* Sekme Stilleri */
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            background-color: #334155; /* slate-700 */
+            color: #cbd5e1; /* slate-300 */
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #3b82f6, #4ade80);
+            color: #0f172a; /* Koyu arka plan rengi */
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        .tab-content {
+            display: none;
+            border-radius: 0.5rem;
+            background-color: #1e293b; /* Kart arka planı */
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* Yatay Sekme Stilleri (IMDG Entegrasyonu için) */
+        .horizontal-tab-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            background-color: #334155;
+            color: #cbd5e1;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .horizontal-tab-btn.active {
+            background: #475569;
+            color: white;
+            border-bottom: 2px solid #4ade80;
+        }
+        .horizontal-tab-content {
+            display: none;
+            border-radius: 0 0.5rem 0.5rem 0.5rem;
+            background-color: #0f172a; /* Ana arka plandan */
+            padding: 1.5rem;
+        }
+        .horizontal-tab-content.active {
+            display: block;
+        }
+
+        /* Akordiyon Stilleri */
+        .accordion-btn {
+            width: 100%;
+            text-align: left;
+            padding: 1rem;
+            background-color: #334155; /* slate-700 */
+            color: #e2e8f0; /* slate-200 */
+            font-weight: 600;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-btn:hover, .accordion-btn.active {
+            background-color: #475569; /* slate-600 */
+        }
+        .accordion-btn .icon::before {
+            content: '\f067'; /* Font Awesome Plus */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        .accordion-btn.active .icon::before {
+            content: '\f068'; /* Font Awesome Minus */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #1e293b; /* Koyu Gri-Mavi */
+            padding: 0 1.5rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+        .accordion-content div {
+            padding: 1.5rem 0;
+        }
+        
+        /* CSS Infografik Stilleri (Genel) */
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: #0f172a;
+            border-radius: 0.5rem;
+        }
+        .flow-item {
+            background: #334155;
+            border: 2px solid #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-width: 120px;
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #4ade80;
+            transform: scale(1.5);
+        }
+        .flow-label {
+            color: #cbd5e1;
+            font-size: 0.875rem;
+            width: 100%;
+            text-align: center;
+            margin-top: -0.5rem;
+        }
+        .flow-db {
+            border: 2px dashed #3b82f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .flow-table {
+            background: #1e293b;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            font-family: monospace;
+            font-size: 0.8rem;
+            border: 1px solid #475569;
+        }
+        .flow-table .header { color: #f472b6; }
+        .flow-table .row-ok { color: #4ade80; }
+        .flow-table .row-fail { color: #f87171; text-decoration: line-through; }
+        .flow-table .row-lock { color: #facc15; }
+
+        /* Kod Bloğu */
+        .code-block {
+            background-color: #0c1432; /* Koyu degrade rengi */
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+        }
+        .code-block .comment { color: #64748b; /* slate-500 */ }
+        .code-block .keyword { color: #60a5fa; /* blue-400 */ }
+        .code-block .string { color: #a78bfa; /* violet-400 */ }
+        .code-block .number { color: #facc15; /* yellow-400 */ }
+        .code-block .property { color: #4ade80; /* green-400 */ }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.h-64{height:16rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.rounded-lg{border-radius:0.5rem}.rounded-b-lg{border-bottom-right-radius:0.5rem;border-bottom-left-radius:0.5rem}.rounded-r-lg{border-top-right-radius:0.5rem;border-bottom-right-radius:0.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-dashed{border-style:dashed}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.border-green-400{--tw-border-opacity:1;border-color:rgb(74 222 128 / var(--tw-border-opacity, 1))}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-slate-400{--tw-border-opacity:1;border-color:rgb(148 163 184 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-blue-700{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.bg-green-700{--tw-bg-opacity:1;background-color:rgb(21 128 61 / var(--tw-bg-opacity, 1))}.bg-purple-700{--tw-bg-opacity:1;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgb(96 165 250 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-green-400{--tw-gradient-to:#4ade80 var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.p-4{padding:1rem}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.hover\:from-blue-500:hover{--tw-gradient-from:#3b82f6 var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-green-500:hover{--tw-gradient-to:#22c55e var(--tw-gradient-to-position)}@media (min-width: 768px){.md\:mt-0{margin-top:0px}.md\:h-80{height:20rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-8{padding:2rem}.md\:text-left{text-align:left}}@media (min-width: 1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.h-64{height:16rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.rounded-lg{border-radius:0.5rem}.rounded-b-lg{border-bottom-right-radius:0.5rem;border-bottom-left-radius:0.5rem}.rounded-r-lg{border-top-right-radius:0.5rem;border-bottom-right-radius:0.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-dashed{border-style:dashed}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.border-green-400{--tw-border-opacity:1;border-color:rgb(74 222 128 / var(--tw-border-opacity, 1))}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-slate-400{--tw-border-opacity:1;border-color:rgb(148 163 184 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-blue-700{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.bg-green-700{--tw-bg-opacity:1;background-color:rgb(21 128 61 / var(--tw-bg-opacity, 1))}.bg-purple-700{--tw-bg-opacity:1;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgb(96 165 250 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-green-400{--tw-gradient-to:#4ade80 var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.p-4{padding:1rem}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.hover\:from-blue-500:hover{--tw-gradient-from:#3b82f6 var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-green-500:hover{--tw-gradient-to:#22c55e var(--tw-gradient-to-position)}@media (min-width: 768px){.md\:mt-0{margin-top:0px}.md\:h-80{height:20rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-8{padding:2rem}.md\:text-left{text-align:left}}@media (min-width: 1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body class="bg-slate-900 text-slate-200 p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Başlık ve İndirme Butonu -->
+        <header class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div class="text-center md:text-left">
+                <h1 class="text-4xl font-bold text-white mb-2">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">📚 Hafta 6: Büyük Veri Depolama Teknolojileri</span>
+                </h1>
+                <p class="text-lg text-slate-400">Disk Üzerinde (On-Disk) ve Bellek İçi (In-Memory) depolama teknolojilerinin incelenmesi.</p>
+            </div>
+            <a id="downloadButton" class="mt-4 md:mt-0 inline-block px-6 py-3 rounded-lg font-semibold text-slate-900 interactive-hover
+                      bg-gradient-to-r from-blue-400 to-green-400 
+                      hover:from-blue-500 hover:to-green-500" href="#" download="hafta-6-buyuk-veri.html" onclick="this.href='data:text/html;charset=utf-8,'+encodeURIComponent(document.documentElement.outerHTML)">
+                <i class="fa-solid fa-download mr-2"></i> Notu İndir
+            </a>
+        </header>
+
+        <!-- Hız Karşılaştırma Grafiği -->
+        <div class="gradient-border-wrapper mb-8 interactive-hover">
+            <div class="card-inner p-6">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">Disk vs. Bellek: Erişim Hızı Karşılaştırması (1MB Veri)</h2>
+                <p class="text-center text-slate-400 mb-4">Bellek içi depolamanın disk G/Ç gecikmesini nasıl ortadan kaldırdığını görmek için logaritmik ölçek kullanılmıştır. (Kaynak: PDF Sayfa 44)</p>
+                <div class="h-64 md:h-80 relative">
+                    <canvas id="speedChart" style="display: block; box-sizing: border-box; height: 320px; width: 1228px;" width="1842" height="480"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ana Sekmeler: On-Disk vs In-Memory -->
+        <div class="mb-8">
+            <div class="flex flex-wrap space-x-4 border-b border-slate-700 mb-4">
+                <button class="tab-btn" data-tab="on-disk">
+                    <i class="fa-solid fa-hard-drive mr-2"></i> 1. Disk Üzerinde (On-Disk)
+                </button>
+                <button class="tab-btn active" data-tab="in-memory">
+                    <i class="fa-solid fa-memory mr-2"></i> 2. Bellek İçi (In-Memory)
+                </button>
+            </div>
+
+            <!-- TAB 1: ON-DISK -->
+            <div id="on-disk" class="tab-content">
+                <p class="text-lg text-slate-300 mb-6">Verilerin kalıcı olarak saklandığı geleneksel yöntemleri kapsar. Genellikle düşük maliyetli <span class="keyword">hard-disk sürücüleri (HDD)</span> kullanır ve <span class="keyword">uzun vadeli (long-term)</span> depolama sağlar. Dağıtık bir dosya sistemi veya bir veritabanı aracılığıyla uygulanır.</p>
+
+                <!-- Akordiyon: DFS ve RDBMS -->
+                <div class="space-y-4 mb-8">
+                    <div class="gradient-border-wrapper">
+                        <div class="card-inner">
+                            <button class="accordion-btn interactive-hover">
+                                <span>Dağıtık Dosya Sistemleri (DFS / DDS)</span>
+                                <span class="icon"></span>
+                            </button>
+                            <div class="accordion-content">
+                                <div>
+                                    <p class="mb-4">Birden fazla makineye yayılmış disklerin ve depolama kaynaklarının paylaşımlı kullanımını sağlar. Yarı yapılandırılmış ve yapılandırılmamış veriler gibi doğası gereği ilişkili olmayan büyük hacimli verileri depolayabilir. <br>
+                                    <span class="keyword">Temel Özellikler:</span>
+                                    </p><ul class="list-disc list-inside space-y-1 text-slate-300 mt-2">
+                                        <li>Çok sayıda küçük dosyanın depolanması için <span class="keyword">uygun değildir</span>.</li>
+                                        <li>İstemci sistemine merkezi bir şekilde <span class="keyword">erişim kontrolü</span> ve <span class="keyword">depolama yönetimi</span> kontrolleri verebilmelidir.</li>
+                                        <li><span class="keyword">Şeffaflık (Transparency)</span>, DFS'teki temel süreçlerden biridir.</li>
+                                        <li>Büyük ham veri setlerinin (<span class="keyword">raw data</span>) depolanması için uygundur.</li>
+                                    </ul>
+                                    <p></p>
+                                    <h4 class="text-lg font-semibold text-white mb-3 mt-4">DFS'in Faydaları:</h4>
+                                    <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                        <li><span class="keyword">Erişim Kontrolü:</span> Sunucu ve istemcilerde erişimi kısıtlama.</li>
+                                        <li><span class="keyword">Verimlilik:</span> İyileştirilmiş dosya kullanılabilirliği, erişim süresi ve ağ verimliliği.</li>
+                                        <li><span class="keyword">Ölçeklenebilirlik:</span> Gelişmiş ölçeklenebilirlik ve birlikte çalışabilirlik.</li>
+                                        <li><span class="keyword">Şeffaflık:</span> Veri erişim şeffaflığı ve konum bağımsızlığı.</li>
+                                        <li><span class="keyword">Bütünleşik Görünüm:</span> Paylaşılan kaynaklar için birleşik görünüm.</li>
+                                        <li><span class="keyword">Yük Dengeleme:</span> Daha verimli <span class="keyword">load-balancing</span>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-border-wrapper">
+                        <div class="card-inner">
+                            <button class="accordion-btn interactive-hover">
+                                <span>İlişkisel Veritabanı Yönetim Sistemleri (RDBMS)</span>
+                                <span class="icon"></span>
+                            </button>
+                            <div class="accordion-content">
+                                <div>
+                                    <p>Birbiriyle ilişkili veri noktalarını depolayan ve bunlara erişim sağlayan bir veritabanı türüdür. <span class="keyword">İlişkisel modele</span> dayanır. Her satır (<span class="keyword">row</span>), <span class="keyword">anahtar (key)</span> olarak adlandırılan benzersiz bir kimliğe sahip bir kayıttır. Tablonun sütunları (<span class="keyword">columns</span>) verinin niteliklerini (<span class="keyword">attributes</span>) tutar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACID Özellikleri - Flip Cards (Görsel Olarak Güncellendi) -->
+                <h3 class="text-2xl font-bold text-white mb-6">RDBMS ve ACID Özellikleri (Kaynak: PDF Sayfa 9-13)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    
+                    <!-- Atomicity (Görsel eklendi) -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-atom text-5xl text-blue-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">Atomicity (Atomiklik)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">Atomiklik (Ya Hep Ya Hiç)</h4>
+                                <p class="text-sm mb-3">Tüm işlemlerin <span class="keyword">tamamen başarılı</span> veya <span class="keyword">tamamen başarısız</span> olacağını garanti eder. Kısmi işlem yoktur.</p>
+                                <div class="flow-diagram p-2 text-sm">
+                                    <div class="flow-item"><i class="fa-solid fa-user"></i><br>update id 2, 3</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-db">
+                                        <div class="flow-table">
+                                            <div class="header">id | amount</div>
+                                            <div class="row-ok">2 | 33 <i class="fa-solid fa-check"></i></div>
+                                            <div class="row-fail">3 | 18 <i class="fa-solid fa-xmark"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-rotate-left"></i></div>
+                                    <div class="flow-item"><span class="keyword">Rollback</span><br>Tüm işlem geri alınır.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Consistency (Görsel eklendi) -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-check-double text-5xl text-green-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">Consistency (Tutarlılık)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">Tutarlılık (Doğru Durum)</h4>
+                                <p class="text-sm mb-3">Bir işlemden sonra veri noktalarını <span class="keyword">doğru bir durumda</span> (kurallara uygun) tutmayı tanımlar.</p>
+                                <div class="flow-diagram p-2 text-sm">
+                                    <div class="flow-item"><i class="fa-solid fa-user"></i><br>update id 3 = "abc"</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                                    <div class="flow-db">
+                                        <div class="flow-table">
+                                            <div class="header">id | amount (float)</div>
+                                            <div>3 | 18</div>
+                                        </div>
+                                        <div class="text-red-400 font-bold mt-2"><i class="fa-solid fa-ban"></i> REDDET</div>
+                                    </div>
+                                    <p class="text-xs mt-2">Değer, <span class="keyword">amount (float)</span> sütununun kısıtlamasını ihlal eder.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Isolation (Görsel eklendi) -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-lock text-5xl text-yellow-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">Isolation (İzolasyon)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">İzolasyon (Görünmezlik)</h4>
+                                <p class="text-sm mb-3">Bir işlemin etkisini, işlem <span class="keyword">tamamlanana (commit)</span> kadar diğerlerinden görünmez tutar.</p>
+                                <div class="flow-diagram p-2 text-sm">
+                                    <div class="flow-item"><i class="fa-solid fa-user"></i> A<br>update id 3</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-db">
+                                        <div class="flow-table">
+                                            <div class="header">id | amount</div>
+                                            <div class="row-lock">3 | 18 <i class="fa-solid fa-lock"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                    <div class="flow-item"><i class="fa-solid fa-user"></i> B<br>update id 3<br><span class="keyword">BEKLE</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Durability (Görsel eklendi) -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-database text-5xl text-red-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">Durability (Dayanıklılık)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">Dayanıklılık (Kalıcılık)</h4>
+                                <p class="text-sm mb-3">İşlem tamamlandığında veri değişikliklerinin <span class="keyword">kalıcı olmasını</span> sağlar (örn: elektrik kesintisine rağmen).</p>
+                                <div class="flow-diagram p-2 text-sm">
+                                    <div class="flow-item">update id 2</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item text-green-400">Başarılı</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item text-red-400"><i class="fa-solid fa-bolt"></i><br>Güç Kesintisi</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item text-blue-400"><i class="fa-solid fa-power-off"></i><br>Güç Geldi</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item">select id 2<br><span class="keyword">Kalıcı Veri</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RDBMS Kısıtlamaları ve Sharding -->
+                <h3 class="text-2xl font-bold text-white mb-6">RDBMS Kısıtlamaları ve Ölçekleme</h3>
+                <div class="gradient-border-wrapper mb-8">
+                    <div class="card-inner p-6">
+                        <p class="mb-4">RDBMS'ler genellikle <span class="keyword">tek bir sunucuda</span> çalışacak şekilde tasarlanmıştır, bu nedenle <span class="keyword">ölçeklenmek</span> için tasarlanmamıştır. Büyüdükçe darboğazlarla (<span class="keyword">CPU, depolama, bellek</span>) karşılaşırlar.</p>
+                        
+                        <h4 class="text-xl font-bold text-white mb-4">Çözüm 1: Clustered RDBMS (Kaynak: PDF Sayfa 15)</h4>
+                        <div class="flow-diagram mb-6">
+                            <div class="flex flex-col gap-2">
+                                <div class="flow-item"><i class="fa-solid fa-user"></i></div>
+                                <div class="flow-item"><i class="fa-solid fa-user"></i></div>
+                                <div class="flow-item"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div class="flex flex-col gap-2 border p-2 rounded-lg border-dashed border-blue-400">
+                                <div class="flow-item bg-purple-700 border-purple-400">Node A</div>
+                                <div class="flow-item bg-purple-700 border-purple-400">Node B</div>
+                                <div class="flow-item bg-purple-700 border-purple-400">Node C</div>
+                            </div>
+                            <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div class="flow-item bg-slate-700 border-slate-400"><i class="fa-solid fa-database fa-2x"></i><br>Shared Storage</div>
+                        </div>
+                        <p class="mb-6">Bu mimaride birden fazla Düğüm (Node A, B, C) tek bir <span class="keyword">Paylaşımlı Depolama (Shared Storage)</span> alanına erişir.</p>
+
+                        <h4 class="text-xl font-bold text-white mb-4">Çözüm 2: Sharding (Parçalama) (Kaynak: PDF Sayfa 16)</h4>
+                        <div class="flow-diagram mb-4">
+                            <div class="flow-item bg-slate-700 border-slate-400">Büyük RDBMS Tablosu</div>
+                            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                            <div class="flex justify-around w-full gap-2">
+                                <div class="flow-item bg-green-700 border-green-400">Shard 1 (A-G)</div>
+                                <div class="flow-item bg-green-700 border-green-400">Shard 2 (H-P)</div>
+                                <div class="flow-item bg-green-700 border-green-400">Shard 3 (Q-Z)</div>
+                            </div>
+                        </div>
+                        <p class="mt-4"><span class="keyword">Sharding (Parçalama):</span> Büyük tabloları, birden fazla sunucuya yayılmış <span class="keyword">shard</span> adı verilen daha küçük parçalara ayırma işlemidir. Bir shard, toplam veri setinin bir alt kümesini içerir.</p>
+
+                        <h5 class="text-lg font-semibold text-white mt-6 mb-4">Sharding Türleri (Kaynak: PDF Sayfa 17)</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-lg bg-slate-800 border border-slate-700">
+                                <h6 class="font-bold text-green-400">Horizontal Partitioning (Yatay)</h6>
+                                <p>Tabloyu <span class="keyword">satırlara</span> göre böler. (Sharding budur).</p>
+                                <pre class="code-block text-xs mt-2">Shard 1: (ID 1-1000)\nShard 2: (ID 1001-2000)</pre>
+                            </div>
+                            <div class="p-4 rounded-lg bg-slate-800 border border-slate-700">
+                                <h6 class="font-bold text-blue-400">Vertical Partitioning (Dikey)</h6>
+                                <p>Tabloyu <span class="keyword">sütunlara</span> göre böler.</p>
+                                <pre class="code-block text-xs mt-2">Tablo 1: (ID, İsim, Adres)\nTablo 2: (ID, Profil Resmi, Biyo)</pre>
+                            </div>
+                        </div>
+
+                        <h5 class="text-lg font-semibold text-white mt-6 mb-4">Neden Sharding Gerekli? (Kaynak: PDF Sayfa 18)</h5>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300">
+                            <li>RDBMS'ler büyüdükçe <span class="keyword">darboğazlarla</span> (CPU, depolama, bellek) karşılaşır.</li>
+                            <li>Yatay bölümleme, <span class="keyword">daha fazla hesaplama kapasitesi</span> sağlar, bu da daha hızlı sorgu yanıt süreleri anlamına gelir.</li>
+                            <li>Yükü ve veri setini ek düğümler üzerinde dengeleyerek <span class="keyword">ek kapasite</span> kullanımına olanak tanır.</li>
+                            <li>Daha küçük, <span class="keyword">daha ucuz sunuculardan</span> oluşan bir ağ, tek bir büyük sunucuyu sürdürmekten daha uygun maliyetli olabilir.</li>
+                        </ul>
+
+                        <h5 class="text-lg font-semibold text-white mt-6 mb-4">Manual Sharding (Kaynak: PDF Sayfa 19-20)</h5>
+                        <p class="mb-4">Oracle, PostgreSQL, MySQL ve Amazon Aurora gibi veritabanları <span class="keyword">otomatik sharding'i desteklemez</span>. Bu veritabanlarını kullanmak için <span class="keyword">uygulama katmanında</span> (application layer) manuel sharding yapılmalıdır.</p>
+                        <div class="flow-diagram">
+                            <div class="flow-item"><i class="fa-solid fa-laptop-code"></i><br>Application</div>
+                            <div class="flex flex-col">
+                                <span class="flow-label">Write id=1</span>
+                                <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                <span class="flow-label">Read id=2</span>
+                                <div class="flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <div class="flow-item bg-blue-700 border-blue-400">Shard A (id: 1, 3, 5...)</div>
+                                <div class="flow-item bg-green-700 border-green-400">Shard B (id: 2, 4, 6...)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NoSQL -->
+                <h3 class="text-2xl font-bold text-white mb-6">NoSQL ("Not Only SQL") Veritabanları (Kaynak: PDF Sayfa 21)</h3>
+                <p class="mb-6">RDBMS'in ölçeklenebilirlik kısıtlamalarına bir alternatif olarak ortaya çıkmıştır.</p>
+                <div class="gradient-border-wrapper mb-8">
+                    <div class="card-inner p-6">
+                        <h4 class="text-xl font-bold text-white mb-4">NoSQL Karakteristikleri</h4>
+                        <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 list-disc list-inside">
+                            <li>Veriler <span class="keyword">ham formunda</span> bulunabilir.</li>
+                            <li><span class="keyword">Yapılandırılmamış</span> ve <span class="keyword">yarı yapılandırılmış</span> verileri işleyebilir.</li>
+                            <li><span class="keyword">Maliyet etkindirler</span>.</li>
+                            <li>Çalışma şekilleri karmaşık değildir (<span class="keyword">Complex-free</span>).</li>
+                            <li><span class="keyword">Şemadan (Schema) bağımsızdırlar</span>.</li>
+                            <li>Daha iyi <span class="keyword">Ölçeklenebilirlik (Scalability)</span> sunarlar.</li>
+                            <li><span class="keyword">Esnek (Flexible)</span> bir yapıdadırlar.</li>
+                            <li><span class="keyword">Dayanıklıdırlar (Durable)</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NoSQL Türleri - Flip Cards (Kaynak: PDF Sayfa 22-40) -->
+                <h4 class="text-xl font-bold text-white mb-4">NoSQL Veritabanı Türleri</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    
+                    <!-- Key-Value -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-key text-5xl text-blue-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">1. Key-Value (Anahtar-Değer)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">Key-Value Veritabanı</h4>
+                                <p class="text-sm">Bir veri noktası (<span class="keyword">değer</span>) bir <span class="keyword">anahtara (key)</span> atanır. Veri, benzersiz bir anahtar ile getirilir. Şema yoktur ve değer her şey olabilir (JSON, resim, video vb.).</p>
+                                <ul class="list-disc list-inside text-left text-xs space-y-1 mt-2">
+                                    <li><span class="keyword">Değerler sorgulanamaz</span>, yalnızca anahtar sorgulanabilir.</li>
+                                    <li>Operasyonlar: <span class="keyword">put</span> (ekle/güncelle), <span class="keyword">get</span> (getir), <span class="keyword">delete</span> (sil).</li>
+                                    <li>Değer bağımsız bir varlıktır.</li>
+                                    <li>Ölçeklenebilirlik <span class="keyword">sharding</span> (partitioning) ile sağlanır.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Document -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-file-alt text-5xl text-green-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">2. Document (Doküman)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">Doküman Veritabanı</h4>
+                                <p class="text-sm">Veri ve metaveriler, <span class="keyword">JSON tabanlı</span> (veya BSON, XML) dokümanlarda hiyerarşik olarak saklanır. <br> Key-Value'dan farkı, saklanan <span class="keyword">değerin (dokümanın) sorgulanabilir</span> olmasıdır. Dokümanlar <span class="keyword">koleksiyon (collection)</span> içinde organize edilir. <span class="keyword">Esnek şemaya</span> sahiptirler.</p>
+                                <p class="text-xs mt-2">Detaylar için "NoSQL Detayları" akordiyonuna bakın.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column-Oriented -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-columns text-5xl text-yellow-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">3. Column-Oriented (Sütun)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">Sütun Odaklı Veritabanı</h4>
+                                <p class="text-sm">İlgili sütunları bir satırda birlikte gruplar. Her satır bir anahtara sahiptir.</p>
+                                <ul class="list-disc list-inside text-left text-xs space-y-1 mt-2">
+                                    <li>Her satır, <span class="keyword">super-column</span> olarak adlandırılabilecek <span class="keyword">sütun ailesi (column-family)</span> koleksiyonlarına sahip olabilir.</li>
+                                    <li>Farklı sütun aileleri ayrı dosyalarda saklanabilir.</li>
+                                    <li>Sütun aileleri sistem kesintisi olmadan eklenebilir/kaldırılabilir.</li>
+                                    <li><strong>Örnekler:</strong> <span class="keyword">Cassandra, Hbase</span>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graph -->
+                    <div class="flip-card interactive-hover">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-project-diagram text-5xl text-red-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">4. Graph (Grafik)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">Grafik Veritabanı</h4>
+                                <p class="text-sm">Birbiriyle bağlantılı varlıklar için kullanılır. Veriyi temsil etmek için <span class="keyword">düğümler (nodes)</span>, <span class="keyword">kenarlar (edges)</span> ve <span class="keyword">özellikler (properties)</span> içeren grafik yapılarını kullanır.</p>
+                                <ul class="list-disc list-inside text-left text-xs space-y-1 mt-2">
+                                    <li><span class="keyword">Kullanım Alanları:</span> İlişki sorgulama, <span class="keyword">dolandırıcılık tespiti (Fraud detection)</span>, desen madenciliği.</li>
+                                    <li><strong>Örnek:</strong> <span class="keyword">Neo4J</span>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NoSQL Detayları Akordiyonu (Yeni Eklendi) -->
+                <div class="gradient-border-wrapper mb-8">
+                    <div class="card-inner">
+                        <button class="accordion-btn interactive-hover active">
+                            <span>NoSQL Detayları: Doküman (Document) Veritabanları (Kaynak: PDF Sayfa 27-36)</span>
+                            <span class="icon"></span>
+                        </button>
+                        <div class="accordion-content" style="max-height: 964px;">
+                            <div>
+                                <h5 class="text-lg font-semibold text-white mb-4">CRUD Operasyonları</h5>
+                                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                    <li><span class="keyword">Create:</span> Veritabanında benzersiz tanımlayıcıya sahip dokümanlar oluşturulur.</li>
+                                    <li><span class="keyword">Read:</span> API veya sorgu dili ile dokümanlar okunur. Performans için <span class="keyword">indeksler</span> eklenebilir.</li>
+                                    <li><span class="keyword">Update:</span> Mevcut dokümanlar tamamen veya kısmen güncellenebilir.</li>
+                                    <li><span class="keyword">Delete:</span> Dokümanlar silinebilir.</li>
+                                </ul>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">Temel Özellikleri</h5>
+                                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                    <li><span class="keyword">Doküman Modeli:</span> Veri dokümanlarda saklanır.</li>
+                                    <li><span class="keyword">Esnek Şema:</span> Bir koleksiyondaki tüm dokümanların aynı alanlara sahip olması gerekmez.</li>
+                                    <li><span class="keyword">Dağıtık ve Dayanıklı:</span> <span class="keyword">Yatay ölçeklendirmeye</span> ve veri dağıtımına izin verir. Dayanıklılığı <span class="keyword">replikasyon (replication)</span> yoluyla sağlar.</li>
+                                </ul>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">RDBMS'ten Farkları</h5>
+                                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                    <li>Veri modelinin <span class="keyword">sezgiselliği</span>.</li>
+                                    <li><span class="keyword">JSON</span> dokümanlarının yaygınlığı.</li>
+                                    <li>Şemanın <span class="keyword">esnekliği</span>.</li>
+                                    <li>(Ayrıca Key-Value, Relational, Graph ve Geospatial veriler de doküman modeli içinde modellenebilir)</li>
+                                </ul>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">Güçlü Yönleri</h5>
+                                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                    <li>Sezgiseldir ve <span class="keyword">hızlı yazılım geliştirmeyi</span> sağlar.</li>
+                                    <li>Esnek şema, veri modelinin <span class="keyword">değişmesine</span> izin verir.</li>
+                                    <li>Zengin API'ler ve sorgu dilleri vardır.</li>
+                                    <li>Minimal bakım gerektirir.</li>
+                                    <li><span class="keyword">Yabancı anahtar (foreign key) yoktur</span>; dokümanlar bağımsız olabilir.</li>
+                                </ul>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">Kullanım Alanları</h5>
+                                <ul class="grid grid-cols-2 gap-2 text-slate-300">
+                                    <li>- Tekil görünüm (Single view)</li>
+                                    <li>- Müşteri veri yönetimi</li>
+                                    <li>- Nesnelerin İnterneti (IoT)</li>
+                                    <li>- Ürün katalogları</li>
+                                    <li>- Ödeme işleme</li>
+                                    <li>- Mobil uygulamalar</li>
+                                    <li>- Gerçek zamanlı analitik</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NewSQL -->
+                <h3 class="text-2xl font-bold text-white mb-6">NewSQL Veritabanları (Kaynak: PDF Sayfa 41-42)</h3>
+                <div class="gradient-border-wrapper">
+                    <div class="card-inner p-6">
+                        <p><span class="keyword">Sorun:</span> NoSQL <span class="keyword">ölçeklenebilirlik</span> ve <span class="keyword">hata toleransı</span> sağlar, ancak <span class="keyword">ACID</span> uyumlu RDBMS'ler tarafından sergilenen işlem ve tutarlılık desteğini sağlamaz. Bu nedenle, büyük işlemsel (transactional) sistemler için uygun değildir.</p>
+                        <p class="mt-4 text-lg font-semibold text-green-400"><span class="keyword">Çözüm (NewSQL):</span> Geleneksel RDBMS'lerin işlevselliğini (<span class="keyword">ACID uyumluluğu</span> dahil) NoSQL veritabanlarının <span class="keyword">ölçeklenebilirliği</span> ile birleştirir.</p>
+                        <p class="mt-4 text-slate-300"><strong>Örnekler:</strong> <span class="keyword">VoltDB, InnoDB</span>.</p>
+                        <h5 class="text-lg font-semibold text-white mt-6 mb-4">Karşılaştırma Kriterleri:</h5>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300">
+                            <li>Ölçeklenebilirlik (Scalability)</li>
+                            <li>Kullanılabilirlik (Availability)</li>
+                            <li>Tutarlılık (Consistency)</li>
+                            <li>Performans (Performance)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> <!-- /end tab 1 -->
+
+            <!-- TAB 2: IN-MEMORY -->
+            <div id="in-memory" class="tab-content active">
+                <p class="text-lg text-slate-300 mb-6">Hızlı veri erişimi sağlamak için bir bilgisayarın ana belleği olan <span class="keyword">RAM</span>'i depolama ortamı olarak kullanır. Disk <span class="keyword">G/Ç (I/O) gecikmesini</span> ve ana bellek ile sabit disk arasındaki veri aktarım süresini ortadan kaldırır. <span class="keyword">Küme tabanlı bellek (Cluster-based memory)</span>, gerçek zamanlı Büyük Veri analitiğini mümkün kılar.</p>
+                <p class="text-lg text-slate-300 mb-6"><span class="keyword">Not:</span> Bellek içi depolama, disk depolamadan <span class="keyword">daha pahalıdır</span>.</p>
+
+                <!-- Uygun/Uygun Değil -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="gradient-border-wrapper interactive-hover">
+                        <div class="card-inner p-6">
+                            <h4 class="text-xl font-bold text-green-400 mb-4"><i class="fa-solid fa-check-circle mr-2"></i> Uygun Olduğu Durumlar (Kaynak: PDF S. 45)</h4>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Veriler hızlı geliyorsa (<span class="keyword">gerçek zamanlı analitik</span>, olay akışı işleme).</li>
+                                <li>Etkileşimli sorgu işleme (<span class="keyword">what-if</span> analizi, <span class="keyword">drill-down</span> işlemleri).</li>
+                                <li>Aynı veri seti birden fazla iş tarafından gerekiyorsa.</li>
+                                <li><span class="keyword">Keşifsel veri analizi</span> (Exploratory data analysis) yapılıyorsa.</li>
+                                <li><span class="keyword">Yinelenen (iterative)</span> erişim gerekiyorsa (Graf algoritmaları).</li>
+                                <li><span class="keyword">ACID</span> desteğiyle düşük gecikmeli (<span class="keyword">low latency</span>) çözümler.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gradient-border-wrapper interactive-hover">
+                        <div class="card-inner p-6">
+                            <h4 class="text-xl font-bold text-red-400 mb-4"><i class="fa-solid fa-times-circle mr-2"></i> Uygun Olmadığı Durumlar (Kaynak: PDF S. 46)</h4>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Veri işleme <span class="keyword">toplu işleme (batch processing)</span> içeriyorsa.</li>
+                                <li>Çok büyük verinin uzun süre bellekte tutulması (persist) gerekiyorsa.</li>
+                                <li>Veri setleri mevcut <span class="keyword">belleğe sığmıyorsa</span>.</li>
+                                <li>İşletmenin <span class="keyword">bütçesi sınırlıysa</span> (RAM pahalıdır).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-6">Bellek İçi Uygulama Türleri</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    
+                    <!-- IMDG -->
+                    <div class="flip-card interactive-hover"> <!-- style="height: 320px;" KALDIRILDI -->
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-grip text-5xl text-blue-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">Bellek İçi Veri Izgarası (IMDG)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">IMDG</h4>
+                                <p class="text-sm">Verileri birden fazla düğümde <span class="keyword">key-value</span> çiftleri olarak bellekte saklar. <span class="keyword">Şemasız (schema-less)</span> veri depolamayı (yarı/yapılandırılmamış) destekler. Veri erişimi <span class="keyword">API'ler</span> aracılığıyla sağlanır.</p>
+                                <ul class="list-disc list-inside text-left text-xs space-y-1 mt-2">
+                                    <li>Düğümler <span class="keyword">senkronize</span> çalışır; yüksek kullanılabilirlik, hata toleransı sağlar.</li>
+                                    <li><span class="keyword">Data partitioning</span> ve <span class="keyword">data replication</span> ile yatay ölçeklenir.</li>
+                                    <li>Sınırlı veya tam <span class="keyword">SQL desteği</span> sağlayabilir.</li>
+                                    <li><strong>Örnekler:</strong> <span class="keyword">Hazelcast, Oracle Coherence</span>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- IMDB -->
+                    <div class="flip-card interactive-hover"> <!-- style="height: 320px;" KALDIRILDI -->
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fa-solid fa-gauge-high text-5xl text-green-400 mb-4"></i>
+                                <h4 class="text-xl font-bold">Bellek İçi Veritabanı (IMDB)</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4 class="text-lg font-bold mb-2">IMDB</h4>
+                                <p class="text-sm">Veritabanı (DB) teknolojisini RAM'e aktarır. <span class="keyword">İlişkisel</span> veya ilişkisel olmayan olabilir. Verilere erişmek için <span class="keyword">SQL dili</span> kullanılır. <span class="keyword">ACID</span> gerektiren analizlerde kullanılır.</p>
+                                <ul class="list-disc list-inside text-left text-xs space-y-1 mt-2">
+                                    <li>Veri kaybına karşı <span class="keyword">replikasyon</span> kullanır (High Availability).</li>
+                                    <li>Genellikle <span class="keyword">on-disk arka uç depolama gerektirmez</span>.</li>
+                                    <li><strong>Örnekler:</strong> <span class="keyword">Aerospike, MemSQL, Altibase HDB</span>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMDG Detayları (Yeni Eklendi) -->
+                <div class="gradient-border-wrapper mb-8">
+                    <div class="card-inner">
+                        <button class="accordion-btn interactive-hover active">
+                            <span>IMDG Detayları: Veri Akışı ve Entegrasyon (Kaynak: PDF S. 49-58)</span>
+                            <span class="icon"></span>
+                        </button>
+                        <div class="accordion-content" style="max-height: 970px;">
+                            <div>
+                                <h5 class="text-lg font-semibold text-white mb-4">IMDG Çalışma Prensibi (Serileştirme)</h5>
+                                <div class="flow-diagram p-4">
+                                    <div class="flex flex-col gap-2">
+                                        <div class="flow-item"><i class="fa-solid fa-image"></i> image</div>
+                                        <div class="flow-item"><i class="fa-solid fa-file-code"></i> XML</div>
+                                        <div class="flow-item"><i class="fa-solid fa-user"></i> object</div>
+                                    </div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item bg-purple-700 border-purple-400"><i class="fa-solid fa-gear fa-spin"></i><br>Serialization Engine</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item"><i class="fa-solid fa-grip"></i><br>IMDG (key-value)</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item"><i class="fa-solid fa-desktop"></i><br>API</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item bg-purple-700 border-purple-400"><i class="fa-solid fa-gear fa-spin"></i><br>Serialization Engine</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item"><i class="fa-solid fa-user"></i><br>object</div>
+                                </div>
+                                <p class="text-sm mt-2">Gelen veriler (imaj, XML, nesne vb.) bir <span class="keyword">serialization engine (serileştirme motoru)</span> aracılığıyla serileştirilir ve IMDG'de key-value olarak saklanır. İstemci veriyi istediğinde, serileştirilmiş formda alır ve tekrar deserialize ederek nesneyi elde eder.</p>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">IMDG ve On-Disk Depolama Entegrasyonu</h5>
+                                <p class="text-sm mb-4">IMDG'ler genellikle arka uç (backend) on-disk depolama ile birlikte kullanılır. (Kaynak: PDF S. 54-58)</p>
+                                
+                                <!-- Yatay Sekmeler (Yeni Eklendi) -->
+                                <div class="flex space-x-2">
+                                    <button class="horizontal-tab-btn active" data-h-tab="read-through">Read-Through</button>
+                                    <button class="horizontal-tab-btn" data-h-tab="write-through">Write-Through</button>
+                                    <button class="horizontal-tab-btn" data-h-tab="write-behind">Write-Behind</button>
+                                    <button class="horizontal-tab-btn" data-h-tab="refresh-ahead">Refresh-Ahead</button>
+                                </div>
+                                <div class="p-4 rounded-b-lg rounded-r-lg bg-slate-800">
+                                    <div id="read-through" class="horizontal-tab-content active">
+                                        <p class="font-bold text-lg mb-2"><span class="keyword">Read-Through</span> (İçinden Okuma)</p>
+                                        <p class="text-sm mb-4">(Cache Miss) Veri IMDG'de yoksa, <span class="keyword">arka uç diskten okunur</span>, IMDG'ye eklenir ve istemciye döndürülür. Sonraki okumalar doğrudan bellekten yapılır.</p>
+                                        <div class="flow-diagram text-xs">
+                                            <div class="flow-item"><i class="fa-solid fa-desktop"></i><br>Client A</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-grip"></i><br>IMDG (Veri Yok)</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-database"></i><br>NoSQL DB</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-grip"></i><br>IMDG (Veri Eklendi)</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-desktop"></i><br>Client A (Veri Alındı)</div>
+                                        </div>
+                                    </div>
+                                    <div id="write-through" class="horizontal-tab-content">
+                                        <p class="font-bold text-lg mb-2"><span class="keyword">Write-Through</span> (Senkronize Yazma)</p>
+                                        <p class="text-sm mb-4">Veri hem IMDG'ye hem de arka uç diske <span class="keyword">aynı anda</span> yazılır. İşlem, her ikisi de tamamlandığında başarılı sayılır. <span class="keyword">Tutarlıdır ancak yavaştır.</span></p>
+                                        <div class="flow-diagram text-xs">
+                                            <div class="flow-item"><i class="fa-solid fa-desktop"></i><br>Client</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrows-split-up-and-left fa-rotate-90"></i></div>
+                                            <div class="flex flex-col gap-2">
+                                                <div class="flow-item"><i class="fa-solid fa-grip"></i><br>IMDG (Yazıldı)</div>
+                                                <div class="flow-item"><i class="fa-solid fa-database"></i><br>NoSQL DB (Yazıldı)</div>
+                                            </div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrows-to-dot fa-rotate-90"></i></div>
+                                            <div class="flow-item text-green-400">Success <i class="fa-solid fa-check"></i></div>
+                                        </div>
+                                    </div>
+                                    <div id="write-behind" class="horizontal-tab-content">
+                                        <p class="font-bold text-lg mb-2"><span class="keyword">Write-Behind</span> (Asenkron Yazma)</p>
+                                        <p class="text-sm mb-4">Veri sadece IMDG'ye yazılır ve istemciye hemen başarı döndürülür. Veri bir <span class="keyword">kuyruğa (queue)</span> alınır ve diske <span class="keyword">daha sonra (asenkron)</span> yazılır. <span class="keyword">Hızlıdır</span> ancak kısa süreli tutarsızlık riski vardır.</p>
+                                        <div class="flow-diagram text-xs">
+                                            <div class="flow-item"><i class="fa-solid fa-desktop"></i><br>Client</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-grip"></i><br>IMDG (Yazıldı)</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                            <div class="flow-item text-green-400">Success <i class="fa-solid fa-check"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-grip"></i><br>IMDG</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-layer-group"></i><br>Queue</div>
+                                            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                                            <div class="flow-item"><i class="fa-solid fa-database"></i><br>NoSQL DB (Asenkron Yazıldı)</div>
+                                        </div>
+                                    </div>
+                                    <div id="refresh-ahead" class="horizontal-tab-content">
+                                        <p class="font-bold text-lg mb-2"><span class="keyword">Refresh-Ahead</span> (Önden Yenileme)</p>
+                                        <p class="text-sm mb-4">IMDG, verinin son kullanma süresi dolmadan <span class="keyword">proaktif olarak</span> veriyi arka uç diskten yeniler. Amaç, "cache miss" olasılığını azaltmaktır.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMDB Detayları (Yeni Eklendi) -->
+                <div class="gradient-border-wrapper mb-8">
+                    <div class="card-inner">
+                        <button class="accordion-btn interactive-hover active">
+                            <span>IMDB Detayları: Mimari ve Dayanıklılık (Kaynak: PDF S. 59-66)</span>
+                            <span class="icon"></span>
+                        </button>
+                        <div class="accordion-content" style="max-height: 1224px;">
+                            <div>
+                                <h5 class="text-lg font-semibold text-white mb-4">IMDB Mimarisi (Kaynak: PDF S. 60)</h5>
+                                <div class="flow-diagram p-4">
+                                    <div class="flow-item bg-purple-700 border-purple-400"><i class="fa-solid fa-server"></i><br>Master Server</div>
+                                    <div class="flow-arrow w-full"><i class="fa-solid fa-arrow-down"></i></div>
+                                    <div class="flex flex-wrap justify-around w-full gap-2">
+                                        <div class="flow-item"><i class="fa-solid fa-memory"></i><br>RAM: Data Partition 1</div>
+                                        <div class="flow-item"><i class="fa-solid fa-memory"></i><br>RAM: Data Partition 2</div>
+                                        <div class="flow-item"><i class="fa-solid fa-memory"></i><br>RAM: Data Partition 3</div>
+                                        <div class="flow-item"><i class="fa-solid fa-memory"></i><br>RAM: Data Partition 4</div>
+                                    </div>
+                                </div>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">IMDB Çalışma Prensibi (SQL) (Kaynak: PDF S. 62)</h5>
+                                <div class="flow-diagram p-4">
+                                    <div class="flow-item"><i class="fa-solid fa-desktop"></i><br>Client (SQL)</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                    <div class="flow-item"><i class="fa-solid fa-gauge-high"></i><br>IMDB</div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                    <div class="flow-item">Record<br>(id=2, name=Helen...)</div>
+                                </div>
+                                <p class="text-sm mt-2"><span class="keyword">IMDG'den Farkı:</span> İstemci SQL kullanarak sorgu attığında, ilgili kayıt IMDB tarafından döndürülür ve istemci tarafından herhangi bir <span class="keyword">serileştirme/deserileştirme (deserialization) ihtiyacı olmadan</span> doğrudan işlenebilir.</p>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">Dayanıklılık (Durability) Stratejileri (Kaynak: PDF S. 63)</h5>
+                                <p class="text-sm mb-4">Tüm IMDB uygulamaları dayanıklılığı (diske kalıcı yazma) doğrudan desteklemez, ancak çeşitli stratejiler kullanır:</p>
+                                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                    <li><span class="keyword">NVRAM Kullanımı:</span> Geçici olmayan RAM (Non-Volatile RAM - NVRAM) kullanımı.</li>
+                                    <li><span class="keyword">İşlem Günlükleri (Transaction Logs):</span> Veritabanı işlem günlükleri periyodik olarak diske saklanır.</li>
+                                    <li><span class="keyword">Anlık Görüntü (Snapshot) Dosyaları:</span> Veritabanı durumu belirli anlarda diske kaydedilir.</li>
+                                    <li><span class="keyword">Sharding ve Replikasyon:</span> Dayanıklılık yerine kullanılabilirliği artırmak için.</li>
+                                    <li><span class="keyword">Hibrit Kullanım:</span> Dayanıklı depolama için NoSQL veya RDBMS ile birlikte kullanılabilir.</li>
+                                </ul>
+
+                                <h5 class="text-lg font-semibold text-white mt-6 mb-4">IMDB için Uygun Olduğu Durumlar (Kaynak: PDF S. 66)</h5>
+                                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                    <li>İlişkisel verilerin <span class="keyword">ACID desteğiyle</span> bellekte saklanması gerektiğinde.</li>
+                                    <li>Mevcut bir Büyük Veri çözümüne <span class="keyword">gerçek zamanlı destek</span> eklerken.</li>
+                                    <li>Mevcut on-disk depolamanın bellek içi eşdeğer bir teknolojiyle <span class="keyword">değiştirilmesi</span> gerektiğinde.</li>
+                                    <li>Uygulama kodunun veri erişim katmanında (özellikle <span class="keyword">SQL tabanlı</span> ise) minimum değişiklik yapılması gerektiğinde.</li>
+                                    <li>İlişkisel depolamanın <span class="keyword">ölçeklenebilirlikten daha önemli</span> olduğu durumlarda.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- /end tab 2 -->
+        </div>
+
+        <!-- Kod Karşılaştırması -->
+        <h2 class="text-3xl font-bold text-white mb-6 text-center">Kod Karşılaştırması: RDBMS vs NoSQL (Doküman)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="gradient-border-wrapper interactive-hover">
+                <div class="card-inner p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">RDBMS (SQL)</h3>
+                    <p class="text-slate-400 mb-4">Veri, normalleştirilmiş tablolar arasında birleştirilir.</p>
+                    <pre class="code-block"><span class="comment">-- Bir kullanıcının siparişlerini al</span>
+<span class="keyword">SELECT</span> o.OrderID, o.OrderDate, p.ProductName
+<span class="keyword">FROM</span> Users u
+<span class="keyword">JOIN</span> Orders o <span class="keyword">ON</span> u.UserID = o.UserID
+<span class="keyword">JOIN</span> OrderDetails od <span class="keyword">ON</span> o.OrderID = od.OrderID
+<span class="keyword">JOIN</span> Products p <span class="keyword">ON</span> od.ProductID = p.ProductID
+<span class="keyword">WHERE</span> u.Username = <span class="string">'ahmet'</span>;</pre>
+                </div>
+            </div>
+            <div class="gradient-border-wrapper interactive-hover">
+                <div class="card-inner p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">NoSQL (Doküman - JSON)</h3>
+                    <p class="text-slate-400 mb-4">Tüm ilgili veriler tek bir doküman içinde gömülüdür.</p>
+                    <pre class="code-block"><span class="comment">// Bir kullanıcının dokümanını al</span>
+db.users.find({
+  <span class="property">"username"</span>: <span class="string">"ahmet"</span>
+}, {
+  <span class="property">"orders"</span>: <span class="number">1</span>, 
+  <span class="property">"_id"</span>: <span class="number">0</span>
+})
+
+<span class="comment">// Örnek Doküman (Kaynak: PDF S. 29):</span>
+{
+  <span class="property">"username"</span>: <span class="string">"ahmet"</span>,
+  <span class="property">"likes"</span>: [<span class="string">"fashion"</span>, <span class="string">"spas"</span>],
+  <span class="property">"orders"</span>: [
+    { <span class="property">"orderId"</span>: <span class="number">101</span>, <span class="property">"product"</span>: <span class="string">"Laptop"</span> },
+    { <span class="property">"orderId"</span>: <span class="number">102</span>, <span class="property">"product"</span>: <span class="string">"Mouse"</span> }
+  ]
+}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- Ana Sekme (Tab) Fonksiyonu ---
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // --- Akordiyon (Accordion) Fonksiyonu ---
+            const accordionButtons = document.querySelectorAll('.accordion-btn');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    button.classList.toggle('active');
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // --- Yatay Sekme Fonksiyonu (IMDG Entegrasyonu için) ---
+            const hTabButtons = document.querySelectorAll('.horizontal-tab-btn');
+            const hTabContents = document.querySelectorAll('.horizontal-tab-content');
+
+            hTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Kapsayıcıdaki tüm buton ve içerikleri deaktive et
+                    const parent = button.closest('.accordion-content');
+                    parent.querySelectorAll('.horizontal-tab-btn').forEach(btn => btn.classList.remove('active'));
+                    parent.querySelectorAll('.horizontal-tab-content').forEach(content => content.classList.remove('active'));
+
+                    // Tıklananı aktive et
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-h-tab');
+                    parent.querySelector('#' + tabId).classList.add('active');
+                });
+            });
+
+
+            // --- Chart.js Hız Grafiği ---
+            const ctx = document.getElementById('speedChart').getContext('2d');
+            Chart.defaults.color = '#cbd5e1'; 
+            Chart.defaults.borderColor = '#334155';
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Disk Üzerinde (HDD)', 'Bellek İçi (RAM)'],
+                    datasets: [{
+                        label: 'Erişim Süresi (Milisaniye - ms)',
+                        data: [20, 0.25], // Disk: 20ms, Bellek: 0.25ms (Kaynak: PDF S. 44)
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)', // Mavi
+                            'rgba(74, 222, 128, 0.7)'  // Yeşil
+                        ],
+                        borderColor: [
+                            '#3b82f6',
+                            '#4ade80'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#0f172a',
+                            titleColor: '#e2e8f0',
+                            bodyColor: '#e2e8f0',
+                            borderColor: '#3b82f6',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Erişim Süresi: ${context.raw} ms`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            type: 'logarithmic',
+                            beginAtZero: false,
+                            min: 0.01,
+                            ticks: {
+                                color: '#94a3b8',
+                                callback: function(value, index, values) {
+                                    return value + ' ms';
+                                }
+                            },
+                            grid: {
+                                color: '#334155'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#e2e8f0',
+                                font: {
+                                    size: 14,
+                                    weight: '600'
+                                }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body></html>
